@@ -6,7 +6,10 @@
 const ModificationsSchema = new SimpleSchema({
     userId: {
         type: String,
-        label: 'UserID'
+        label: 'UserID',
+        autoValue: function() {
+            return this.userId;
+        }
     },
     contractId: {
         type: String,

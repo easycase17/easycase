@@ -1,5 +1,5 @@
 /**
- * Guocheng Wei <walterwei170@gmail.com>
+ * @author Guocheng Wei <walterwei170@gmail.com>
  * 
  * Easycase
  */
@@ -42,6 +42,7 @@ Migrations.add({
             ],
             content: 'This is the first law case has even been on Easycase',
             payment: 1,
+            createdBy: userId,
             languages: [
                 'EN', 'CH'
             ]
@@ -50,7 +51,7 @@ Migrations.add({
 
         // Dummy data for ec_case_contracts
         let contract_data = {
-            createrId: userId,
+            createdBy: userId,
             lawyersId: [
                 lawyerId
             ],

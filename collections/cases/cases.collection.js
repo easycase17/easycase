@@ -22,9 +22,18 @@ const CasesSchema = new SimpleSchema({
     },
     createAt: {
         type: Date,
-        label: "CreateAt",
+        label: 'CreateAt',
         autoValue: function () {
             return new Date()
+        },
+        autoform: {
+            type: 'hidden'
+        }
+    },
+    createdBy: {
+        type: String,
+        autoform: {
+            type: 'hidden'
         }
     },
     languages: {
@@ -36,3 +45,10 @@ const CasesSchema = new SimpleSchema({
 Cases = new Meteor.Collection('ec_cases');
 Cases.schema = CasesSchema;
 Cases.attachSchema(CasesSchema);
+Cases.allow({
+    insert: function(userId) {
+        return !!userId;
+    },
+    update: function() { return true; },
+    remove: function() { return true; }
+});

@@ -1,5 +1,6 @@
 import './imports/startup/index.js';
 import './imports/api/users/index.js';
+import './imports/api/cases/index.js';
 
 Meteor.startup(() => {
 

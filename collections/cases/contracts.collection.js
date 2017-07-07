@@ -4,9 +4,12 @@
  */
 
 const ContractsSchema = new SimpleSchema({
-    createrId: {
+    createdBy: {
         type: String,
-        label: 'CreaterID'
+        label: 'CreatedBy',
+        autoform: {
+            type: 'hidden'
+        }
     },
     lawyersId: {
         type: [String],
