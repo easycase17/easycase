@@ -1,3 +1,22 @@
 <template name="Cases">
-    {{> NewCase }}
+    <div>
+        {{#each case in cases}}
+            <section class="case-container">
+                <table style="width: 50%">
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Author</th>
+                        <th>Layer</th>
+                        <th>Tags</th>
+                    </tr>
+                    <tr>
+                        <td>{{ case.title }}</td>
+                        <td>{{ case.content }}</td>
+                        <td>{{ user(case.createdBy) }}</td>
+                    </tr>
+                </table>
+            </section>
+        {{/each}}
+    </div>
 </template>
