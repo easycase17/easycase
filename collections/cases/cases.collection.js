@@ -36,9 +36,34 @@ const CasesSchema = new SimpleSchema({
             type: 'hidden'
         }
     },
+    contract: {
+        type: ContractSchema,
+        label: 'Contract'
+    },
     languages: {
         type: [String],
         label: 'Languages'
+    }
+});
+
+const ContractSchema = new SimpleSchema({
+    userId: {
+        type: String,
+        label: 'UserID',
+        autoform: {
+            type: 'hidden'
+        }
+    },
+    lawyersId: {
+        type: [String],
+        label: 'LayerID'
+    },
+    createAt: {
+        type: Date,
+        label: "CreateAt",
+        autoValue: function () {
+            return new Date()
+        }
     }
 });
 

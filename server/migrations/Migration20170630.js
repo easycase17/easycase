@@ -43,32 +43,17 @@ Migrations.add({
             content: 'This is the first law case has even been on Easycase',
             payment: 1,
             createdBy: userId,
+            contract: {
+                userId: userId,
+                lawyersId: [
+                    lawyerId
+                ]
+            },
             languages: [
                 'EN', 'CH'
             ]
         }
         const caseId = Cases.insert(case_data);
-
-        // Dummy data for ec_case_contracts
-        let contract_data = {
-            createdBy: userId,
-            lawyersId: [
-                lawyerId
-            ],
-            caseId: caseId
-        }
-        const contractId = Contracts.insert(contract_data);
-
-        // Dummy data for ec_case_modification
-        let mod_data = {
-            userId: userId,
-            contractId: contractId,
-            modifications: [
-                { type: 'Test', from: 'Hello World!', to: 'Hello EasyCase!' }
-            ]
-        }
-        Modifications.insert(mod_data);
-
     },
     down: function () {
 
