@@ -2,6 +2,23 @@
  * EasyCase
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
+const ContractSchema = new SimpleSchema({
+    lawyersId: {
+        type: [String],
+        label: 'LayerID',
+        autoValue: function() {
+            return [];
+        }
+    },
+    createAt: {
+        type: Date,
+        label: "CreateAt",
+        autoValue: function() {
+            return new Date()
+        }
+    }
+});
+
 const CasesSchema = new SimpleSchema({
     title: {
         type: String,
@@ -23,7 +40,7 @@ const CasesSchema = new SimpleSchema({
     createAt: {
         type: Date,
         label: 'CreateAt',
-        autoValue: function () {
+        autoValue: function() {
             return new Date()
         },
         autoform: {
@@ -38,32 +55,14 @@ const CasesSchema = new SimpleSchema({
     },
     contract: {
         type: ContractSchema,
-        label: 'Contract'
-    },
-    languages: {
-        type: [String],
-        label: 'Languages'
-    }
-});
-
-const ContractSchema = new SimpleSchema({
-    userId: {
-        type: String,
-        label: 'UserID',
+        label: 'Contract',
         autoform: {
             type: 'hidden'
         }
     },
-    lawyersId: {
+    languages: {
         type: [String],
-        label: 'LayerID'
-    },
-    createAt: {
-        type: Date,
-        label: "CreateAt",
-        autoValue: function () {
-            return new Date()
-        }
+        label: 'Languages'
     }
 });
 
