@@ -6,7 +6,7 @@
 
 Migrations.add({
     version: 1,
-    up: function() {
+    up: function () {
         // Dummy data for users
         let user_data = {
             username: 'guocheng',
@@ -29,7 +29,7 @@ Migrations.add({
             areas: [
                 'Administrative Law'
             ],
-            evaluation: 0            
+            evaluation: 0
         };
         const lawyerId = Lawyers.insert(lawyer_data);
 
@@ -43,17 +43,21 @@ Migrations.add({
             content: 'This is the first law case has even been on Easycase',
             payment: 1,
             createdBy: userId,
-            contract: {
-                userId: userId,
-                lawyersId: [
-                    lawyerId
-                ]
-            },
             languages: [
                 'EN', 'CH'
             ]
         }
         const caseId = Cases.insert(case_data);
+
+        // Dummy data for ec_case_contracts		
+        let contract_data = {
+            contractee: userId,
+            contractors: [
+                lawyerId
+            ],
+            caseId: caseId
+        }
+        const contractId = Contracts.insert(contract_data);
     },
     down: function () {
 

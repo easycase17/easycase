@@ -7,14 +7,14 @@
                         <th>Title</th>
                         <th>Content</th>
                         <th>Author</th>
-                        <th>Layer</th>
+                        <th>Lawyer</th>
                         <th>Tags</th>
                     </tr>
                     <tr>
                         <td>{{ title }}</td>
                         <td>{{ content }}</td>
-                        <td>
-                        </td>
+                        <td>{{ findUsername(createdBy) }}</td>
+                        <td>{{ findLawyers(_id) }}</td>
                     </tr>
                 </table>
             </section>

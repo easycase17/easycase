@@ -38,5 +38,5 @@ const LawyersSchema = new SimpleSchema({
     }
 });
 
-Lawyers = new Meteor.Collection('ec_lawyers');
+Lawyers = new Mongo.Collection('ec_lawyers');
 Lawyers.schema = LawyersSchema;

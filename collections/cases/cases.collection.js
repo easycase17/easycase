@@ -2,23 +2,6 @@
  * EasyCase
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
-const ContractSchema = new SimpleSchema({
-    lawyersId: {
-        type: [String],
-        label: 'LayerID',
-        autoValue: function() {
-            return [];
-        }
-    },
-    createAt: {
-        type: Date,
-        label: "CreateAt",
-        autoValue: function() {
-            return new Date()
-        }
-    }
-});
-
 const CasesSchema = new SimpleSchema({
     title: {
         type: String,
@@ -53,20 +36,13 @@ const CasesSchema = new SimpleSchema({
             type: 'hidden'
         }
     },
-    contract: {
-        type: ContractSchema,
-        label: 'Contract',
-        autoform: {
-            type: 'hidden'
-        }
-    },
     languages: {
         type: [String],
         label: 'Languages'
     }
 });
 
-Cases = new Meteor.Collection('ec_cases');
+Cases = new Mongo.Collection('ec_cases');
 Cases.schema = CasesSchema;
 Cases.attachSchema(CasesSchema);
 Cases.allow({
