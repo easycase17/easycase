@@ -1,5 +1,9 @@
 {
-    "public": {},
+    "public": {
+        "ga": {
+            "account": "UA-XXXXXXX-Y"
+        }
+    },
     "private": {
         "oauth": {
             "facebook": {
