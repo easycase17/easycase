@@ -1,23 +1,16 @@
 <template name="Cases">
-    <div>
+    <section class="cases">
         {{#each cases}}
-            <section class="case-container">
-                <table style="width: 50%">
-                    <tr>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Author</th>
-                        <th>Lawyer</th>
-                        <th>Tags</th>
-                    </tr>
-                    <tr>
-                        <td>{{ title }}</td>
-                        <td>{{ content }}</td>
-                        <td>{{ findUsername(createdBy) }}</td>
-                        <td>{{ findLawyers(_id) }}</td>
-                    </tr>
-                </table>
-            </section>
+            {{> Case}}
         {{/each}}
-    </div>
+    </section>
+</template>
+
+<template name="Case">
+    <article class="case">
+        <h3>{{title}}</h3>
+        <p>{{content}}</p>
+        <span><i class="fa fa-user"></i>{{findUsername(createdBy)}}</span>
+        <span><i class="fa fa-users"></i>{{findLawyers(_id)}}</span>
+    </article>
 </template>

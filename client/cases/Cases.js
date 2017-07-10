@@ -12,6 +12,9 @@ Template.Cases.helpers({
     cases: () => {
         return Cases.find({});
     },
+});
+
+Template.Case.helpers({
     findUsername: (userId) => {
         return Meteor.users.findOne(userId).username;
     },
