@@ -1,15 +1,15 @@
 <template name="NewCase">
     <div class="new-case-container">
         {{#autoForm collection="Cases" id="insertCaseForm" type="insert"}}
-            <fieldset>
-                <legend>Add a Case</legend>
+            <div>
+                <h3>Add a Case</h3>
                 {{> afQuickField name='title'}}
                 {{> afQuickField name='tags'}}
                 {{> afQuickField name='content' rows=6}}
                 {{> afQuickField name='payment'}}
                 {{> afQuickField name='createdBy' value=userId}}
                 {{> afQuickField name='languages'}}
-            </fieldset>
+            </div>
             <button type="submit" class="btn btn-primary">Insert</button>
         {{/autoForm}}
     </div>
