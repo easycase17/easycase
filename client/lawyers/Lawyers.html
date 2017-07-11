@@ -1,0 +1,23 @@
+<template name="Lawyers">
+    <section class="cases lawyers">
+        {{#if Template.subscriptionsReady}}
+            {{#each lawyers}}
+                {{> LawyersItem}}
+            {{else}}
+                <h3>There is no lawyers available right now. Sorry about this.</h3>
+            {{/each}}
+        {{else}}
+            <p>Loading ... </p>
+        {{/if}}
+    </section>
+</template>
+
+<template name="LawyersItem">
+    <article class="case lawyer">
+        <h3>{{name}}</h3>
+        {{#each area in areas}}
+            <p>{{area}}</p>
+        {{/each}}
+        <a href="/lawyers/{{_id}}">View Details</a>
+    </article>
+</template>
