@@ -21,7 +21,16 @@ Template.Cases.onCreated(function() {
 Template.Cases.helpers({
     cases: () => {
         return Cases.find({});
-    },
+    }
+});
+
+Template.Cases.events({
+    'click #create-case': function() {
+        FlowRouter.go('/cases/create');
+    }
+});
+
+Template.CasesItem.helpers({
     findUsername: (userId) => {
         return Meteor.users.findOne(userId).username;
     },
@@ -33,12 +42,6 @@ Template.Cases.helpers({
         }
         else
             return null;
-    }
-});
-
-Template.Cases.events({
-    'click #create-case': function() {
-        FlowRouter.go('/cases/create');
     }
 });
 

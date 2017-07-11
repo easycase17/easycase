@@ -5,16 +5,22 @@
         </section>
         {{#if Template.subscriptionsReady}}
             {{#each cases}}
-            <article class="case">
-                <h3>{{title}}</h3>
-                <p>{{content}}</p>
-                <p><i class="fa fa-user"></i> {{findUsername(createdBy)}}</p>
-                <p><i class="fa fa-users"></i> {{findLawyers(_id)}}</p>
-                <a href="/cases/{{_id}}">View Details</a>
-            </article>
+                {{> CasesItem}}
+            {{else}}
+                <h3>Happy Time! No case on you right now!</h3>
             {{/each}}
         {{else}}
             <p>Loading ... </p>
         {{/if}}
     </section>
+</template>
+
+<template name="CasesItem">
+    <article class="case">
+        <h3>{{title}}</h3>
+        <p>{{content}}</p>
+        <p><i class="fa fa-user"></i> {{findUsername(createdBy)}}</p>
+        <p><i class="fa fa-users"></i> {{findLawyers(_id)}}</p>
+        <a href="/cases/{{_id}}">View Details</a>
+    </article>
 </template>
