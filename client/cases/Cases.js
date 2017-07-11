@@ -40,7 +40,8 @@ Template.Cases.helpers({
 Template.Case.onCreated(function() {
     var self = this;
     self.autorun(function() {
-        self.subscribe('cases');
+        var id = FlowRouter.getParam('id');
+        self.subscribe('singleCase', id);
     });
 });
 
