@@ -5,8 +5,9 @@
             <article class="case">
                 <h3>{{title}}</h3>
                 <p>{{content}}</p>
-                <span><i class="fa fa-user"></i>{{findUsername(createdBy)}}</span>
-                <span><i class="fa fa-users"></i>{{findLawyers(_id)}}</span>
+                <p><i class="fa fa-user"></i> {{findUsername(createdBy)}}</p>
+                <p><i class="fa fa-users"></i> {{findLawyers(_id)}}</p>
+                <a href="/cases/{{_id}}">View Details</a>
             </article>
             {{/each}}
         {{else}}
