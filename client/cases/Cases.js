@@ -36,6 +36,12 @@ Template.Cases.helpers({
     }
 });
 
+Template.Cases.events({
+    'click #create-case': function() {
+        FlowRouter.go('/cases/create');
+    }
+});
+
 /* --------------------  Case Template  ---------------------- */
 Template.Case.onCreated(function() {
     var self = this;

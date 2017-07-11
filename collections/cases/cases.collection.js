@@ -49,6 +49,8 @@ Cases.allow({
     insert: function(userId) {
         return !!userId;
     },
-    update: function() { return true; },
+    update: function(userId, doc) { 
+        return !!userId; 
+    },
     remove: function() { return true; }
 });
