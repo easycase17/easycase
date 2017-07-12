@@ -16,9 +16,9 @@ const ContractsSchema = new SimpleSchema({
         type: String,
         label: 'CasesID'
     },
-    createAt: {
+    createdAt: {
         type: Date,
-        label: "CreateAt",
+        label: "Created At",
         autoValue: function () {
             return new Date()
         }

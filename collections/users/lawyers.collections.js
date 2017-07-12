@@ -16,9 +16,9 @@ const LawyersSchema = new SimpleSchema({
         label: "Name",
         max: 50
     },
-    createAt: {
+    createdAt: {
         type: Date,
-        label: "CreateAt",
+        label: "Created At",
         autoValue: function() {
             return new Date()
         }

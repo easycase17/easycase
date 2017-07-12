@@ -20,9 +20,9 @@ const CasesSchema = new SimpleSchema({
         type: Number,
         label: 'Payment'
     },
-    createAt: {
+    createdAt: {
         type: Date,
-        label: 'CreateAt',
+        label: 'Created At',
         autoValue: function() {
             return new Date()
         },

@@ -58,6 +58,30 @@ Migrations.add({
             caseId: caseId
         }
         const contractId = Contracts.insert(contract_data);
+
+        // Dummy data for ec_cases_blogs
+        let blogs_data = [
+            {
+                caseId: caseId,
+                createdBy: {
+                    authorId: userId,
+                    role: 'user'
+                },
+                content: 'Test Blog',
+            },
+            {
+                caseId: caseId,
+                createdBy: {
+                    authorId: lawyerId,
+                    role: 'lawyer'
+                },
+                content: 'Test Lawyer Blog'
+            }
+        ];
+
+        blogs_data.forEach(function(blog) {
+            CasesBlogs.insert(blog);
+        });
     },
     down: function () {
 
