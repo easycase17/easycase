@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "meteor --settings private/settings.json",
-		"ios": "meteor --settings private/settings.json run ios-device"
+    "ios": "meteor --settings private/settings.json run ios-device",
+		"android": "meteor --settings private/settings.json run android-device"
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",

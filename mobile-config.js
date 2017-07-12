@@ -1,5 +1,5 @@
 App.info({
-  id: 'com.EasyCase-iOS',
+  id: 'com.easycase.Mobile',
   name: 'easycase',
   description: 'Easy Case',
   author: 'EasyCase Dev Team',
