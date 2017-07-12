@@ -1,12 +1,23 @@
 <template name="Case">
     {{> PageNav}}
-    <h1 class="page-title">{{case.title}}</h1>
-    <p>{{case.content}}</p>
-    <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
-    <p>
-        <i class="fa fa-users"></i> 
-        {{#each lawyers}}
-            <a href="/lawyers/{{_id}}">{{name}}</a>
-        {{/each}}
-    </p>
+    {{#if Template.subscriptionsReady}}
+        <h1 class="page-title">{{case.title}}</h1>
+        <article class="case">
+            <h3>Details</h3>
+            <p>{{case.content}}</p>
+            <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
+            <p>
+                <i class="fa fa-users"></i> 
+                {{#each lawyers}}
+                    <a href="/lawyers/{{_id}}">{{name}}</a>, 
+                {{/each}}
+            </p>
+        </article>
+        <article class="case">
+            <h3>Contract</h3>
+            <p>Created At: <time datetime="contract.createAt">{{contract.createAt}}</time></p>
+        </article>
+    {{else}}
+        <p>Loading ... </p>
+    {{/if}}
 </template>

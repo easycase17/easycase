@@ -1,6 +1,3 @@
-Meteor.subscribe('contracts');
-
-
 /* --------------------  NewCase Template  ---------------------- */
 Template.NewCase.helpers({
     userId: function() {
@@ -41,7 +38,6 @@ Template.Case.onCreated(function() {
     self.autorun(function() {
         var id = FlowRouter.getParam('id');
         self.subscribe('singleCase', id);
-        self.subscribe('singleCase.lawyers', id);
     });
 });
 
@@ -52,6 +48,10 @@ Template.Case.helpers({
     },
     lawyers: () => {
         return Lawyers.find({});
+    },
+    contract: () => {
+        var id = FlowRouter.getParam('id');
+        return Contracts.findOne({caseId: id});
     },
     findUsername: (userId) => {
         return Meteor.users.findOne(userId).username;
