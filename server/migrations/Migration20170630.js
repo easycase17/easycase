@@ -64,18 +64,18 @@ Migrations.add({
             {
                 caseId: caseId,
                 createdBy: {
-                    authorId: userId,
-                    role: 'user'
-                },
-                content: 'Test Blog',
-            },
-            {
-                caseId: caseId,
-                createdBy: {
                     authorId: lawyerId,
                     role: 'lawyer'
                 },
                 content: 'Test Lawyer Blog'
+            },
+            {
+                caseId: caseId,
+                createdBy: {
+                    authorId: userId,
+                    role: 'user'
+                },
+                content: 'Test Blog',
             }
         ];
 

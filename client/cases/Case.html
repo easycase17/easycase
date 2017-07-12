@@ -21,12 +21,17 @@
         <p>Loading ... </p>
     {{/if}}
     <br>
-    {{#each blogs}}
-        <section class="blog-left">
-            <h3>Test Left</h3>
-        </section>
-        <section class="blog-right">
-            <h3>Test Right</h3>
-        </section>
+    {{#each blog in blogs}}
+        {{#if isAuthor blog}}
+            <section class="blog-right">
+                <h3>Test Right</h3>
+                <p>{{blog.content}}</p>
+            </section>
+        {{else}}
+            <section class="blog-left">
+                <h3>Test Left</h3>
+                <p>{{blog.content}}</p>
+            </section>
+        {{/if}}
     {{/each}}
 </template>

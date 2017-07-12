@@ -1,3 +1,4 @@
+/* --------------------- Cases Collection --------------------- */
 Meteor.publish('cases', function() {
     return Cases.find({});
 });
@@ -18,5 +19,10 @@ Meteor.publish('singleCase', function(caseId) {
     lawyersId.forEach(function(lawyerId) {
         result.push(Lawyers.find({_id: lawyerId}));
     });
+
+    // Blogs
+    result.push(CasesBlogs.find({caseId: caseId}));
     return result;
 });
+
+/* --------------------- CasesBlogs Collection --------------------- */

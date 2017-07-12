@@ -57,6 +57,9 @@ Template.Case.helpers({
         return Contracts.findOne({caseId: id});
     },
     blogs: () => {
-        return [{}, {}, {}, {}];
+        return CasesBlogs.find({});
+    },
+    isAuthor: (blog) => {
+        return (blog.createdBy.authorId == Meteor.userId());
     }
 });
