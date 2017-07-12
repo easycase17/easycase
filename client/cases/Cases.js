@@ -42,6 +42,9 @@ Template.Case.onCreated(function() {
 });
 
 Template.Case.helpers({
+    findUsername: (userId) => {
+        return Meteor.users.findOne(userId).username;
+    },
     case: () => {
         var id = FlowRouter.getParam('id');
         return Cases.findOne({_id: id});
@@ -53,7 +56,7 @@ Template.Case.helpers({
         var id = FlowRouter.getParam('id');
         return Contracts.findOne({caseId: id});
     },
-    findUsername: (userId) => {
-        return Meteor.users.findOne(userId).username;
+    blogs: () => {
+        return [{}, {}, {}, {}];
     }
 });
