@@ -52,5 +52,7 @@ Cases.allow({
     update: function(userId) { 
         return !!userId; 
     },
-    remove: function() { return true; }
+    remove: function() { 
+        return !!userId; 
+    }
 });

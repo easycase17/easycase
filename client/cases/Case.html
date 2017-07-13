@@ -34,6 +34,7 @@
         <p>Loading ... </p>
     {{/if}}
     <br>
+    <section class="blog">
     {{#each blog in blogs}}
         {{#if isAuthor blog}}
             <section class="blog-right">
@@ -47,4 +48,27 @@
             </section>
         {{/if}}
     {{/each}}
+    </section>
+    <br>
+    {{> NewCaseBlog}}
+</template>
+
+<template name="NewCaseBlog">
+    <div class="new-case-container">
+        {{#autoForm collection="CasesBlogs" id="insertCaseBlogForm" type="insert"}}
+            <div>
+                <h3>Add a Blog</h3>
+                {{> afQuickField name='caseId' value=caseId}}
+                {{> afQuickField name='content' rows=6}}
+                {{#if isLawyer}}
+                    {{> afQuickField name='createdBy.authorId' value=isLawyer._id}}
+                    {{> afQuickField name='createdBy.role' value='lawyer'}}
+                {{else}}
+                    {{> afQuickField name='createdBy.authorId' value=userId}}
+                    {{> afQuickField name='createdBy.role' value='user'}}
+                {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary">Insert</button>
+        {{/autoForm}}
+    </div>
 </template>

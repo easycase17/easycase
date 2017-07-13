@@ -108,3 +108,18 @@ Template.Case.events({
         });
     }
 });
+
+
+/* ----------------- NewCaseBlog --------------------- */
+Template.NewCaseBlog.helpers({
+    userId: function() {
+        return Meteor.userId();
+    },
+    caseId: function() {
+        return FlowRouter.getParam('id');
+    },
+    isLawyer: () => {
+        // @FIXME
+        return Session.get('isLawyer');
+    },
+});

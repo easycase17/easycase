@@ -7,14 +7,19 @@
 var CreatedBySchema = new SimpleSchema({
     authorId: {
         type: String,
-        label: 'Author Id'
+        autoform: {
+            type: 'hidden'
+        }
     },
     role: {
         type: String,
         allowedValues: [
             'lawyer',
             'user'
-        ]
+        ],
+        autoform: {
+            type: 'hidden'
+        }
     }
 });
 
@@ -31,8 +36,7 @@ const CaseBlogSchema = new SimpleSchema({
         label: 'Author Info'
     },
     content: {
-        type: String,
-        label: 'Content'
+        type: String
     },
     createdAt: {
         type: Date,
@@ -49,3 +53,14 @@ const CaseBlogSchema = new SimpleSchema({
 CasesBlogs = new Mongo.Collection('ec_cases_blogs');
 CasesBlogs.schema = CaseBlogSchema;
 CasesBlogs.attachSchema(CaseBlogSchema);
+CasesBlogs.allow({
+    insert: function(userId) {
+        return !!userId;
+    },
+    update: function(userId) { 
+        return !!userId; 
+    },
+    remove: function() { 
+        return !!userId; 
+    }
+})
