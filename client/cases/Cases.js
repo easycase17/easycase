@@ -35,7 +35,6 @@ Template.CasesItem.helpers({
 /* --------------------  Case Template  ---------------------- */
 Template.Case.onCreated(function() {
     var self = this;
-    self.isLawyer = new ReactiveVar( false );
     self.hasGrab = new ReactiveVar( false );
     self.lawyers = new ReactiveVar( String );
     var id = FlowRouter.getParam('id');
@@ -43,11 +42,8 @@ Template.Case.onCreated(function() {
 
     self.autorun(function () {
         if (!subs.ready()) return;
-        Meteor.call('users.isLawyer', Meteor.userId(), (err, res) => {
-            self.isLawyer.set(res);
-            Meteor.call('lawyers.hasGrabCase', id, res._id, (err, res) => {
-                self.hasGrab.set(res);
-            });
+        Meteor.call('lawyers.hasGrabCase', id, Session.get('isLawyer')._id, (err, res) => {
+            self.hasGrab.set(res);
         });
 
         var lawyers = Lawyers.find({});
@@ -83,7 +79,7 @@ Template.Case.helpers({
     },
     isLawyer: () => {
         // @FIXME
-        return Template.instance().isLawyer.get();
+        return Session.get('isLawyer');
     },
     isAuthor: (blog) => {
         return (blog.createdBy.authorId == Meteor.userId());
@@ -93,7 +89,7 @@ Template.Case.helpers({
 Template.Case.events({
     'click #drop-case': function(event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.dropCase', caseId, template.isLawyer.get()._id, function(err, res) {
+        Meteor.call('lawyers.dropCase', caseId, Session.get('isLawyer')._id, function(err, res) {
             if (!err) {
                template.hasGrab.set(false); 
                Meteor.disconnect();
@@ -103,7 +99,7 @@ Template.Case.events({
     },
     'click #grab-case': function(event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.grabCase', caseId, template.isLawyer.get()._id, function(err, res) {
+        Meteor.call('lawyers.grabCase', caseId, Session.get('isLawyer')._id, function(err, res) {
             if (!err) {
                template.hasGrab.set(true); 
                Meteor.disconnect();
