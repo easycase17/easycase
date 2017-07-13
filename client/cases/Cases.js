@@ -10,7 +10,7 @@ Template.NewCase.helpers({
 Template.Cases.onCreated(function() {
     var self = this;
     self.autorun(function() {
-        self.subscribe('cases');
+        self.subscribe('cases', Meteor.userId());
     });
 });
 

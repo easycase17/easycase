@@ -1,6 +1,7 @@
 /* --------------------- Cases Collection --------------------- */
-Meteor.publish('cases', function() {
-    return Cases.find({});
+Meteor.publish('cases', function(userId) {
+    check();
+    return Cases.find({createdBy: userId});
 });
 
 Meteor.publish('singleCase', function(caseId) {
@@ -11,13 +12,15 @@ Meteor.publish('singleCase', function(caseId) {
     result.push(Cases.find({_id: caseId}));
 
     // Contract
-    var contract = Contracts.find({caseId: caseId});
-    result.push(contract);
+    var contracts = Contracts.find({caseId: caseId});
+    result.push(contracts);
 
     // Lawyers
-    var lawyersId = Contracts.findOne({caseId: caseId}).contractors;
-    lawyersId.forEach(function(lawyerId) {
-        result.push(Lawyers.find({_id: lawyerId}));
+    contracts.forEach(function(contract) {
+        var lawyersId = contract.contractors;
+        lawyersId.forEach(function (lawyerId) {
+            result.push(Lawyers.find({ _id: lawyerId }));
+        });
     });
 
     // Blogs
