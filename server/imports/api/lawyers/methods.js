@@ -8,5 +8,8 @@ Meteor.methods({
     'lawyers.grabCase'(caseId, lawyerId) {
         Contracts.update({caseId: caseId}, {$addToSet: {contractors: lawyerId}});
         return Lawyers.findOne({_id: lawyerId});
+    },
+    'lawyers.hasGrabCase'(caseId, lawyerId) {
+        return Contracts.findOne({caseId: caseId, contractors: {$in: [lawyerId]}});
     }
 });

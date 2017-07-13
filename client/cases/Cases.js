@@ -35,13 +35,28 @@ Template.CasesItem.helpers({
 /* --------------------  Case Template  ---------------------- */
 Template.Case.onCreated(function() {
     var self = this;
-    self.isLawyer = new ReactiveVar( false );            
-    Meteor.call('users.isLawyer', Meteor.userId(), (err, res) => {
-        self.isLawyer.set(res);
-    });
+    self.isLawyer = new ReactiveVar( false );
+    self.hasGrab = new ReactiveVar( false );
+    self.lawyers = new ReactiveVar( String );
+    var id = FlowRouter.getParam('id');
+    var subs = self.subscribe('singleCase', id);
+
     self.autorun(function () {
-        var id = FlowRouter.getParam('id');
-        self.subscribe('singleCase', id);
+        if (!subs.ready()) return;
+        Meteor.call('users.isLawyer', Meteor.userId(), (err, res) => {
+            self.isLawyer.set(res);
+            Meteor.call('lawyers.hasGrabCase', id, res._id, (err, res) => {
+                self.hasGrab.set(res);
+            });
+        });
+
+        var lawyers = Lawyers.find({});
+        var lawyersView = [];
+        lawyers.forEach(function(lawyer) {
+            lawyersView.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
+        });
+        lawyersView = lawyersView.join(', ');
+        self.lawyers.set(lawyersView);
     });
 });
 
@@ -54,13 +69,7 @@ Template.Case.helpers({
         return Cases.findOne({_id: id});
     },
     lawyers: () => {
-        var lawyers = Lawyers.find({});
-        var result = [];
-        lawyers.forEach(function(lawyer) {
-            result.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
-        });
-        Array.prototype.join(', ');
-        return result;
+        return Template.instance().lawyers.get();
     },
     contract: () => {
         var id = FlowRouter.getParam('id');
@@ -70,8 +79,7 @@ Template.Case.helpers({
         return CasesBlogs.find({});
     },
     hasGrab: () => {
-        var lawyer = Template.instance().isLawyer.get();
-        return lawyer ? (Contracts.find({contractors: {$in: [lawyer._id]}}) ? true : false) : false;
+        return Template.instance().hasGrab.get();
     },
     isLawyer: () => {
         // @FIXME
@@ -83,19 +91,23 @@ Template.Case.helpers({
 });
 
 Template.Case.events({
-    'click #drop-case': function() {
+    'click #drop-case': function(event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.dropCase', caseId, Template.instance().isLawyer.get()._id, function(err, res) {
+        Meteor.call('lawyers.dropCase', caseId, template.isLawyer.get()._id, function(err, res) {
             if (!err) {
-               Template.instance().isLawyer.set(false); 
+               template.hasGrab.set(false); 
+               Meteor.disconnect();
+               Meteor.reconnect();
             }
         });
     },
-    'click #grab-case': function() {
+    'click #grab-case': function(event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.grabCase', caseId, Template.instance().isLawyer.get()._id, function(err, res) {
+        Meteor.call('lawyers.grabCase', caseId, template.isLawyer.get()._id, function(err, res) {
             if (!err) {
-               Template.instance().isLawyer.set(res); 
+               template.hasGrab.set(true); 
+               Meteor.disconnect();
+               Meteor.reconnect();
             }
         });
     }
