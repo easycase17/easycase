@@ -7,16 +7,22 @@
             <p>{{case.content}}</p>
             <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
             <p>
-                <i class="fa fa-users"></i> 
                 {{#each lawyers}}
-                    <a href="/lawyers/{{_id}}">{{name}}</a>, 
+                    <i class="fa fa-users"></i> <a href="/lawyers/{{_id}}">{{name}}</a>, 
                 {{/each}}
             </p>
         </article>
-        <article class="case">
-            <h3>Contract</h3>
-            <p>Created At: <time datetime="contract.createdAt">{{contract.createdAt}}</time></p>
-        </article>
+        {{#if contract}}
+            <article class="case">
+                <h3>Contract</h3>
+                <p>Created At: <time datetime="contract.createdAt">{{contract.createdAt}}</time></p>
+            </article>
+        {{else}}
+            <article class="case">
+                <h3>No Contract</h3>
+                <p>There will be a lawyer assigned to this case. Please be patient, thank you.</p>
+            </article>
+        {{/if}}
     {{else}}
         <p>Loading ... </p>
     {{/if}}
