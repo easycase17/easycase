@@ -38,6 +38,9 @@ Template.Case.onCreated(function() {
     self.autorun(function() {
         var id = FlowRouter.getParam('id');
         self.subscribe('singleCase', id);
+        Meteor.call('lawyers.isLawyer', Meteor.userId(), (err, res) => {
+            Session.set('isLawyer', res);
+        });
     });
 });
 
@@ -64,6 +67,12 @@ Template.Case.helpers({
     },
     blogs: () => {
         return CasesBlogs.find({});
+    },
+    hasGrab: () => {
+        return Lawyers.find({userId: Meteor.userId()});
+    },
+    isLawyer: () => {
+        return Session.get('isLawyer');
     },
     isAuthor: (blog) => {
         return (blog.createdBy.authorId == Meteor.userId());

@@ -9,6 +9,15 @@
             <p>
                 <i class="fa fa-users"></i> {{{lawyers}}}
             </p>
+            {{#if isLawyer}}
+                <p id="grab-btn">
+                    {{#if hasGrab}}
+                        <button class="btn btn-deny">Drop</button>
+                    {{else}}
+                        <button class="btn btn-primary">Grab</button>
+                    {{/if}}
+                </p>
+            {{/if}}
         </article>
         {{#if contract}}
             <article class="case">

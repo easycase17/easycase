@@ -27,5 +27,3 @@ Meteor.publish('singleCase', function(caseId) {
     result.push(CasesBlogs.find({caseId: caseId}));
     return result;
 });
-
-/* --------------------- CasesBlogs Collection --------------------- */
