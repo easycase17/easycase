@@ -50,7 +50,13 @@ Template.Case.helpers({
         return Cases.findOne({_id: id});
     },
     lawyers: () => {
-        return Lawyers.find({});
+        var lawyers = Lawyers.find({});
+        var result = [];
+        lawyers.forEach(function(lawyer) {
+            result.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
+        });
+        Array.prototype.join(', ');
+        return result;
     },
     contract: () => {
         var id = FlowRouter.getParam('id');

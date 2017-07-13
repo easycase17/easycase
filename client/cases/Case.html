@@ -7,9 +7,7 @@
             <p>{{case.content}}</p>
             <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
             <p>
-                {{#each lawyers}}
-                    <i class="fa fa-users"></i> <a href="/lawyers/{{_id}}">{{name}}</a>, 
-                {{/each}}
+                <i class="fa fa-users"></i> {{{lawyers}}}
             </p>
         </article>
         {{#if contract}}
