@@ -12,9 +12,9 @@
             {{#if isLawyer}}
                 <p id="grab-btn">
                     {{#if hasGrab}}
-                        <button class="btn btn-deny">Drop</button>
+                        <button class="btn btn-deny" id="drop-case">Drop</button>
                     {{else}}
-                        <button class="btn btn-primary">Grab</button>
+                        <button class="btn btn-primary" id="grab-case">Grab</button>
                     {{/if}}
                 </p>
             {{/if}}
