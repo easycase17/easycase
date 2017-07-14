@@ -5,5 +5,12 @@ Template.MainLayout.onCreated(function() {
     });
     self.autorun(function() {
         Session.set({'currentLocation': Geolocation.latLng()});
+        Session.set({'hasNewVersion': Reload.isWaitingForResume()})
     });
+});
+
+Template.MainLayout.helpers({
+    hasNewVersion: () => {
+        return Session.get('hasNewVersion');
+    }
 });

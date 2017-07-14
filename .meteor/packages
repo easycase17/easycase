@@ -54,3 +54,5 @@ datariot:ganalytics
 check
 crosswalk
 mdg:geolocation
+mdg:camera
+mdg:reload-on-resume

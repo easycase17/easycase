@@ -5,6 +5,11 @@
     </header>
     {{> SideBar}}
     <main class="main-layout">
+        {{#if hasNewVersion}}
+            <section class="notification">
+                <h4 class="notification-title">New version available, restart the app to update.</h4>
+            </section>
+        {{/if}}
         {{> Template.dynamic template=main }}
     </main>
 </template>
