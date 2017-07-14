@@ -1,7 +1,12 @@
 /* --------------------- Cases Collection --------------------- */
 Meteor.publish('cases', function(userId) {
-    check();
+    check(userId, String);
     return Cases.find({createdBy: userId});
+});
+
+Meteor.publish('cases-discover', function(userId) {
+    check(userId, String);
+    return Cases.find({isPrivate: false});
 });
 
 Meteor.publish('singleCase', function(caseId) {

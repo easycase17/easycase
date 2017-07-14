@@ -1,0 +1,21 @@
+<template name="Discovers">
+    <section class="cases">
+        {{#if Template.subscriptionsReady}}
+            {{#each discovers}}
+                {{> DiscoversItem}}
+            {{else}}
+                <h3>There is no cases in your area.</h3>
+            {{/each}}
+        {{else}}
+            <p>Loading ... </p>
+        {{/if}}
+    </section>
+</template>
+
+<template name="DiscoversItem">
+    <article class="case">
+        <h3>{{title}}</h3>
+        <p>{{content}}</p>
+        <a href="/cases/{{_id}}">View Details</a>
+    </article>
+</template>
