@@ -53,3 +53,4 @@ gwendall:auth-client-callbacks
 datariot:ganalytics
 check
 crosswalk
+mdg:geolocation

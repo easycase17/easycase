@@ -3,4 +3,7 @@ Template.MainLayout.onCreated(function() {
     Meteor.call('users.isLawyer', Meteor.userId(), (err, res) => {
         Session.set({'isLawyer': res});
     });
+    self.autorun(function() {
+        Session.set({'currentLocation': Geolocation.latLng()});
+    });
 });
