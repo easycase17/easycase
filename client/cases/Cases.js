@@ -78,11 +78,16 @@ Template.Case.helpers({
         return Template.instance().hasGrab.get();
     },
     isLawyer: () => {
-        // @FIXME
         return Session.get('isLawyer');
     },
     isAuthor: (blog) => {
         return (blog.createdBy.authorId == Meteor.userId());
+    },
+    isOwner: (case_info) => {
+        return case_info.createdBy == Meteor.userId();
+    },
+    isPrivate: (case_info) => {
+        return case_info.isPrivate;
     }
 });
 
@@ -106,6 +111,14 @@ Template.Case.events({
                Meteor.reconnect();
             }
         });
+    },
+    'click #private-case': function(event, template) {
+        var caseId = FlowRouter.getParam('id');
+        Meteor.call('cases.setPrivate', caseId, Meteor.userId());
+    },
+    'click #public-case': function(event, template) {
+        var caseId = FlowRouter.getParam('id');
+        Meteor.call('cases.setPublic', caseId, Meteor.userId());
     }
 });
 

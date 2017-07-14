@@ -9,15 +9,22 @@
             <p>
                 <i class="fa fa-users"></i> {{{lawyers}}}
             </p>
-            {{#if isLawyer}}
-                <p id="grab-btn">
-                    {{#if hasGrab}}
-                        <button class="btn btn-deny" id="drop-case">Drop</button>
+            <p id="case-info-btn">
+                {{#if isOwner case}}
+                    {{#if isPrivate case}}
+                        <button class="btn btn-text" id="public-case">Set Public</button>
                     {{else}}
-                        <button class="btn btn-primary" id="grab-case">Grab</button>
+                        <button class="btn btn-text" id="private-case">Set Private</button>
                     {{/if}}
-                </p>
-            {{/if}}
+                {{/if}}
+                {{#if isLawyer}}
+                        {{#if hasGrab}}
+                            <button class="btn btn-deny" id="drop-case">Drop</button>
+                        {{else}}
+                            <button class="btn btn-primary" id="grab-case">Grab</button>
+                        {{/if}}
+                {{/if}}
+            </p>
         </article>
         {{#if contract}}
             <article class="case">

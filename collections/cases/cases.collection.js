@@ -20,6 +20,10 @@ const CasesSchema = new SimpleSchema({
         type: Number,
         label: 'Payment'
     },
+    languages: {
+        type: [String],
+        label: 'Languages'
+    },
     createdAt: {
         type: Date,
         label: 'Created At',
@@ -36,9 +40,9 @@ const CasesSchema = new SimpleSchema({
             type: 'hidden'
         }
     },
-    languages: {
-        type: [String],
-        label: 'Languages'
+    isPrivate: {
+        type: Boolean,
+        defaultValue: false
     }
 });
 
