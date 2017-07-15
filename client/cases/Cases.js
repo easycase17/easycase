@@ -42,9 +42,13 @@ Template.Case.onCreated(function() {
 
     self.autorun(function () {
         if (!subs.ready()) return;
-        Meteor.call('lawyers.hasGrabCase', id, Session.get('isLawyer')._id, (err, res) => {
-            self.hasGrab.set(res);
-        });
+        var isLawyer = Session.get('isLawyer');
+        if (isLawyer) {
+            // If the user isLawyer, then check if the lawyer hasGrabCase
+            Meteor.call('lawyers.hasGrabCase', id, isLawyer.get('isLawyer')._id, (err, res) => {
+                self.hasGrab.set(res);
+            });
+        }
 
         var lawyers = Lawyers.find({});
         var lawyersView = [];
@@ -96,7 +100,6 @@ Template.Case.events({
         var caseId = FlowRouter.getParam('id');
         Meteor.call('lawyers.dropCase', caseId, Session.get('isLawyer')._id, function(err, res) {
             if (!err) {
-               template.hasGrab.set(false); 
                Meteor.disconnect();
                Meteor.reconnect();
             }
@@ -106,7 +109,6 @@ Template.Case.events({
         var caseId = FlowRouter.getParam('id');
         Meteor.call('lawyers.grabCase', caseId, Session.get('isLawyer')._id, function(err, res) {
             if (!err) {
-               template.hasGrab.set(true); 
                Meteor.disconnect();
                Meteor.reconnect();
             }
