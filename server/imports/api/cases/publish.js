@@ -14,7 +14,15 @@ Meteor.publish('singleCase', function(caseId) {
     var result = [];
 
     // Case
-    result.push(Cases.find({_id: caseId}));
+    var cases = Cases.find({_id: caseId});
+    result.push(cases);
+
+    // Authors (users)
+    cases.forEach(function(c) {
+        var userId = c.createdBy;
+        // Meteor helps us to prevent private information to push to the client
+        result.push(Meteor.users.find({_id: userId}));
+    });
 
     // Contract
     var contracts = Contracts.find({caseId: caseId});

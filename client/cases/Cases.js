@@ -28,7 +28,6 @@ Template.Cases.events({
 
 Template.CasesItem.helpers({
     findUsername: (userId) => {
-        // @FIXME
         return Meteor.users.findOne(userId).username;
     }
 });
@@ -64,7 +63,6 @@ Template.Case.onCreated(function() {
 
 Template.Case.helpers({
     findUsername: (userId) => {
-        // @FIXME
         return Meteor.users.findOne(userId).username;
     },
     case: () => {
