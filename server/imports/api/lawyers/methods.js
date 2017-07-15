@@ -3,25 +3,19 @@ Meteor.methods({
         return Lawyers.findOne(lawyerId).name;
     },
     'lawyers.dropCase'(caseId, lawyerId) {
-        return Contracts.update({caseId: caseId}, {$pull: {contractors: lawyerId}}) ? true : false;
+        return Contracts.remove({caseId: caseId, contractor: lawyerId});
     },
     'lawyers.grabCase'(caseId, lawyerId) {
         check(caseId, String);
         check(lawyerId, String);
-        var res = Contracts.update({caseId: caseId}, {$addToSet: {contractors: lawyerId}});
-        // If there is no contracts on this caseId, then insert a new doc into db
-        if (!res) {
-            // Get the userId from the Case
-            var c = Cases.findOne({_id: caseId});
-            Contracts.insert({
-                contractee: c.createdBy,
-                contractors: [lawyerId],
-                caseId: caseId
-            });
-        }
-        return Lawyers.findOne({_id: lawyerId});
+        var c = Cases.findOne({_id: caseId});
+        return Contracts.insert({
+            contractee: c.createdBy,
+            contractor: lawyerId,
+            caseId: caseId
+        });
     },
     'lawyers.hasGrabCase'(caseId, lawyerId) {
-        return Contracts.findOne({caseId: caseId, contractors: {$in: [lawyerId]}});
+        return Contracts.findOne({caseId: caseId, contractor: lawyerId});
     }
 });

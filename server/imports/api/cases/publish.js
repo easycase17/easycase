@@ -24,16 +24,14 @@ Meteor.publish('singleCase', function(caseId) {
         result.push(Meteor.users.find({_id: userId}));
     });
 
-    // Contract
+    // Contracts
     var contracts = Contracts.find({caseId: caseId});
     result.push(contracts);
 
     // Lawyers
     contracts.forEach(function(contract) {
-        var lawyersId = contract.contractors;
-        lawyersId.forEach(function (lawyerId) {
-            result.push(Lawyers.find({ _id: lawyerId }));
-        });
+        var lawyerId = contract.contractor;
+        result.push(Lawyers.find({ _id: lawyerId }));
     });
 
     // Blogs

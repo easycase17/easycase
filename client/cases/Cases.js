@@ -72,10 +72,6 @@ Template.Case.helpers({
     lawyers: () => {
         return Template.instance().lawyers.get();
     },
-    contract: () => {
-        var id = FlowRouter.getParam('id');
-        return Contracts.findOne({caseId: id});
-    },
     blogs: () => {
         return CasesBlogs.find({});
     },

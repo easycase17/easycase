@@ -26,17 +26,6 @@
                 {{/if}}
             </p>
         </article>
-        {{#if contract}}
-            <article class="case">
-                <h3>Contract</h3>
-                <p>Created At: <time datetime="contract.createdAt">{{contract.createdAt}}</time></p>
-            </article>
-        {{else}}
-            <article class="case">
-                <h3>No Contract</h3>
-                <p>There will be a lawyer assigned to this case. Please be patient, thank you.</p>
-            </article>
-        {{/if}}
     {{else}}
         <p>Loading ... </p>
     {{/if}}

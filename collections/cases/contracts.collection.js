@@ -8,9 +8,9 @@ const ContractsSchema = new SimpleSchema({
         type: String,
         label: 'Contractee'
     },
-    contractors: {
-        type: [String],
-        label: 'Contractors'
+    contractor: {
+        type: String,
+        label: 'Contractor'
     },
     caseId: {
         type: String,

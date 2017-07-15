@@ -49,12 +49,10 @@ Migrations.add({
         }
         const caseId = Cases.insert(case_data);
 
-        // Dummy data for ec_case_contracts		
+        // Dummy data for ec_contracts		
         let contract_data = {
             contractee: userId,
-            contractors: [
-                lawyerId
-            ],
+            contractor: lawyerId,
             caseId: caseId
         }
         const contractId = Contracts.insert(contract_data);
