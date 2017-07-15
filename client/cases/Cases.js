@@ -28,6 +28,7 @@ Template.Cases.events({
 
 Template.CasesItem.helpers({
     findUsername: (userId) => {
+        // @FIXME
         return Meteor.users.findOne(userId).username;
     }
 });
@@ -37,6 +38,7 @@ Template.Case.onCreated(function() {
     var self = this;
     self.hasGrab = new ReactiveVar( false );
     self.lawyers = new ReactiveVar( String );
+
     var id = FlowRouter.getParam('id');
     var subs = self.subscribe('singleCase', id);
 
@@ -45,7 +47,7 @@ Template.Case.onCreated(function() {
         var isLawyer = Session.get('isLawyer');
         if (isLawyer) {
             // If the user isLawyer, then check if the lawyer hasGrabCase
-            Meteor.call('lawyers.hasGrabCase', id, isLawyer.get('isLawyer')._id, (err, res) => {
+            Meteor.call('lawyers.hasGrabCase', id, isLawyer._id, (err, res) => {
                 self.hasGrab.set(res);
             });
         }
@@ -62,6 +64,7 @@ Template.Case.onCreated(function() {
 
 Template.Case.helpers({
     findUsername: (userId) => {
+        // @FIXME
         return Meteor.users.findOne(userId).username;
     },
     case: () => {
