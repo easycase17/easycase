@@ -26,6 +26,24 @@
                 {{/if}}
             </p>
         </article>
+        {{#if contracts}}
+            <article class="case">
+                <h3>Contracts</h3>
+                <ul>
+                    {{#each contracts}}
+                        <li>
+                            <span>{{getLawyerName(contractor)}}</span>
+                            <a href="contracts/{{_id}}">Details</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article>
+        {{else}}
+            <article class="case">
+                <h3>No Contract</h3>
+                <p>There will be a lawyer assigned to this case. Please be patient, thank you.</p>
+            </article>
+        {{/if}}
     {{else}}
         <p>Loading ... </p>
     {{/if}}

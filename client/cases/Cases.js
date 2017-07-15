@@ -28,6 +28,7 @@ Template.Cases.events({
 
 Template.CasesItem.helpers({
     findUsername: (userId) => {
+        // @FIXME
         return Meteor.users.findOne(userId).username;
     }
 });
@@ -65,12 +66,18 @@ Template.Case.helpers({
     findUsername: (userId) => {
         return Meteor.users.findOne(userId).username;
     },
+    getLawyerName: (lawyerId) => {
+        return Lawyers.findOne({_id: lawyerId}).name;
+    },
     case: () => {
         var id = FlowRouter.getParam('id');
         return Cases.findOne({_id: id});
     },
     lawyers: () => {
         return Template.instance().lawyers.get();
+    },
+    contracts: () => {
+        return Contracts.find({});
     },
     blogs: () => {
         return CasesBlogs.find({});
