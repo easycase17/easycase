@@ -7,12 +7,9 @@ Template.NewCase.helpers({
 
 
 /* --------------------  Cases Template  ---------------------- */
-Template.Cases.onCreated(function() {
-    var self = this;
-    self.autorun(function() {
-        self.subscribe('cases', Meteor.userId());
-    });
-});
+
+// Store cases locally, for hybrid app
+Meteor.subscribe('cases', Meteor.userId());
 
 Template.Cases.helpers({
     cases: () => {
