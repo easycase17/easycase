@@ -3,6 +3,16 @@
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
 
+const LawyerRateSchema = new SimpleSchema({
+    success: {
+        type: Number,
+        defaultValue: 0,
+        autoform: {
+            type: 'hidden'
+        }
+    }
+});
+
 const LawyersSchema = new SimpleSchema({
     userId: {
         type: String,
@@ -15,6 +25,14 @@ const LawyersSchema = new SimpleSchema({
         type: String,
         label: "Name",
         max: 50
+    },
+    birthday: {
+        type: Date,
+        label: 'Birthday'
+    },
+    sex: {
+        type: String,
+        label: 'Sex'
     },
     createdAt: {
         type: Date,

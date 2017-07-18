@@ -26,10 +26,14 @@ Migrations.add({
         let lawyer_data = {
             userId: userId,
             name: 'Guocheng Wei',
+            sex: 'male',
             areas: [
                 'Administrative Law'
             ],
-            evaluation: 0
+            evaluation: 0,
+            rate: {
+                success: 100
+            }
         };
         const lawyerId = Lawyers.insert(lawyer_data);
 
