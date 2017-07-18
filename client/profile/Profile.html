@@ -1,0 +1,13 @@
+<template name="Profile">
+    <section id="page-fields">
+        <button class="btn {{#if isUserProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-user-btn">User Profile</button>
+        <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">Lawyer Profile</button>
+    </section>
+    {{#if isUserProfile}}
+        <h3>User Profile</h3>
+    {{else}}
+        {{#if isLawyerProfile}}
+            <h3>Lawyer Profile</h3>
+        {{/if}}
+    {{/if}}
+</template>
