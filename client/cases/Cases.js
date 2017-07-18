@@ -8,9 +8,6 @@ Template.NewCase.helpers({
 
 /* --------------------  Cases Template  ---------------------- */
 
-// Store cases locally, for hybrid app
-Meteor.subscribe('cases', Meteor.userId());
-
 Template.Cases.helpers({
     cases: () => {
         return Cases.find({});
