@@ -2,6 +2,26 @@
  * EasyCase
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
+
+const LocationSchema = new SimpleSchema({
+    street: {
+        type: String,
+        label: 'Street'
+    },
+    city: {
+        type: String,
+        label: 'City'
+    },
+    state: {
+        type: String,
+        label: 'State'
+    },
+    country: {
+        type: String,
+        label: 'Country'
+    }
+});
+
 const CasesSchema = new SimpleSchema({
     title: {
         type: String,
@@ -23,6 +43,10 @@ const CasesSchema = new SimpleSchema({
     languages: {
         type: [String],
         label: 'Languages'
+    },
+    location: {
+        type: LocationSchema,
+        label: 'Location'
     },
     createdAt: {
         type: Date,

@@ -45,7 +45,13 @@ Migrations.add({
             createdBy: userId,
             languages: [
                 'EN', 'CH'
-            ]
+            ],
+            location: {
+                street: '440 S Chauncey Ave',
+                city: 'West Lafayette',
+                state: 'IN',
+                country: 'United States'
+            }
         }
         const caseId = Cases.insert(case_data);
 
