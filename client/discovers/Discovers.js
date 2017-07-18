@@ -1,6 +1,8 @@
 /* --------------------  Discovers Template  ---------------------- */
 Template.Discovers.onCreated(function() {
     var self = this;
+    self.fieldType = new ReactiveVar( String );
+    self.fieldType.set('Cases');
     self.autorun(function() {
         self.subscribe('cases-discover', Meteor.userId());
     });
@@ -8,7 +10,15 @@ Template.Discovers.onCreated(function() {
 
 Template.Discovers.helpers({
     discovers: () => {
-        return Cases.find({});
+        switch(Template.instance().fieldType.get()) {
+            case 'Cases':
+                return Cases.find({});
+            default:
+                return Cases.find({});
+        }
+    },
+    isCasesField: () => {
+        return Template.instance().fieldType.get() == 'Cases';
     }
 });
 

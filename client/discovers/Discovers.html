@@ -1,4 +1,9 @@
 <template name="Discovers">
+    <section id="discover-fields">
+        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}">Cases</button>
+        <button class="btn btn-text">Lawyers</button>
+        <button class="btn btn-text">Articles</button>
+    </section>
     <section class="cases">
         {{#if Template.subscriptionsReady}}
             {{#each discovers}}
