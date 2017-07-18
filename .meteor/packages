@@ -56,3 +56,4 @@ crosswalk
 mdg:geolocation
 mdg:camera
 mdg:reload-on-resume
+dburles:google-maps

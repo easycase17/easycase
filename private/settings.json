@@ -2,6 +2,9 @@
     "public": {
         "ga": {
             "account": "UA-XXXXXXX-Y"
+        }, 
+        "gmaps": {
+            "key": "AIzaSyBnRSrv1367m12xU6G_2J4uuVtmVZcuqZE"
         }
     },
     "private": {

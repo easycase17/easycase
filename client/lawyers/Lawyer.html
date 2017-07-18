@@ -1,5 +1,8 @@
 <template name="Lawyer">
     {{> PageNav}}
     <h1 class="page-title">{{lawyer.name}}</h1>
+    <div class="map-container">
+        {{> googleMap name="lawyerMap" options=lawyerMapOptions}}
+    </div>
     <p class="content">Coming Soon ...</p>
 </template>
