@@ -4,7 +4,7 @@ Meteor.publish('cases', function(userId) {
     return Cases.find({createdBy: userId});
 });
 
-Meteor.publish('cases-discover', function(userId) {
+Meteor.smartPublish('cases-discover', function(userId) {
     check(userId, String);
     var result = [];
 
@@ -22,7 +22,7 @@ Meteor.publish('cases-discover', function(userId) {
     return result;
 });
 
-Meteor.publish('singleCase', function(caseId) {
+Meteor.smartPublish('singleCase', function(caseId) {
     check(caseId, String);
     var result = [];
 
