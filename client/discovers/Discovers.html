@@ -1,26 +1,30 @@
 <template name="Discovers">
     <section id="discover-fields">
-        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}">Cases</button>
-        <button class="btn btn-text">Lawyers</button>
-        <button class="btn btn-text">Articles</button>
+        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-cases-btn">Cases</button>
+        <button class="btn {{#if isLawyersField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-lawyers-btn">Lawyers</button>
+        <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">Lawyers</button>
     </section>
     <section class="cases">
         {{#if Template.subscriptionsReady}}
-            {{#each discovers}}
-                {{> DiscoversItem}}
-            {{else}}
-                <h3>There is no cases in your area.</h3>
-            {{/each}}
+                {{#if isCasesField}}
+                    {{#each discovers}}
+                        {{> CasesItem}}
+                    {{else}}
+                        <h3>There is no cases in your area.</h3>
+                    {{/each}}
+                {{else}}
+                    {{#if isLawyersField}}
+                        {{#each discovers}}
+                            {{> LawyersItem}}
+                        {{else}}
+                            <h3>There is no lawyers around you right now.</h3>
+                        {{/each}}
+                    {{else}}
+                        <h3>Coming Soon ...</h3>
+                    {{/if}}
+                {{/if}}
         {{else}}
             <p>Loading ... </p>
         {{/if}}
     </section>
-</template>
-
-<template name="DiscoversItem">
-    <article class="case">
-        <h3>{{title}}</h3>
-        <p>{{content}}</p>
-        <a href="/cases/{{_id}}">View Details</a>
-    </article>
 </template>
