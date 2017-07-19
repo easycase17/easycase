@@ -6,7 +6,7 @@ Template.MainLayout.onCreated(function() {
     self.autorun(function() {
         Session.set({'currentLocation': Geolocation.latLng()});
         Session.set({'hasNewVersion': Reload.isWaitingForResume()})
-        Session.set({'isLawyer': sub ? true : false});
+        Session.set({'isLawyer': sub ? Lawyers.findOne({userId: Meteor.userId()}) : false});
     });
 });
 

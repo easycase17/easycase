@@ -46,9 +46,10 @@ Template.Case.onCreated(function() {
             });
         }
 
-        var lawyers = Lawyers.find({});
+        var contracts = Contracts.find({});
         var lawyersView = [];
-        lawyers.forEach(function(lawyer) {
+        contracts.forEach(function(contract) {
+            var lawyer = Lawyers.findOne({_id: contract.contractor});
             lawyersView.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
         });
         lawyersView = lawyersView.join(', ');
