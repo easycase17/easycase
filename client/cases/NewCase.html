@@ -1,7 +1,7 @@
 <template name="NewCase">
     <a href="/cases"><span aria-hidden="true">&larr;</span> Back</a>
     <div class="new-case-container">
-        {{#autoForm collection="Cases" id="insertCaseForm" type="insert"}}
+        {{#autoForm collection="Cases" id="insertCaseForm" class="autoform-add-item" type="insert"}}
             <div>
                 <h3>Add a Case</h3>
                 {{> afQuickField name='title'}}
@@ -12,7 +12,7 @@
                 {{> afQuickField name='languages'}}
                 {{> afQuickField name='location'}}
             </div>
-            <button type="submit" class="btn btn-primary">Insert</button>
+            <button type="submit" class="btn">Insert</button>
         {{/autoForm}}
     </div>
 </template>
