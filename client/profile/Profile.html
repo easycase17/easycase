@@ -1,7 +1,9 @@
 <template name="Profile">
     <section id="page-fields">
         <button class="btn {{#if isUserProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-user-btn">User Profile</button>
-        <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">Lawyer Profile</button>
+        {{#if isLawyer}}
+            <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">Lawyer Profile</button>
+        {{/if}}
     </section>
     {{#if isUserProfile}}
         <section class="profile-user-container">
@@ -20,8 +22,19 @@
             {{/if}}
         </section>
     {{else if isLawyerProfile}}
-        <h3>lawyer profile</h3>
+        <section class="profile-user-container">
+            {{#autoForm id="updateLawyerProfile" class="autoform-add-item" collection="Lawyers" doc=isLawyer type="update"}}
+                <section>
+                    <h3>Lawyer Profile</h3>
+                    {{> afQuickField name='name'}}
+                    {{> afQuickField name='birthday'}}
+                    {{> afQuickField name='gender'}}
+                    {{> afQuickField name='areas'}}
+                </section>
+                <button type="submit" class="btn">Update</button>
+            {{/autoForm}}
+        </section>
     {{else}}
-        <h3>test</h3>
+        <h3>Coming Soon ...</h3>
     {{/if}}
 </template>

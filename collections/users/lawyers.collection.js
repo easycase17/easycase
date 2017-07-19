@@ -19,6 +19,9 @@ const LawyersSchema = new SimpleSchema({
         label: 'UserID',
         autoValue: function() {
             return this.userId
+        },
+        autoform: {
+            type: 'hidden'
         }
     },
     name: {
@@ -30,31 +33,50 @@ const LawyersSchema = new SimpleSchema({
         type: Date,
         label: 'Birthday'
     },
-    sex: {
+    gender: {
         type: String,
-        label: 'Sex'
+        label: 'Gender',
+        optional: true,
+        allowedValues: ['Male', 'Female'],
+        autoform: {
+            type: 'select',
+            options: function () {
+                return [
+                    { label: 'Male', value: 'Male' },
+                    { label: 'Female', value: 'Female' }
+                ]
+            }
+        }
     },
     createdAt: {
         type: Date,
         label: "Created At",
         autoValue: function() {
             return new Date()
+        },
+        autoform: {
+            type: 'hidden'
         }
     },
     areas: {
         type: [String],
         label: "Areas"
     },
-    // lastLog: {
-    //     type: Date,
-    //     label: "Last Log",
-    // },
-    // This is the evaluation score for each lawyer
     evaluation: {
         type: Number,
-        label: "Evaluation"
+        label: "Evaluation",
+        autoform: {
+            type: 'hidden'
+        }
+    },
+    rate: {
+        type: LawyerRateSchema,
+        autoform: {
+            type: 'hidden'
+        }
     }
 });
 
 Lawyers = new Mongo.Collection('ec_lawyers');
 Lawyers.schema = LawyersSchema;
+Lawyers.attachSchema(LawyersSchema);
