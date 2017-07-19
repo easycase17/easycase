@@ -4,10 +4,10 @@
         <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">Lawyer Profile</button>
     </section>
     {{#if isUserProfile}}
-        <h3>User Profile</h3>
+        <h3>user profile</h3>
+    {{else if isLawyerProfile}}
+        <h3>lawyer profile</h3>
     {{else}}
-        {{#if isLawyerProfile}}
-            <h3>Lawyer Profile</h3>
-        {{/if}}
+        <h3>test</h3>
     {{/if}}
 </template>

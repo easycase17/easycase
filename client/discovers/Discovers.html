@@ -6,23 +6,21 @@
     </section>
     <section class="cases">
         {{#if Template.subscriptionsReady}}
-                {{#if isCasesField}}
-                    {{#each discovers}}
-                        {{> CasesItem}}
-                    {{else}}
-                        <h3>There is no cases in your area.</h3>
-                    {{/each}}
+            {{#if isCasesField}}
+                {{#each discovers}}
+                    {{> CasesItem}}
                 {{else}}
-                    {{#if isLawyersField}}
-                        {{#each discovers}}
-                            {{> LawyersItem}}
-                        {{else}}
-                            <h3>There is no lawyers around you right now.</h3>
-                        {{/each}}
-                    {{else}}
-                        <h3>Coming Soon ...</h3>
-                    {{/if}}
-                {{/if}}
+                    <h3>There is no cases in your area.</h3>
+                {{/each}}
+            {{else if isLawyersField}}
+                {{#each discovers}}
+                    {{> LawyersItem}}
+                {{else}}
+                    <h3>There is no lawyers around you right now.</h3>
+                {{/each}}
+            {{else}}
+                <h3>Coming Soon ...</h3>
+            {{/if}}
         {{else}}
             <p>Loading ... </p>
         {{/if}}
