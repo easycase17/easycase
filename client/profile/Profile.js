@@ -6,9 +6,6 @@ Template.Profile.onCreated(function() {
 });
 
 Template.Profile.helpers({
-    userProfile: () => {
-        return Meteor.user();
-    },
     isLawyer: () => {
         return Session.get('isLawyer');
     },

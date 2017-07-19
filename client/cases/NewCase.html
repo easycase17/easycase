@@ -1,8 +1,8 @@
 <template name="NewCase">
     <a href="/cases"><span aria-hidden="true">&larr;</span> Back</a>
-    <div class="new-case-container">
+    <section class="new-case-container">
         {{#autoForm collection="Cases" id="insertCaseForm" class="autoform-add-item" type="insert"}}
-            <div>
+            <section>
                 <h3>Add a Case</h3>
                 {{> afQuickField name='title'}}
                 {{> afQuickField name='tags'}}
@@ -11,8 +11,8 @@
                 {{> afQuickField name='createdBy' value=userId}}
                 {{> afQuickField name='languages'}}
                 {{> afQuickField name='location'}}
-            </div>
-            <button type="submit" class="btn">Insert</button>
+            </section>
+            <button type="submit" class="btn">Add</button>
         {{/autoForm}}
-    </div>
+    </section>
 </template>
