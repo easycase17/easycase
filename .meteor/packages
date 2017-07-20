@@ -59,3 +59,6 @@ mdg:reload-on-resume
 dburles:google-maps
 mrt:smart-publish
 twbs:bootstrap
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
+vazco:universe-autoform-select

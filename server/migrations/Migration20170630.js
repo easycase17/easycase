@@ -14,10 +14,7 @@ Migrations.add({
             password: '123456a',
             profile: {
                 firstname: 'Guocheng',
-                lastname: 'Wei',
-                roles: [
-                    'lawyer'
-                ]
+                lastname: 'Wei'
             }
         }
         const userId = Accounts.createUser(user_data);
@@ -26,7 +23,7 @@ Migrations.add({
         let lawyer_data = {
             userId: userId,
             name: 'Guocheng Wei',
-            sex: 'male',
+            gender: 'Male',
             areas: [
                 'Administrative Law'
             ],
@@ -92,6 +89,10 @@ Migrations.add({
         });
     },
     down: function () {
-
+        Lawyers.remove({});
+        Contracts.remove({});
+        Cases.remove({});
+        CasesBlogs.remove({});
+        Meteor.users.remove({});
     }
 });

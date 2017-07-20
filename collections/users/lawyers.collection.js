@@ -17,9 +17,6 @@ const LawyersSchema = new SimpleSchema({
     userId: {
         type: String,
         label: 'UserID',
-        autoValue: function() {
-            return this.userId
-        },
         autoform: {
             type: 'hidden'
         }
@@ -31,7 +28,15 @@ const LawyersSchema = new SimpleSchema({
     },
     birthday: {
         type: Date,
-        label: 'Birthday'
+        label: 'Birthday',
+        optional: true,
+        autoform: {
+            type: "bootstrap-datepicker",
+            datePickerOptions: {
+                autoclose: true
+            },
+            buttonClasses: "glyphicon glyphicon-calendar"
+        }
     },
     gender: {
         type: String,
@@ -51,7 +56,7 @@ const LawyersSchema = new SimpleSchema({
     createdAt: {
         type: Date,
         label: "Created At",
-        autoValue: function() {
+        autoValue: function () {
             return new Date()
         },
         autoform: {

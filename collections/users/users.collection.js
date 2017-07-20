@@ -20,6 +20,18 @@ const UserProfileSchema = new SimpleSchema({
         min: 7,
         max: 7
     },
+    birthday: {
+        type: Date,
+        optional: true,
+        label: 'Birthday',
+        autoform: {
+            type: "bootstrap-datepicker",
+            datePickerOptions: {
+                autoclose: true
+            },
+            buttonClasses: "glyphicon glyphicon-calendar"
+        }
+    },
     phoneNumber: {
         type: Number,
         optional: true,
@@ -81,7 +93,7 @@ const UsersSchema = new SimpleSchema({
 Meteor.users.schema = UsersSchema;
 Meteor.users.attachSchema(UsersSchema);
 Meteor.users.allow({
-    update: function(userId, doc) { 
-        return !!userId; 
+    update: function (userId, doc) {
+        return !!userId;
     }
 })
