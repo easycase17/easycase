@@ -8,20 +8,20 @@ Migrations.add({
     version: 2,
     up: function () {
         const options = [
-            "Civil Rights",
-            "Corporate and Securities Law",
-            "Criminal Law",
-            "Education Law",
-            "Employment and Labor Law",
-            "Environmental and Natural Resources Law",
-            "Family and Juvenile Law",
-            "Health Law",
-            "Immigration Law",
-            "Intellectual Property Law",
-            "International Law",
-            "Real Estate Law",
-            "Sports and Entertainment Law",
-            "Tax Law"
+            { label: "Civil Rights", value: "Civil Rights" },
+            { label: "Corporate and Securities Law", value: "Corporate and Securities Law" },
+            { label: "Criminal Law", value: "Criminal Law" },
+            { label: "Education Law", value: "Education Law" },
+            { label: "Employment and Labor Law", value: "Employment and Labor Law" },
+            { label: "Environmental and Natural Resources Law", value: "Environmental and Natural Resources Law" },
+            { label: "Family and Juvenile Law", value: "Family and Juvenile Law" },
+            { label: "Health Law", value: "Health Law" },
+            { label: "Immigration Law", value: "Immigration Law" },
+            { label: "Intellectual Property Law", value: "Intellectual Property Law" },
+            { label: "International Law", value: "International Law" },
+            { label: "Real Estate Law", value: "Real Estate Law" },
+            { label: "Sports and Entertainment Law", value: "Sports and Entertainment Law" },
+            { label: "Tax Law", value: "Tax Law" }
         ];
 
         FieldsOfLaw = new Mongo.Collection('ec_law_fields');

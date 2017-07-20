@@ -11,8 +11,18 @@ const UserProfileSchema = new SimpleSchema({
     },
     gender: {
         type: String,
+        label: 'Gender',
         optional: true,
-        allowedValues: ['Male', 'Female']
+        allowedValues: ['Male', 'Female'],
+        autoform: {
+            type: 'universe-select',
+            options: function () {
+                return [
+                    { label: 'Male', value: 'Male' },
+                    { label: 'Female', value: 'Female' }
+                ]
+            }
+        }
     },
     pinCode: {
         type: Number,
