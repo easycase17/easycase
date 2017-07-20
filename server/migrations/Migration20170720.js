@@ -7,7 +7,7 @@
 Migrations.add({
     version: 2,
     up: function () {
-        const law_options = {
+        var law_options = {
             field: "law",
             options: [
                 { label: "Civil Rights", value: "Civil Rights" },
@@ -27,7 +27,17 @@ Migrations.add({
             ]
         };
 
+        var gender_option = {
+            field: "gender",
+            options: [
+                { label: "Male", value: "Male" },
+                { label: "Female", value: "Female" },
+                { label: "Prefer Not To Answer", value: "Unknown" }
+            ]
+        };
+
         Options.insert(law_options);
+        Options.insert(gender_option);
 
     },
     down: function () { }

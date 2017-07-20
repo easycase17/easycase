@@ -25,7 +25,7 @@ Migrations.add({
             name: 'Guocheng Wei',
             gender: 'Male',
             areas: [
-                'Administrative Law'
+                'Tax Law'
             ],
             evaluation: 0,
             rate: {

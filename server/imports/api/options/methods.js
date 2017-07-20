@@ -1,6 +1,8 @@
 Meteor.methods({
     'options.getOptions': function(option) {
         this.unblock();
-        return Options.findOne({field: option.params.field}).options;
+        if (option && option.params && option.params.field) {
+            return Options.findOne({field: option.params.field}).options;
+        }
     }
 });

@@ -42,14 +42,14 @@ const LawyersSchema = new SimpleSchema({
         type: String,
         label: 'Gender',
         optional: true,
-        allowedValues: ['Male', 'Female'],
+        allowedValues: ['Male', 'Female', 'Unknown'],
         autoform: {
             type: 'universe-select',
-            options: function () {
-                return [
-                    { label: 'Male', value: 'Male' },
-                    { label: 'Female', value: 'Female' }
-                ]
+            afFieldInput: {
+                optionsMethod: "options.getOptions",
+                optionsMethodParams: {
+                    field: 'gender'
+                }
             }
         }
     },
