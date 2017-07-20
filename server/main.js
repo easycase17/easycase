@@ -3,6 +3,7 @@ import './imports/api/users/index.js';
 import './imports/api/cases/index.js';
 import './imports/api/lawyers/index.js';
 import './imports/api/contracts/index.js';
+import './imports/api/options/index.js';
 
 Meteor.startup(() => {
 
