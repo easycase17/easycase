@@ -66,7 +66,8 @@ const CasesSchema = new SimpleSchema({
     },
     isPrivate: {
         type: Boolean,
-        defaultValue: false
+        label: 'Set Private',
+        defaultValue: true
     }
 });
 
@@ -77,10 +78,10 @@ Cases.allow({
     insert: function(userId) {
         return !!userId;
     },
-    update: function(userId) { 
-        return !!userId; 
+    update: function(userId, doc) {
+        return !!userId;
     },
-    remove: function() { 
-        return !!userId; 
+    remove: function(userId) {
+        return false;
     }
 });

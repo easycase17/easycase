@@ -1,7 +1,18 @@
 /* --------------------  NewCase Template  ---------------------- */
 Template.NewCase.helpers({
-    userId: function() {
+    userId: function () {
         return Meteor.userId();
+    }
+});
+
+AutoForm.hooks({
+    insertCaseForm: {
+        onSuccess: function () {
+            FlowRouter.go('/cases');
+        },
+        onError: function (name, error, template) {
+            console.log(name + " error:", error);
+        }
     }
 });
 
@@ -15,7 +26,7 @@ Template.Cases.helpers({
 });
 
 Template.Cases.events({
-    'click #create-case': function() {
+    'click #create-case': function () {
         FlowRouter.go('/cases/create');
     }
 });
@@ -28,10 +39,10 @@ Template.CasesItem.helpers({
 });
 
 /* --------------------  Case Template  ---------------------- */
-Template.Case.onCreated(function() {
+Template.Case.onCreated(function () {
     var self = this;
-    self.hasGrab = new ReactiveVar( false );
-    self.lawyers = new ReactiveVar( String );
+    self.hasGrab = new ReactiveVar(false);
+    self.lawyers = new ReactiveVar(String);
 
     var id = FlowRouter.getParam('id');
     var subs = self.subscribe('singleCase', id);
@@ -48,8 +59,8 @@ Template.Case.onCreated(function() {
 
         var contracts = Contracts.find({});
         var lawyersView = [];
-        contracts.forEach(function(contract) {
-            var lawyer = Lawyers.findOne({_id: contract.contractor});
+        contracts.forEach(function (contract) {
+            var lawyer = Lawyers.findOne({ _id: contract.contractor });
             lawyersView.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
         });
         lawyersView = lawyersView.join(', ');
@@ -62,11 +73,11 @@ Template.Case.helpers({
         return Meteor.users.findOne(userId).username;
     },
     getLawyerName: (lawyerId) => {
-        return Lawyers.findOne({_id: lawyerId}).name;
+        return Lawyers.findOne({ _id: lawyerId }).name;
     },
     case: () => {
         var id = FlowRouter.getParam('id');
-        return Cases.findOne({_id: id});
+        return Cases.findOne({ _id: id });
     },
     lawyers: () => {
         return Template.instance().lawyers.get();
@@ -95,29 +106,29 @@ Template.Case.helpers({
 });
 
 Template.Case.events({
-    'click #drop-case': function(event, template) {
+    'click #drop-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.dropCase', caseId, Session.get('isLawyer')._id, function(err, res) {
+        Meteor.call('lawyers.dropCase', caseId, Session.get('isLawyer')._id, function (err, res) {
             if (!err) {
-               Meteor.disconnect();
-               Meteor.reconnect();
+                Meteor.disconnect();
+                Meteor.reconnect();
             }
         });
     },
-    'click #grab-case': function(event, template) {
+    'click #grab-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.grabCase', caseId, Session.get('isLawyer')._id, function(err, res) {
+        Meteor.call('lawyers.grabCase', caseId, Session.get('isLawyer')._id, function (err, res) {
             if (!err) {
-               Meteor.disconnect();
-               Meteor.reconnect();
+                Meteor.disconnect();
+                Meteor.reconnect();
             }
         });
     },
-    'click #private-case': function(event, template) {
+    'click #private-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
         Meteor.call('cases.setPrivate', caseId, Meteor.userId());
     },
-    'click #public-case': function(event, template) {
+    'click #public-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
         Meteor.call('cases.setPublic', caseId, Meteor.userId());
     }
@@ -126,10 +137,10 @@ Template.Case.events({
 
 /* ----------------- NewCaseBlog --------------------- */
 Template.NewCaseBlog.helpers({
-    userId: function() {
+    userId: function () {
         return Meteor.userId();
     },
-    caseId: function() {
+    caseId: function () {
         return FlowRouter.getParam('id');
     },
     isLawyer: () => {
