@@ -27,7 +27,7 @@ Migrations.add({
             ]
         };
 
-        var gender_option = {
+        var gender_options = {
             field: "gender",
             options: [
                 { label: "Male", value: "Male" },
@@ -36,9 +36,15 @@ Migrations.add({
             ]
         };
 
-        Options.insert(law_options);
-        Options.insert(gender_option);
 
+        Options.insert(law_options);
+        Options.insert(gender_options);
+
+        var cities_data = require('./us-cities');
+        USCitiesDetails = new Mongo.Collection('ec_uscities_details');
+        cities_data.forEach(function(city) {
+            USCitiesDetails.insert(city);
+        });
     },
     down: function () { }
 })
