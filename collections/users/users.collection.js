@@ -67,6 +67,7 @@ const UsersSchema = new SimpleSchema({
     },
     "emails.$.verified": {
         type: Boolean,
+        optional: true,
         autoform: {
             type: "hidden"
         }

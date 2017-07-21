@@ -95,3 +95,8 @@ const LawyersSchema = new SimpleSchema({
 Lawyers = new Mongo.Collection('ec_lawyers');
 Lawyers.schema = LawyersSchema;
 Lawyers.attachSchema(LawyersSchema);
+Lawyers.allow({
+    update: function (userId, doc) {
+        return !!userId;
+    }
+});

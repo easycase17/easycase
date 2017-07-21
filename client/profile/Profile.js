@@ -28,3 +28,11 @@ Template.Profile.events({
         template.profileType.set('Lawyer');
     }
 });
+
+AutoForm.hooks({
+    updateUserProfile: {
+        onError: function (name, error, template) {
+            console.log(name + " error:", error);
+        }
+    }
+});
