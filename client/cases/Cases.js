@@ -9,6 +9,7 @@ AutoForm.hooks({
     insertCaseForm: {
         onSuccess: function () {
             FlowRouter.go('/cases');
+            Notifications.success('Success', 'Your case will be delivered to nearby lawyers!');
         },
         onError: function (name, error, template) {
             console.log(name + " error:", error);

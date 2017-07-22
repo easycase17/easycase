@@ -31,8 +31,13 @@ Template.Profile.events({
 
 AutoForm.hooks({
     updateUserProfile: {
-        onError: function (name, error, template) {
-            console.log(name + " error:", error);
+        onSuccess: () => {
+            Notifications.success('Success', 'You have successfully updated your profile!');
+        }
+    },
+    updateLawyerProfile: {
+        onSuccess: () => {
+            Notifications.success('Success', 'You have successfully updated your lawyer profile!');
         }
     }
 });
