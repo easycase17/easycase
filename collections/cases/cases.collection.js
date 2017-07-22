@@ -26,7 +26,7 @@ const CasesSchema = new SimpleSchema({
     title: {
         type: String,
         label: 'Title',
-        max: 255
+        max: 40
     },
     tags: {
         type: [String],
@@ -38,11 +38,14 @@ const CasesSchema = new SimpleSchema({
     },
     payment: {
         type: Number,
-        label: 'Payment'
+        label: 'Payment',
+        optional: true,
+        defaultValue: 0
     },
     languages: {
         type: [String],
-        label: 'Languages'
+        label: 'Languages',
+        defaultValue: ['EN']
     },
     location: {
         type: LocationSchema,
