@@ -1,4 +1,7 @@
 if (Meteor.isClient) {
-  Meteor.startup(function() {
+  Meteor.startup(function () {
+    _.extend(Notifications.defaultOptions, {
+      timeout: 3500
+    });
   });
 }
