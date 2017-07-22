@@ -76,6 +76,10 @@ const LawyersSchema = new SimpleSchema({
             }
         }
     },
+    location: {
+        type: LocationSchema,
+        label: 'Location'
+    },
     evaluation: {
         type: Number,
         label: "Evaluation",

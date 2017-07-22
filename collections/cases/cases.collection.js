@@ -3,7 +3,7 @@
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
 
-const LocationSchema = new SimpleSchema({
+LocationSchema = new SimpleSchema({
     street: {
         type: String,
         label: 'Street'
