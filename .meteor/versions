@@ -25,6 +25,7 @@ boilerplate-generator@1.1.0
 caching-compiler@1.1.9
 caching-html-compiler@1.1.2
 callback-hook@1.0.10
+cfs:http-methods@0.0.32
 check@1.2.5
 coffeescript@1.11.1_4
 crosswalk@1.7.1
@@ -77,6 +78,7 @@ mdg:reload-on-resume@1.0.4
 mdg:validation-error@0.2.0
 meteor@1.6.1
 meteor-base@1.1.0
+meteorspark:util@0.2.0
 meteortoys:allthings@4.0.0
 meteortoys:authenticate@4.0.0
 meteortoys:autopub@4.0.0
@@ -141,6 +143,7 @@ srp@1.0.10
 standard-minifier-css@1.3.4
 standard-minifier-js@2.1.0
 stolinski:stylus-multi@1.4.3
+tap:i18n@1.8.2
 templating@1.3.2
 templating-compiler@1.3.2
 templating-runtime@1.3.2

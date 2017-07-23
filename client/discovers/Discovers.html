@@ -1,8 +1,8 @@
 <template name="Discovers">
     <section id="page-fields">
-        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-cases-btn">Cases</button>
-        <button class="btn {{#if isLawyersField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-lawyers-btn">Lawyers</button>
-        <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">Articles</button>
+        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-cases-btn">{{_ "DISCOVERS_CASES"}}</button>
+        <button class="btn {{#if isLawyersField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-lawyers-btn">{{_ "DISCOVERS_LAWYERS"}}</button>
+        <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">{{_ "DISCOVERS_ARTICLES"}}</button>
     </section>
     <section class="cases">
         {{#if Template.subscriptionsReady}}
@@ -10,19 +10,19 @@
                 {{#each discovers}}
                     {{> CasesItem}}
                 {{else}}
-                    <h3>There is no cases in your area.</h3>
+                    <h3>{{_ "DISCOVERS_NOCASES"}}</h3>
                 {{/each}}
             {{else if isLawyersField}}
                 {{#each discovers}}
                     {{> LawyersItem}}
                 {{else}}
-                    <h3>There is no lawyers around you right now.</h3>
+                    <h3>{{_ "DISCOVERS_NOLAWYERS"}}</h3>
                 {{/each}}
             {{else}}
-                <h3>Coming Soon ...</h3>
+                <h3>{{_ "COMINGSOON"}}</h3>
             {{/if}}
         {{else}}
-            <p>Loading ... </p>
+            <p>{{_ "LOADING"}}</p>
         {{/if}}
     </section>
 </template>

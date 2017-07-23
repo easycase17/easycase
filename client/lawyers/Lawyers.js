@@ -69,6 +69,7 @@ Template.Lawyer.helpers({
         if (GoogleMaps.loaded()) {
             // Map initialization options
             return {
+                // This is the place I anounce this feature
                 center: new google.maps.LatLng(47.658271, -122.3132746),
                 zoom: 14,
                 mapTypeControl: true,

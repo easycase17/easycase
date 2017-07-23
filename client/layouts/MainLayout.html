@@ -1,14 +1,14 @@
 <template name="MainLayout">
     {{> notifications}}
     <header>
-        <h1>Easy Case</h1>
+        <h1>{{_ "COMPANY_NAME"}}</h1>
         {{> loginButtons }}
     </header>
     {{> SideBar}}
     <main class="main-layout">
         {{#if hasNewVersion}}
             <section class="notification">
-                <h4 class="notification-title">New version available, restart the app to update.</h4>
+                <h4 class="notification-title">{{_ "NEWVERSION_NOTI"}}</h4>
             </section>
         {{/if}}
         {{> Template.dynamic template=main }}

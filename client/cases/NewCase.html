@@ -1,9 +1,9 @@
 <template name="NewCase">
-    <a href="/cases"><span aria-hidden="true">&larr;</span> Back</a>
+    {{> PageNav}}
     <section class="new-case-container">
         {{#autoForm collection="Cases" id="insertCaseForm" type="insert"}}
             <div>
-                <h3>Add a Case</h3>
+                <h3>{{_ "NEWCASE_POST"}}</h3>
                 {{> afQuickField name='title'}}
                 {{> afQuickField name='tags'}}
                 {{> afQuickField name='content' rows=6}}
@@ -13,7 +13,7 @@
                 {{> afQuickField name='location'}}
                 {{> afQuickField name='isPrivate' type="boolean-checkbox"}}
             </div>
-            <button type="submit" class="btn">Add</button>
+            <button type="submit" class="btn">{{_ "NEWCASE_SUBMIT"}}</button>
         {{/autoForm}}
     </section>
 </template>

@@ -1,16 +1,16 @@
 <template name="Cases">
     <section class="cases">
         <section class="helper">
-            <button class="btn btn-primary" id="create-case"><i class="fa fa-plus"></i> Post A New Case</button>
+            <button class="btn btn-primary" id="create-case"><i class="fa fa-plus"></i> {{_ "CASES_POSTNEW"}}</button>
         </section>
         {{#if Template.subscriptionsReady}}
             {{#each cases}}
                 {{> CasesItem}}
             {{else}}
-                <h3>Happy Time! No case on you right now!</h3>
+                <h3>{{_ "CASES_NOCASES"}}</h3>
             {{/each}}
         {{else}}
-            <p>Loading ... </p>
+            <p>{{_ "LOADING"}}</p>
         {{/if}}
     </section>
 </template>
@@ -20,6 +20,6 @@
         <h3>{{title}}</h3>
         <p>{{content}}</p>
         <p><i class="fa fa-user"></i> {{findUsername(createdBy)}}</p>
-        <a href="/cases/{{_id}}">View Details</a>
+        <a href="/cases/{{_id}}">{{_ "VIEW_DETAILS"}}</a>
     </article>
 </template>
