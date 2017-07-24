@@ -53,5 +53,17 @@
         "USER": "User Profile",
         "LAWYER": "Lawyer Profile",
         "UPDATE": "Update"
+    }, 
+    "SCHEMA": {
+        "CASES": {
+            "TITLE": "Title",
+            "TAGS": "Tags",
+            "CONTENT": "Content",
+            "PAYMENT": "Payment",
+            "LANGUAGES": "Languages",
+            "LOCATION": "Location",
+            "CREATEDAT": "Created At",
+            "SETPRIV": "Set Private"
+        }
     }
 }

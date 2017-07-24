@@ -25,35 +25,35 @@ LocationSchema = new SimpleSchema({
 const CasesSchema = new SimpleSchema({
     title: {
         type: String,
-        label: 'Title',
+        label: "Title",
         max: 40
     },
     tags: {
         type: [String],
-        label: 'Tags'
+        label: "Tags"
     },
     content: {
         type: String,
-        label: 'Content'
+        label: "Content"
     },
     payment: {
         type: Number,
-        label: 'Payment',
+        label: "Payment",
         optional: true,
         defaultValue: 0
     },
     languages: {
         type: [String],
-        label: 'Languages',
+        label: "Languages",
         defaultValue: ['EN']
     },
     location: {
         type: LocationSchema,
-        label: 'Location'
+        label: "Location"
     },
     createdAt: {
         type: Date,
-        label: 'Created At',
+        label: "Created At",
         autoValue: function() {
             return new Date()
         },
@@ -69,7 +69,7 @@ const CasesSchema = new SimpleSchema({
     },
     isPrivate: {
         type: Boolean,
-        label: 'Set Private',
+        label: "Set Private",
         defaultValue: true
     }
 });
