@@ -15,3 +15,10 @@ Template.MainLayout.helpers({
         return Session.get('hasNewVersion');
     }
 });
+
+Template.MainLayout.events({
+    'change #lang-dropdown': (event) => {
+        console.log(event.currentTarget);
+        TAPi18n.setLanguage(event.currentTarget.val());
+    }
+});
