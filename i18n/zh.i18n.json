@@ -1,37 +1,57 @@
 {
     "LANG": "中文",
-    "COMPANY_NAME": "易司",
-    "NEWVERSION_NOTI": "新版本下载完毕，重启应用即可更新",
     "LOADING": "加载中 ...",
     "COMINGSOON": "开发中 ...",
     "VIEW_DETAILS": "查看",
-    "CASES_NOCASES": "没有官司缠身",
-    "CASES_POSTNEW": "提问",
-    "CASE_DETAILS": "详情",
-    "CASE_SETPUB": "开放问题",
-    "CASE_SETPRI": "保密问题",
-    "CASE_GRABCASE": "领取此问题",
-    "CASE_DROPCASE": "放弃此问题",
-    "CASE_CONTRACTS": "合同",
-    "CASE_CONTRACT_DETAILS": "详情",
-    "CASE_NOCONTRACT": "无合同",
-    "CASE_NOCONTRACT_INFO": "我们将把此问题派送给相关律师，请耐心等待。",
-    "CASE_BLOG_POST": "评论",
-    "CASE_BLOG_SUBMIT": "提交",
-    "NEWCASE_POST": "发表问题",
-    "NEWCASE_SUBMIT": "提交",
-    "DISCOVERS_CASES": "提问",
-    "DISCOVERS_LAWYERS": "律师",
-    "DISCOVERS_ARTICLES": "法律文章",
-    "DISCOVERS_NOCASES": "附近没有公开的法律问题",
-    "DISCOVERS_NOLAWYERS": "目前附近没有在线律师",
-    "LAWYERS_NOLAWYERS": "目前附近没有在线律师",
-    "PAGENAV_BACK": "后退",
-    "SIDEBAR_PROFILE": "个人信息",
-    "SIDEBAR_DISCOVER": "法律圈",
-    "SIDEBAR_CASES": "法律问题",
-    "SIDEBAR_TOOLS": "法律助手",
-    "PROFILE_USER": "个人信息",
-    "PROFILE_LAWYER": "律师信息",
-    "PROFILE_UPDATE": "更新"
+    "COMPANY": {
+        "COMPANY_NAME": "易司"
+    },
+    "NEWVERSION": {
+        "NOTI": "新版本下载完毕，重启应用即可更新"
+    },
+    "CASES": {
+        "NOCASES": "没有官司缠身",
+        "POSTNEW": "提问"
+    },
+    "CASE": {
+        "DETAILS": "详情",
+        "SETPUB": "开放问题",
+        "SETPRI": "保密问题",
+        "GRABCASE": "领取此问题",
+        "DROPCASE": "放弃此问题",
+        "CONTRACTS": "合同",
+        "CONTRACT_DETAILS": "详情",
+        "NOCONTRACT": "无合同",
+        "NOCONTRACT_INFO": "我们将把此问题派送给相关律师，请耐心等待。",
+        "BLOG_POST": "评论",
+        "BLOG_SUBMIT": "提交"
+    },
+    "NEWCASE": {
+        "POST": "发表问题",
+        "SUBMIT": "提交"
+    },
+    "DISCOVERS": {
+        "CASES": "提问",
+        "LAWYERS": "律师",
+        "ARTICLES": "法律文章",
+        "NOCASES": "附近没有公开的法律问题",
+        "NOLAWYERS": "目前附近没有在线律师"
+    },
+    "LAWYERS": {
+        "NOLAWYERS": "目前附近没有在线律师"
+    },
+    "PAGENAV": {
+        "BACK": "后退"
+    },
+    "SIDEBAR": {
+        "PROFILE": "个人信息",
+        "DISCOVER": "法律圈",
+        "CASES": "法律问题",
+        "TOOLS": "法律助手"
+    },
+    "PROFILE": {
+        "USER": "个人信息",
+        "LAWYER": "律师信息",
+        "UPDATE": "更新"
+    }
 }

@@ -1,8 +1,8 @@
 <template name="Discovers">
     <section id="page-fields">
-        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-cases-btn">{{_ "DISCOVERS_CASES"}}</button>
-        <button class="btn {{#if isLawyersField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-lawyers-btn">{{_ "DISCOVERS_LAWYERS"}}</button>
-        <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">{{_ "DISCOVERS_ARTICLES"}}</button>
+        <button class="btn {{#if isCasesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-cases-btn">{{_ "DISCOVERS.CASES"}}</button>
+        <button class="btn {{#if isLawyersField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-lawyers-btn">{{_ "DISCOVERS.LAWYERS"}}</button>
+        <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">{{_ "DISCOVERS.ARTICLES"}}</button>
     </section>
     <section class="cases">
         {{#if Template.subscriptionsReady}}
@@ -10,13 +10,13 @@
                 {{#each discovers}}
                     {{> CasesItem}}
                 {{else}}
-                    <h3>{{_ "DISCOVERS_NOCASES"}}</h3>
+                    <h3>{{_ "DISCOVERS.NOCASES"}}</h3>
                 {{/each}}
             {{else if isLawyersField}}
                 {{#each discovers}}
                     {{> LawyersItem}}
                 {{else}}
-                    <h3>{{_ "DISCOVERS_NOLAWYERS"}}</h3>
+                    <h3>{{_ "DISCOVERS.NOLAWYERS"}}</h3>
                 {{/each}}
             {{else}}
                 <h3>{{_ "COMINGSOON"}}</h3>

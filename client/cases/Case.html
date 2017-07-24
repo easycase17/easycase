@@ -3,7 +3,7 @@
     {{#if Template.subscriptionsReady}}
         <h1 class="page-title">{{case.title}}</h1>
         <article class="case">
-            <h3>{{_ "CASE_DETAILS"}}</h3>
+            <h3>{{_ "CASE.DETAILS"}}</h3>
             <p>{{case.content}}</p>
             <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
             <p>
@@ -12,36 +12,36 @@
             <p id="case-info-btn">
                 {{#if isOwner case}}
                     {{#if isPrivate case}}
-                        <button class="btn btn-text" id="public-case">{{_ "CASE_SETPUB"}}</button>
+                        <button class="btn btn-text" id="public-case">{{_ "CASE.SETPUB"}}</button>
                     {{else}}
-                        <button class="btn btn-text" id="private-case">{{_ "CASE_SETPRIV"}}</button>
+                        <button class="btn btn-text" id="private-case">{{_ "CASE.SETPRI"}}</button>
                     {{/if}}
                 {{/if}}
                 {{#if isLawyer}}
                         {{#if hasGrab}}
-                            <button class="btn btn-deny" id="drop-case">{{_ "CASE_DROPCASE"}}</button>
+                            <button class="btn btn-deny" id="drop-case">{{_ "CASE.DROPCASE"}}</button>
                         {{else}}
-                            <button class="btn btn-primary" id="grab-case">{{_ "CASE_GRABCASE"}}</button>
+                            <button class="btn btn-primary" id="grab-case">{{_ "CASE.GRABCASE"}}</button>
                         {{/if}}
                 {{/if}}
             </p>
         </article>
         {{#if contracts}}
             <article class="case">
-                <h3>{{_ "CASE_CONTRACTS"}}</h3>
+                <h3>{{_ "CASE.CONTRACTS"}}</h3>
                 <ul>
                     {{#each contracts}}
                         <li>
                             <span>{{getLawyerName(contractor)}}</span>
-                            <a href="/contracts/{{_id}}">{{_ "CASE_CONTRACT_DETAILS"}}</a>
+                            <a href="/contracts/{{_id}}">{{_ "CASE.CONTRACT_DETAILS"}}</a>
                         </li>
                     {{/each}}
                 </ul>
             </article>
         {{else}}
             <article class="case">
-                <h3>{{_ "CASE_NOCONTRACT"}}</h3>
-                <p>{{_ "CASE_NOCONTRACT_INFO"}}</p>
+                <h3>{{_ "CASE.NOCONTRACT"}}</h3>
+                <p>{{_ "CASE.NOCONTRACT_INFO"}}</p>
             </article>
         {{/if}}
     {{else}}
@@ -71,7 +71,7 @@
     <section class="new-case-container">
         {{#autoForm collection="CasesBlogs" id="insertCaseBlogForm" type="insert"}}
             <section>
-                <h3>{{_ "CASE_BLOG_POST"}}</h3>
+                <h3>{{_ "CASE.BLOG_POST"}}</h3>
                 {{> afQuickField name='caseId' value=caseId}}
                 {{> afQuickField name='content' rows=3}}
                 {{> afQuickField name='createdBy.authorId' value=userId}}
@@ -81,7 +81,7 @@
                     {{> afQuickField name='createdBy.role' value='user'}}
                 {{/if}}
             </section>
-            <button type="submit" class="btn">{{_ "CASE_BLOG_SUBMIT"}}</button>
+            <button type="submit" class="btn">{{_ "CASE.BLOG_SUBMIT"}}</button>
         {{/autoForm}}
     </section>
 </template>

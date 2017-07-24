@@ -1,13 +1,13 @@
 <template name="Cases">
     <section class="cases">
         <section class="helper">
-            <button class="btn btn-primary" id="create-case"><i class="fa fa-plus"></i> {{_ "CASES_POSTNEW"}}</button>
+            <button class="btn btn-primary" id="create-case"><i class="fa fa-plus"></i> {{_ "CASES.POSTNEW"}}</button>
         </section>
         {{#if Template.subscriptionsReady}}
             {{#each cases}}
                 {{> CasesItem}}
             {{else}}
-                <h3>{{_ "CASES_NOCASES"}}</h3>
+                <h3>{{_ "CASES.NOCASES"}}</h3>
             {{/each}}
         {{else}}
             <p>{{_ "LOADING"}}</p>

@@ -1,8 +1,8 @@
 <template name="Profile">
     <section id="page-fields">
-        <button class="btn {{#if isUserProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-user-btn">{{_ "PROFILE_USER"}}</button>
+        <button class="btn {{#if isUserProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-user-btn">{{_ "PROFILE.USER"}}</button>
         {{#if isLawyer}}
-            <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">{{_ "PROFILE_LAWYER"}}</button>
+            <button class="btn {{#if isLawyerProfile}}btn-text-dark{{else}}btn-text{{/if}}" id="profile-lawyer-btn">{{_ "PROFILE.LAWYER"}}</button>
         {{/if}}
     </section>
     {{#if isUserProfile}}
@@ -10,12 +10,12 @@
             {{#if currentUser}}
                 {{#autoForm id="updateUserProfile" collection="Meteor.users" doc=currentUser type="update"}}
                     <section>
-                        <h3>{{_ "PROFILE_USER"}}</h3>
+                        <h3>{{_ "PROFILE.USER"}}</h3>
                         {{> afQuickField name='username'}}
                         {{> afQuickField name='profile'}}
                         {{> afQuickField name='emails'}}
                     </section>
-                    <button type="submit" class="btn">{{_ "PROFILE_UPDATE"}}</button>
+                    <button type="submit" class="btn">{{_ "PROFILE.UPDATE"}}</button>
                 {{/autoForm}}
             {{else}}
                 <h3>{{_ "LOADING"}}</h3>
@@ -25,14 +25,14 @@
         <section class="profile-user-container">
             {{#autoForm id="updateLawyerProfile" collection="Lawyers" doc=isLawyer type="update"}}
                 <section>
-                    <h3>{{_ "PROFILE_LAWYER"}}</h3>
+                    <h3>{{_ "PROFILE.LAWYER"}}</h3>
                     {{> afQuickField name='name'}}
                     {{> afQuickField name='birthday'}}
                     {{> afQuickField name='gender'}}
                     {{> afQuickField name='areas'}}
                     {{> afQuickField name='location'}}
                 </section>
-                <button type="submit" class="btn">{{_ "PROFILE_UPDATE"}}</button>
+                <button type="submit" class="btn">{{_ "PROFILE.UPDATE"}}</button>
             {{/autoForm}}
         </section>
     {{else}}

@@ -1,7 +1,7 @@
 <template name="MainLayout">
     {{> notifications}}
     <header>
-        <h1>{{_ "COMPANY_NAME"}}</h1>
+        <h1>{{_ "COMPANY.NAME"}}</h1>
         {{> loginButtons }}
         {{> i18n_custom_dropdown}}
     </header>
@@ -9,7 +9,7 @@
     <main class="main-layout">
         {{#if hasNewVersion}}
             <section class="notification">
-                <h4 class="notification-title">{{_ "NEWVERSION_NOTI"}}</h4>
+                <h4 class="notification-title">{{_ "NEWVERSION.NOTI"}}</h4>
             </section>
         {{/if}}
         {{> Template.dynamic template=main }}
