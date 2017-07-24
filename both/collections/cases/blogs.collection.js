@@ -26,21 +26,18 @@ var CreatedBySchema = new SimpleSchema({
 const CaseBlogSchema = new SimpleSchema({
     caseId: {
         type: String,
-        label: 'Case Id',
         autoform: {
             type: 'hidden'
         }
     },
     createdBy: {
         type: CreatedBySchema,
-        label: 'Author Info'
     },
     content: {
         type: String
     },
     createdAt: {
         type: Date,
-        label: 'Created At',
         autoValue: function() {
             return new Date();
         },
@@ -52,7 +49,10 @@ const CaseBlogSchema = new SimpleSchema({
 
 CasesBlogs = new Mongo.Collection('ec_cases_blogs');
 CasesBlogs.schema = CaseBlogSchema;
-CasesBlogs.attachSchema(CaseBlogSchema);
+Meteor.startup(function() {
+    CaseBlogSchema.i18n("SCHEMAS.CaseBlogSchema");
+    CasesBlogs.attachSchema(CaseBlogSchema);
+});
 CasesBlogs.allow({
     insert: function(userId) {
         return !!userId;

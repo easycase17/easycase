@@ -83,7 +83,6 @@ const UsersSchema = new SimpleSchema({
     },
     profile: {
         type: UserProfileSchema,
-        label: 'Profile',
         optional: true
     },
     // Make sure this services field is in your schema if you're using any of the accounts packages
@@ -96,13 +95,15 @@ const UsersSchema = new SimpleSchema({
         }
     },
     username: {
-        type: String,
-        label: 'Username'
+        type: String
     }
 });
 
 Meteor.users.schema = UsersSchema;
-Meteor.users.attachSchema(UsersSchema);
+Meteor.startup(function () {
+    UsersSchema.i18n("SCHEMAS.UsersSchema");
+    Meteor.users.attachSchema(UsersSchema);
+});
 Meteor.users.allow({
     update: function (userId, doc) {
         return !!userId;

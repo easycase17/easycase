@@ -53,5 +53,77 @@
         "USER": "个人信息",
         "LAWYER": "律师信息",
         "UPDATE": "更新"
+    },
+    "SCHEMAS": {
+        "CasesSchema": {
+            "title": {
+                "label": "题目"
+            },
+            "tags": {
+                "label": "标签"
+            },
+            "content": {
+                "label": "内容"
+            },
+            "payment": {
+                "label": "支付"
+            },
+            "languages": {
+                "label": "语言"
+            },
+            "location": {
+                "label": "地址"
+            },
+            "isPrivate": {
+                "label": "设置为私密"
+            }
+        },
+        "LocationSchema": {
+            "street": {
+                "label": "街道"
+            },
+            "city": {
+                "label": "城市"
+            },
+            "State": {
+                "label": "州"
+            },
+            "country": {
+                "label": "国家"
+            }
+        },
+        "LawyersSchema": {
+            "name": {
+                "label": "姓名"
+            },
+            "birthday": {
+                "label": "生日"
+            },
+            "gender": {
+                "label": "性别"
+            },
+            "areas": {
+                "label": "领域"
+            },
+            "location": {
+                "label": "地址"
+            }
+        },
+        "UsersSchema": {
+            "profile": {
+                "label": "详细信息"
+            },
+            "username": {
+                "label": "用户名"
+            },
+            "emails": {
+                "label": "邮箱"
+            }
+        },
+        "CaseBlogSchema": {
+            "content": {
+                "label": "内容"
+            }
+        }
     }
 }

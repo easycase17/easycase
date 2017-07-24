@@ -54,16 +54,76 @@
         "LAWYER": "Lawyer Profile",
         "UPDATE": "Update"
     }, 
-    "SCHEMA": {
-        "CASES": {
-            "TITLE": "Title",
-            "TAGS": "Tags",
-            "CONTENT": "Content",
-            "PAYMENT": "Payment",
-            "LANGUAGES": "Languages",
-            "LOCATION": "Location",
-            "CREATEDAT": "Created At",
-            "SETPRIV": "Set Private"
+    "SCHEMAS": {
+        "CasesSchema": {
+            "title": {
+                "label": "Title"
+            },
+            "tags": {
+                "label": "Tags"
+            },
+            "content": {
+                "label": "Content"
+            },
+            "payment": {
+                "label": "Payment"
+            },
+            "languages": {
+                "label": "Languages"
+            },
+            "location": {
+                "label": "Location"
+            },
+            "isPrivate": {
+                "label": "Set Private"
+            }
+        },
+        "LocationSchema": {
+            "street": {
+                "label": "Street"
+            },
+            "city": {
+                "label": "City"
+            },
+            "State": {
+                "label": "State"
+            },
+            "country": {
+                "label": "Country"
+            }
+        },
+        "LawyersSchema": {
+            "name": {
+                "label": "Name"
+            },
+            "birthday": {
+                "label": "Birthday"
+            },
+            "gender": {
+                "label": "Gender"
+            },
+            "areas": {
+                "label": "Areas"
+            },
+            "location": {
+                "label": "Location"
+            }
+        },
+        "UsersSchema": {
+            "profile": {
+                "label": "Profile"
+            },
+            "username": {
+                "label": "Username"
+            },
+            "emails": {
+                "label": "Emails"
+            }
+        },
+        "CaseBlogSchema": {
+            "content": {
+                "label": "Content"
+            }
         }
     }
 }

@@ -16,19 +16,16 @@ const LawyerRateSchema = new SimpleSchema({
 const LawyersSchema = new SimpleSchema({
     userId: {
         type: String,
-        label: 'UserID',
         autoform: {
             type: 'hidden'
         }
     },
     name: {
         type: String,
-        label: "Name",
         max: 50
     },
     birthday: {
         type: Date,
-        label: 'Birthday',
         optional: true,
         autoform: {
             type: "bootstrap-datepicker",
@@ -40,7 +37,6 @@ const LawyersSchema = new SimpleSchema({
     },
     gender: {
         type: String,
-        label: 'Gender',
         allowedValues: ['Male', 'Female', 'Unknown'],
         autoform: {
             type: 'universe-select',
@@ -54,7 +50,6 @@ const LawyersSchema = new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        label: "Created At",
         autoValue: function () {
             return new Date()
         },
@@ -64,7 +59,6 @@ const LawyersSchema = new SimpleSchema({
     },
     areas: {
         type: [String],
-        label: "Areas",
         autoform: {
             type: 'universe-select',
             afFieldInput: {
@@ -78,11 +72,9 @@ const LawyersSchema = new SimpleSchema({
     },
     location: {
         type: LocationSchema,
-        label: 'Location'
     },
     evaluation: {
         type: Number,
-        label: "Evaluation",
         autoform: {
             type: 'hidden'
         }
@@ -97,7 +89,10 @@ const LawyersSchema = new SimpleSchema({
 
 Lawyers = new Mongo.Collection('ec_lawyers');
 Lawyers.schema = LawyersSchema;
-Lawyers.attachSchema(LawyersSchema);
+Meteor.startup(function() {
+    LawyersSchema.i18n("SCHEMAS.LawyersSchema");
+    Lawyers.attachSchema(LawyersSchema);
+});
 Lawyers.allow({
     update: function (userId, doc) {
         return !!userId;
