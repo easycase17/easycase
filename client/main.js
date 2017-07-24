@@ -1,7 +1,6 @@
-getUserLanguage = function () {
-  // Put here the logic for determining the user language
-
-  return "zh";
+const userLanguage = () => {
+  // If the user is logged in, retrieve their saved language
+  if (Meteor.user()) return Meteor.user().profile.language;
 };
 
 if (Meteor.isClient) {
@@ -10,13 +9,27 @@ if (Meteor.isClient) {
       timeout: 3500
     });
 
-    TAPi18n.setLanguage(getUserLanguage())
-      .done(function () {
-        Session.set("showLoadingIndicator", false);
-      })
-      .fail(function (error_message) {
-        // Handle the situation
-        console.log(error_message);
-      });
+    Tracker.autorun(() => {
+      let lang;
+
+      // URL Language takes priority
+      const urlLang = FlowRouter.getQueryParam('lang');
+      if (urlLang) {
+        lang = urlLang;
+      } else if (userLanguage()) {
+        // User language is set if no url lang
+        lang = userLanguage();
+      } else {
+        // If no user language, try setting by browser (default en)
+        const localeFromBrowser = window.navigator.userLanguage || window.navigator.language;
+        let locale = 'en';
+
+        if (localeFromBrowser.match(/en/)) locale = 'en';
+        if (localeFromBrowser.match(/zh/)) locale = 'zh';
+
+        lang = locale;
+      }
+      TAPi18n.setLanguage(lang);
+    });
   });
 }
