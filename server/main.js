@@ -1,9 +1,8 @@
 import './imports/startup/index.js';
-import './imports/api/users/index.js';
-import './imports/api/cases/index.js';
-import './imports/api/lawyers/index.js';
-import './imports/api/contracts/index.js';
-import './imports/api/options/index.js';
+import './imports/api/controllers/index.js';
+
+// Core
+import './imports/api/core/index.js';
 
 Meteor.startup(() => {
 

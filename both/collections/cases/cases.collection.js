@@ -70,7 +70,9 @@ Meteor.startup(function() {
     Cases.attachSchema(CasesSchema);
 });
 Cases.allow({
-    insert: function(userId) {
+    insert: function(userId, doc) {
+        // Send Noti to all related lawyers
+        Meteor.call('core.delivery.case.sendNotification', doc);
         return !!userId;
     },
     update: function(userId, doc) {
