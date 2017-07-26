@@ -71,8 +71,6 @@ Meteor.startup(function() {
 });
 Cases.allow({
     insert: function(userId, doc) {
-        // Send Noti to all related lawyers
-        Meteor.call('core.delivery.case.sendNotification', doc);
         return !!userId;
     },
     update: function(userId, doc) {

@@ -5,6 +5,10 @@
         }, 
         "gmaps": {
             "key": "AIzaSyBnRSrv1367m12xU6G_2J4uuVtmVZcuqZE"
+        },
+        "Company": {
+            "contactEmail": "contact@mail.easycase.com",
+            "domain": "http://localhost:3000"
         }
     },
     "private": {

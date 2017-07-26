@@ -1,18 +1,23 @@
 Meteor.methods({
-    'core.delivery.case.sendNotification'(caseObject) {
+    'core.delivery.case.sendNotification'(caseId) {
         this.unblock();
+        check(caseId, String);
+        var caseObject = Cases.findOne({_id: caseId});
         var lawyerArray = Lawyers.find({'location.city': caseObject.location.city, areas: { $in: caseObject.tags }}).fetch();
-        lawyerArray.forEach(function (lawyer) {
+        lawyerArray.forEach((lawyer) => {
             var user = Meteor.users.findOne({_id: lawyer.userId});
-            Meteor.defer(() => {
-                Email.send({
-                    to: `${user.emails[0].address}`,
-                    from: "contact@mail.easycase.com",
-                    subject: "New Case Notification",
-                    // @FIXME
-                    text: `http://localhost:3000/cases/${caseObject._id}`
-                });
-            });
+            Meteor.call('core.email.sendEmail', 
+                user.emails[0].address, 
+                '', 
+                '',
+                '',
+                'Easy Case -- New Case Around', 
+                'newcaseNotificationToLawyers', 
+                {
+                    lawyerName: lawyer.name,
+                    caseUrl: `${Meteor.settings.public.Company.domain}/cases/${caseObject._id}`
+                }
+            );
         });
     }
 });
