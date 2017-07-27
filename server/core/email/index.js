@@ -28,7 +28,7 @@ Meteor.methods({
             });
         }
         else {
-            throw new Meteor.Error('EmailTemplateError', 'Template Type is not assigned');
+            throw new Error('EmailTemplateError');
         }
     }
 });
