@@ -109,7 +109,7 @@ Template.Case.helpers({
 Template.Case.events({
     'click #drop-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.dropCase', caseId, Session.get('isLawyer')._id, function (err, res) {
+        Meteor.call('lawyers.dropCase', caseId, function (err, res) {
             if (!err) {
                 Meteor.disconnect();
                 Meteor.reconnect();
@@ -118,7 +118,7 @@ Template.Case.events({
     },
     'click #grab-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.grabCase', caseId, Session.get('isLawyer')._id, function (err, res) {
+        Meteor.call('lawyers.grabCase', caseId, function (err, res) {
             if (!err) {
                 Meteor.disconnect();
                 Meteor.reconnect();

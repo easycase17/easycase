@@ -13,7 +13,7 @@ const LawyerRateSchema = new SimpleSchema({
     }
 });
 
-const LawyersSchema = new SimpleSchema({
+LawyersSchema = new SimpleSchema({
     userId: {
         type: String,
         autoform: {
@@ -71,7 +71,7 @@ const LawyersSchema = new SimpleSchema({
         }
     },
     location: {
-        type: LocationSchema,
+        type: LocationSchema
     },
     evaluation: {
         type: Number,
@@ -95,6 +95,6 @@ Meteor.startup(function() {
 });
 Lawyers.allow({
     update: function (userId, doc) {
-        return !!userId;
+        return false;
     }
 });

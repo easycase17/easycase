@@ -1,25 +1,64 @@
 Meteor.methods({
     'cases.findCase'(caseId) {
-        return Cases.findOne(caseId);
+        // Check if legal user
+        if (this.userId) {
+            return Cases.findOne(caseId);
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding case');
+        }
     },
     'cases.findContract'(caseId) {
-        return Contracts.find({caseId: caseId});
+        // Check if legal user
+        if (this.userId) {
+            return Contracts.find({ caseId: caseId });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding a contract');
+        }
     },
     'cases.findContractors'(caseId) {
-        return Contracts.find({caseId: caseId}, {contractors: true});
+        // Check if legal user
+        if (this.userId) {
+            return Contracts.find({ caseId: caseId }, { contractors: true });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding contractors');
+        }
     },
     'cases.setPrivate'(caseId, userId) {
-        return Cases.update({_id: caseId, createdBy: userId}, {$set: {isPrivate: true}});
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: true } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
+        }
     },
-    'cases.setPublic'(caseId, userId) {
-        return Cases.update({_id: caseId, createdBy: userId}, {$set: {isPrivate: false}});
+    'cases.setPublic'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: false } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
+        }
     },
     'cases.insert'(doc) {
-        // To add autoValue in the SimpleSchema
-        CasesSchema.clean(doc);
-        check(doc, CasesSchema);
-        this.unblock();
-        var caseId = Cases.insert(doc);
-        Meteor.call('core.delivery.case.sendNotification', caseId);
+        // Check if legal user
+        if (this.userId) {
+            // To add autoValue in the SimpleSchema
+            CasesSchema.clean(doc);
+
+            // Validate doc
+            check(doc, CasesSchema);
+
+            this.unblock();
+
+            // Insert doc into collections
+            var caseId = Cases.insert(doc);
+
+            // If inserted successfully, trigger delivery notification to related lawyers
+            if (caseId) {
+                Meteor.call('core.delivery.case.sendNotification', caseId);
+            }
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When inserting a case');
+        }
     }
 });
