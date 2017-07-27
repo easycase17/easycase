@@ -24,10 +24,24 @@ const CasesSchema = new SimpleSchema({
         max: 40
     },
     tags: {
-        type: [String]
+        type: [String],
+        autoform: {
+            type: 'universe-select',
+            afFieldInput: {
+                uniPlaceholder: "Enter Related Law Tags",
+                multiple: true,
+                optionsMethod: "options.getOptions",
+                optionsMethodParams: {
+                    field: 'law'
+                }
+            }
+        }
     },
     content: {
-        type: String
+        type: String,
+        autoform: {
+            placeholder: 'Describe Your Case In Condense Sentences'
+        }
     },
     payment: {
         type: Number,
@@ -36,7 +50,17 @@ const CasesSchema = new SimpleSchema({
     },
     languages: {
         type: [String],
-        defaultValue: ['EN']
+        autoform: {
+            type: 'universe-select',
+            afFieldInput: {
+                uniPlaceholder: "Enter Languages That You Want The Case Be Translated To",
+                multiple: true,
+                optionsMethod: "options.getOptions",
+                optionsMethodParams: {
+                    field: 'language'
+                }
+            }
+        }
     },
     location: {
         type: LocationSchema
