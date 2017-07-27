@@ -27,8 +27,7 @@ const UserProfileSchema = new SimpleSchema({
     pinCode: {
         type: Number,
         optional: true,
-        min: 7,
-        max: 7
+        regEx: SimpleSchema.RegEx.ZipCode
     },
     birthday: {
         type: Date,
@@ -45,8 +44,8 @@ const UserProfileSchema = new SimpleSchema({
     phoneNumber: {
         type: Number,
         optional: true,
-        min: 9,
-        max: 10
+        min: 10,
+        max: 11
     }
 });
 
