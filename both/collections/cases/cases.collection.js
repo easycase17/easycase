@@ -18,7 +18,7 @@ LocationSchema = new SimpleSchema({
     }
 });
 
-const CasesSchema = new SimpleSchema({
+CasesSchema = new SimpleSchema({
     title: {
         type: String,
         max: 40
@@ -38,10 +38,7 @@ const CasesSchema = new SimpleSchema({
         }
     },
     content: {
-        type: String,
-        autoform: {
-            placeholder: 'Describe Your Case In Condense Sentences'
-        }
+        type: String
     },
     payment: {
         type: Number,
@@ -95,7 +92,7 @@ Meteor.startup(function() {
 });
 Cases.allow({
     insert: function(userId, doc) {
-        return !!userId;
+        return false;
     },
     update: function(userId, doc) {
         return !!userId;

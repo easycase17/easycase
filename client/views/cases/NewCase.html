@@ -1,7 +1,7 @@
 <template name="NewCase">
     {{> PageNav}}
     <section class="new-case-container">
-        {{#autoForm collection="Cases" id="insertCaseForm" type="insert" autocomplete="off"}}
+        {{#autoForm collection="Cases" id="insertCaseForm" type="method" meteormethod="cases.insert" autocomplete="off"}}
             <div>
                 <h3>{{_ "NEWCASE.POST"}}</h3>
                 {{> afQuickField name='title'}}

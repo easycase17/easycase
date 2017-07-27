@@ -10,7 +10,6 @@ AutoForm.hooks({
         onSuccess: function (formType, res) {
             FlowRouter.go('/cases');
             Notifications.success('Success', 'Your case will be delivered to nearby lawyers!');
-            Meteor.call('core.delivery.case.sendNotification', res);
         },
         onError: function (name, error, template) {
             console.log(name + " error:", error);
