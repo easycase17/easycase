@@ -11,10 +11,31 @@ Meteor.methods({
         check(templateType, String);
         check(templateData, Object);
 
+        // Check if the templateType exists, which is if the related html exists
+        var filePath = `emailTemplates/${templateType}.html`;
+        if (!fs.existsSync(filePath)) {
+            throw new Error('EmailTemplateTypeError');
+        }
+
         // templateType cannot be null
         if (templateType) {
             // Load the html template file
-            SSR.compileTemplate('htmlEmail', Assets.getText(`emailTemplates/${templateType}.html`));
+            SSR.compileTemplate(`${templateType}`, Assets.getText(filePath));
+            // Render data into the template
+            var tplt = SSR.render(`${templateType}`, templateData);
+
+            // Load the base email tamplate file
+            SSR.compileTemplate('baseEmail', Assets.getText('emailTemplates/_base.html'));
+            // Render the template into this _base html
+            var finalEmail = SSR.render('baseEmail', {
+                company: {
+                    name: `${Meteor.settings.public.Company.name}`,
+                    address: `${Meteor.settings.public.Company.address}`,
+                    domain: `${Meteor.settings.public.Company.domain}`,
+                    unsubUrl: `${Meteor.settings.public.Company.domain}/email/unsubscribe`
+                },
+                content: tplt
+            });
             Meteor.defer(() => {
                 // Send the email
                 Email.send({
@@ -23,7 +44,7 @@ Meteor.methods({
                     cc: (cc && cc.length > 0) ? cc : null,
                     replayTo: (replayTo && replayTo.length > 0) ? replayTo : null,
                     subject: (subject && subject.length > 0) ? subject : "Easy Case",
-                    html: SSR.render('htmlEmail', templateData)
+                    html: finalEmail
                 });
             });
         }
