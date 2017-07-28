@@ -4,7 +4,7 @@
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
 
-var CreatedBySchema = new SimpleSchema({
+const CreatedBySchema = new SimpleSchema({
     authorId: {
         type: String,
         autoform: {
@@ -23,7 +23,7 @@ var CreatedBySchema = new SimpleSchema({
     }
 });
 
-const CaseBlogSchema = new SimpleSchema({
+CaseBlogSchema = new SimpleSchema({
     caseId: {
         type: String,
         autoform: {
@@ -54,13 +54,7 @@ Meteor.startup(function() {
     CasesBlogs.attachSchema(CaseBlogSchema);
 });
 CasesBlogs.allow({
-    insert: function(userId) {
-        return !!userId;
-    },
     update: function(userId) { 
-        return !!userId; 
-    },
-    remove: function() { 
         return !!userId; 
     }
 })

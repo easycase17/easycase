@@ -60,5 +60,25 @@ Meteor.methods({
         } else {
             throw new Meteor.Error('IllegalUserError', 'When inserting a case');
         }
+    },
+    'cases.blogs.insert'(doc) {
+        if (this.userId) {
+            // To add autoValue in the SimpleSchema
+            CaseBlogSchema.clean(doc);
+
+            // Validate doc
+            check(doc, CaseBlogSchema);
+
+            this.unblock();
+
+            // Insert doc into collection
+            var blogId = CasesBlogs.insert(doc);
+
+            if (blogId) {
+                // @TODO other services
+            }
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When inserting a caseblog');
+        }
     }
 });
