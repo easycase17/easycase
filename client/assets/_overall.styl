@@ -150,24 +150,10 @@ p
         width 100% 
 
 .new-blog
-    margin-bottom 20px 
+    @extend .new-case
 
 .new-blog-container
-    position relative
-    background #FFF
-    padding 20px 
-    margin-bottom 20px 
-    shadow-level(2) 
-    .fa-close
-        position absolute
-        top 0
-        right 0
-        padding 20px   
-    label
-        display block
-        margin-bottom 10px 
-    textarea, input
-        width 100% 
+    @extend .new-case-container
 
 .btn, button
     display inline-block
@@ -332,7 +318,7 @@ input, select, textarea
 
 .case
     background #FFF 
-    padding 5px 20px 20px
+    padding 10px 20px 20px
     margin-bottom 20px
     position relative 
     z-index 1
@@ -438,3 +424,10 @@ input, select, textarea
     margin 3px
     a
         color #FFF
+
+.tool
+    @extend .case
+    shadow-level(2)
+    min-height 500px
+    .details
+        min-height 360px
