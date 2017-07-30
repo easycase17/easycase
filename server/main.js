@@ -1,9 +1,6 @@
 import './imports/startup/index.js';
 import './imports/api/index.js';
 
-// Core
-import './core/index.js';
-
 Meteor.startup(() => {
 
     /**

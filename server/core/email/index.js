@@ -1,7 +1,11 @@
-Meteor.methods({
-    'core.email.sendEmail'(to, from, cc, replayTo, subject, templateType, templateData) {
-        this.unblock();
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
+import { Email } from 'meteor/email';
+import { SSR } from 'meteor/meteorhacks:ssr';
 
+module.exports = {
+    sendEmail(to, from, cc, replayTo, subject, templateType, templateData) {
         // Check the parameters type
         check(to, String);
         check(from, String);
@@ -13,9 +17,6 @@ Meteor.methods({
 
         // Check if the templateType exists, which is if the related html exists
         var filePath = `emailTemplates/${templateType}.html`;
-        if (!fs.existsSync(filePath)) {
-            throw new Error('EmailTemplateTypeError');
-        }
 
         // templateType cannot be null
         if (templateType) {
@@ -52,4 +53,4 @@ Meteor.methods({
             throw new Error('EmailTemplateError');
         }
     }
-});
+}

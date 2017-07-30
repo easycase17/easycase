@@ -55,7 +55,14 @@ Meteor.methods({
 
             // If inserted successfully, trigger delivery notification to related lawyers
             if (caseId) {
-                Meteor.call('core.delivery.case.sendNotification', caseId);
+                // Meteor.call('core.delivery.case.sendNotification', caseId);
+                try {
+                    var delivery = require('../../../core/delivery/case.js');
+                    delivery.sendNotification(caseId);
+                } catch (e) {
+                    // @TODO Handle the erro properly
+                    console.log(e);
+                }
             }
         } else {
             throw new Meteor.Error('IllegalUserError', 'When inserting a case');

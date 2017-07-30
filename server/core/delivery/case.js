@@ -1,12 +1,16 @@
-Meteor.methods({
-    'core.delivery.case.sendNotification'(caseId) {
-        this.unblock();
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
+var ECEmail = require('../email/index.js');
+
+module.exports = {
+    sendNotification: (caseId) => {
         check(caseId, String);
         var caseObject = Cases.findOne({ _id: caseId });
         var lawyerArray = Lawyers.find({ 'location.city': caseObject.location.city, areas: { $in: caseObject.tags } }).fetch();
         lawyerArray.forEach((lawyer) => {
             var user = Meteor.users.findOne({ _id: lawyer.userId });
-            Meteor.call('core.email.sendEmail',
+            ECEmail.sendEmail(
                 user.emails[0].address,
                 '',
                 '',
@@ -20,4 +24,4 @@ Meteor.methods({
             );
         });
     }
-});
+}
