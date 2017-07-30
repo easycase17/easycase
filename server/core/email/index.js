@@ -4,8 +4,23 @@ import { check } from 'meteor/check';
 import { Email } from 'meteor/email';
 import { SSR } from 'meteor/meteorhacks:ssr';
 
-module.exports = {
-    sendEmail(to, from, cc, replayTo, subject, templateType, templateData) {
+var ECEmail = {
+    renderTemplate: (tplt) => {
+        // Load the base email tamplate file
+        SSR.compileTemplate('baseEmail', Assets.getText('emailTemplates/_base.html'));
+        // Render the template into this _base html
+        var res = SSR.render('baseEmail', {
+            company: {
+                name: `${Meteor.settings.public.Company.name}`,
+                address: `${Meteor.settings.public.Company.address}`,
+                domain: `${Meteor.settings.public.Company.domain}`,
+                unsubUrl: `${Meteor.settings.public.Company.domain}/email/unsubscribe`
+            },
+            content: tplt
+        });
+        return res;
+    },
+    sendEmail: (to, from, cc, replayTo, subject, templateType, templateData) => {
         // Check the parameters type
         check(to, String);
         check(from, String);
@@ -25,18 +40,9 @@ module.exports = {
             // Render data into the template
             var tplt = SSR.render(`${templateType}`, templateData);
 
-            // Load the base email tamplate file
-            SSR.compileTemplate('baseEmail', Assets.getText('emailTemplates/_base.html'));
-            // Render the template into this _base html
-            var finalEmail = SSR.render('baseEmail', {
-                company: {
-                    name: `${Meteor.settings.public.Company.name}`,
-                    address: `${Meteor.settings.public.Company.address}`,
-                    domain: `${Meteor.settings.public.Company.domain}`,
-                    unsubUrl: `${Meteor.settings.public.Company.domain}/email/unsubscribe`
-                },
-                content: tplt
-            });
+            // Render final email based on _base.html
+            var finalEmail = ECEmail.renderTemplate(tplt);
+
             Meteor.defer(() => {
                 // Send the email
                 Email.send({
@@ -54,3 +60,5 @@ module.exports = {
         }
     }
 }
+
+module.exports = ECEmail;
