@@ -360,6 +360,16 @@ input, select, textarea
     &:hover 
         shadow-level(3)
         // animation card 0.6s ease 1 forwards
+    &.toggle-state
+        background teal
+        color #FFF
+        h3
+            border-bottom: rgba(255,255,255, 0.6) solid 3px
+        .add-to-menu
+            display none
+        .remove-from-menu
+            display block
+
 .case
     @extend .ec-material-card
     padding 0px 0px 10px

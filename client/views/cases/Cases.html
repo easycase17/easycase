@@ -16,7 +16,7 @@
 </template>
 
 <template name="CasesItem">
-    <article class="case">
+    <article class="case {{#if isComplete}}toggle-state{{/if}}">
         <section class="attribute-tags">{{{ tagsHtml(_id) }}}</section>
         <section class="publish-type-labels">
             <span class="label court">
