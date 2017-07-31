@@ -60,6 +60,9 @@
         "CASES": "Cases",
         "TOOLS": "Tools"
     },
+    "SEARCHTOOL": {
+        "TOOL": "Search Tool"
+    },
     "PROFILE": {
         "USER": "User Profile",
         "LAWYER": "Lawyer Profile",

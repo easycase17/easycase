@@ -30,6 +30,10 @@ Template.Lawyer.onCreated(function () {
     var self = this;
     var id = FlowRouter.getParam('id');
     var subs = self.subscribe('singleLawyer', id);
+
+    // View counts inc
+    Meteor.call('lawyers.viewLawyer', id);
+
     self.autorun(function () {
         if (!subs.ready()) return;
         var lyrloc = Lawyers.findOne({ _id: id }).location;

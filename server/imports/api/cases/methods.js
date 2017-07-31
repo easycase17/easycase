@@ -103,5 +103,15 @@ Meteor.methods({
         } else {
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
+    },
+    'cases.viewCase'(caseId) {
+        if (this.userId) {
+            var res = ViewsCase.update({ caseId: caseId }, { $inc: { viewCounts: 1 } });
+            if (!res) {
+                ViewsCase.insert({ caseId: caseId });
+            }
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When viewing case information');
+        }
     }
 });

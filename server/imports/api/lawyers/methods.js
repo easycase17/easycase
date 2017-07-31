@@ -78,5 +78,15 @@ Meteor.methods({
         } else {
             throw new Meteor.Error('IllegalUserError', 'When updating a lawyer profile');
         }
+    },
+    'lawyers.viewLawyer'(lawyerId) {
+        if (this.userId) {
+            var res = ViewsLawyer.update({ lawyerId: lawyerId }, { $inc: { viewCounts: 1 } });
+            if (!res) {
+                ViewsLawyer.insert({ lawyerId: lawyerId });
+            }
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When viewing lawyer information');
+        }
     }
 });

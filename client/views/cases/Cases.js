@@ -63,6 +63,9 @@ Template.Case.onCreated(function () {
     var id = FlowRouter.getParam('id');
     var subs = self.subscribe('singleCase', id);
 
+    // Inc view counts
+    Meteor.call('cases.viewCase', id);
+
     self.autorun(function () {
         if (!subs.ready()) return;
         var isLawyer = Session.get('isLawyer');

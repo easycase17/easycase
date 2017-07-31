@@ -60,6 +60,9 @@
         "CASES": "法律问题",
         "TOOLS": "法律助手"
     },
+    "SEARCHTOOL": {
+        "TOOL": "搜索工具"
+    },
     "PROFILE": {
         "USER": "个人信息",
         "LAWYER": "律师信息",
