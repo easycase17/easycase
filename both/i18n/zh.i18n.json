@@ -48,7 +48,8 @@
         "NOLAWYERS": "目前附近没有在线律师"
     },
     "LAWYERSITEM": {
-        "LAWYER": "律师"
+        "SUCCESSRATE": "胜诉率",
+        "EVALUATION": "评价"
     },
     "PAGENAV": {
         "BACK": "后退"

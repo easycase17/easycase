@@ -48,7 +48,8 @@
         "NOLAWYERS": "There is no lawyers available right now. Sorry about this."
     },
     "LAWYERSITEM": {
-        "LAWYER": "Lawyer"
+        "SUCCESSRATE": "Success Rate",
+        "EVALUATION": "Evaluation"
     },
     "PAGENAV": {
         "BACK": "Back"
