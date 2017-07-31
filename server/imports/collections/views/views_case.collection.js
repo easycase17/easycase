@@ -9,6 +9,6 @@ ViewsCaseSchema = new SimpleSchema({
 });
 
 ViewsCase = new Mongo.Collection('ec_views_case');
-ViewsCase._ensureIndex({ caseId: 1 });
+ViewsCase._ensureIndex({ caseId: 1 }, { unique: true });
 ViewsCase.schema = ViewsCaseSchema;
 ViewsCase.attachSchema(ViewsCaseSchema);

@@ -9,6 +9,6 @@ ViewsLawyerSchema = new SimpleSchema({
 });
 
 ViewsLawyer = new Mongo.Collection('ec_views_lawyer');
-ViewsLawyer._ensureIndex({ lawyerId: 1 });
+ViewsLawyer._ensureIndex({ lawyerId: 1 }, { unique: true });
 ViewsLawyer.schema = ViewsLawyerSchema;
 ViewsLawyer.attachSchema(ViewsLawyerSchema);
