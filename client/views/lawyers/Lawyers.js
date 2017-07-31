@@ -12,6 +12,19 @@ Template.Lawyers.helpers({
     }
 });
 
+Template.LawyersItem.helpers({
+    areasHtml: () => {
+        var areas = Template.instance().data.areas;
+        var areasView = [];
+
+        areas.forEach(function(tag) {
+            areasView.push(`<div class="attribute-tag"><span class="text">${tag}</span></div>`);
+        });
+        areasView = areasView.join('');
+        return areasView;
+    }
+});
+
 /* -------------------- Lawyer Template ----------------------- */
 Template.Lawyer.onCreated(function () {
     var self = this;

@@ -33,7 +33,8 @@ CasesSchema = new SimpleSchema({
                 optionsMethod: "options.getOptions",
                 optionsMethodParams: {
                     field: 'law'
-                }
+                },
+                valuesLimit: 3
             }
         }
     },
@@ -55,7 +56,8 @@ CasesSchema = new SimpleSchema({
                 optionsMethod: "options.getOptions",
                 optionsMethodParams: {
                     field: 'language'
-                }
+                },
+                valuesLimit: 3
             }
         }
     },
@@ -68,7 +70,6 @@ CasesSchema = new SimpleSchema({
             return new Date()
         },
         autoform: {
-            disabled: true,
             type: 'hidden'
         }
     },
@@ -88,6 +89,7 @@ CasesSchema = new SimpleSchema({
     },
     lastChange: {
         type: Date,
+        optional: true,
         autoValue: function() {
             return new Date();
         },

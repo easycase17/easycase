@@ -1,5 +1,5 @@
 <template name="Lawyers">
-    <section class="cases lawyers">
+    <section class="lawyers">
         {{#if Template.subscriptionsReady}}
             {{#each lawyers}}
                 {{> LawyersItem}}
@@ -13,11 +13,18 @@
 </template>
 
 <template name="LawyersItem">
-    <article class="case lawyer">
-        <h3>{{name}}</h3>
-        {{#each area in areas}}
-            <p>{{area}}</p>
-        {{/each}}
-        <a href="/lawyers/{{_id}}">{{_ "VIEW_DETAILS"}}</a>
+    <article class="lawyer">
+        <section class="attribute-tags">{{{ areasHtml(_id) }}}</section>
+        <section class="publish-type-labels">
+            <span class="label court">
+                <span class="organization court">
+                    {{_ "LAWYERSITEM.LAWYER"}}
+                    <span class="triangle-top-right"></span>
+                </span>
+                {{ rate.success }}%
+            </span>
+        </section>
+        <h3><a href="/lawyers/{{_id}}">{{name}}</a></h3>
+        <p>{{_ "COMINGSOON"}}</p>
     </article>
 </template>

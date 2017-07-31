@@ -2,7 +2,7 @@
     {{> PageNav}}
     {{#if Template.subscriptionsReady}}
         <h1 class="page-title">{{case.title}}</h1>
-        <article class="case">
+        <article class="ec-material-card">
             <h3>{{_ "CASE.DETAILS"}}</h3>
             <p>{{case.content}}</p>
             <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
@@ -32,7 +32,7 @@
             </p>
         </article>
         {{#if contracts}}
-            <article class="case">
+            <article class="ec-material-card">
                 <h3>{{_ "CASE.CONTRACTS"}}</h3>
                 <ul>
                     {{#each contracts}}

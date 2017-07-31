@@ -47,6 +47,9 @@
     "LAWYERS": {
         "NOLAWYERS": "There is no lawyers available right now. Sorry about this."
     },
+    "LAWYERSITEM": {
+        "LAWYER": "Lawyer"
+    },
     "PAGENAV": {
         "BACK": "Back"
     },

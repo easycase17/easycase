@@ -47,6 +47,9 @@
     "LAWYERS": {
         "NOLAWYERS": "目前附近没有在线律师"
     },
+    "LAWYERSITEM": {
+        "LAWYER": "律师"
+    },
     "PAGENAV": {
         "BACK": "后退"
     },
