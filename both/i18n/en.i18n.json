@@ -13,6 +13,11 @@
         "NOCASES": "Happy Time! No case on you right now!",
         "POSTNEW": "Post A New Case"
     },
+    "CASESITEM": {
+        "LAW": "Law",
+        "COMPLETE": "Complete",
+        "UNCOMPLETE": "Uncomplete"
+    },
     "CASE": {
         "DETAILS": "Details",
         "SETPUB": "Set Public",

@@ -36,8 +36,23 @@ Template.CasesItem.helpers({
     findUsername: (userId) => {
         // @FIXME
         return Meteor.users.findOne(userId).username;
+    },
+    tagsHtml: (caseId) => {
+        var tags = Template.instance().data.tags;
+        var tagsView = [];
+
+        tags.forEach(function(tag) {
+            tagsView.push(`<div class="attribute-tag"><span class="text">${tag}</span></div>`);
+        });
+        tagsView = tagsView.join('');
+        return tagsView;
+    },
+    createdAtString: () => {
+        var date = Template.instance().data.createdAt;
+        return date.toString();
     }
 });
+
 
 /* --------------------  Case Template  ---------------------- */
 Template.Case.onCreated(function () {

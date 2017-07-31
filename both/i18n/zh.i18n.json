@@ -13,6 +13,11 @@
         "NOCASES": "没有官司缠身",
         "POSTNEW": "提问"
     },
+    "CASESITEM": {
+        "LAW": "法",
+        "COMPLETE": "解决",
+        "UNCOMPLETE": "未解决"
+    },
     "CASE": {
         "DETAILS": "详情",
         "SETPUB": "开放问题",

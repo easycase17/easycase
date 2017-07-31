@@ -17,9 +17,23 @@
 
 <template name="CasesItem">
     <article class="case">
-        <h3>{{title}}</h3>
-        <p>{{content}}</p>
-        <p><i class="fa fa-user"></i> {{findUsername(createdBy)}}</p>
-        <a href="/cases/{{_id}}">{{_ "VIEW_DETAILS"}}</a>
+        <section class="attribute-tags">{{{ tagsHtml(_id) }}}</section>
+        <section class="publish-type-labels">
+            <span class="label court">
+                <span class="organization court">
+                    {{_ "CASESITEM.LAW"}}
+                    <span class="triangle-top-right"></span>
+                </span>
+                {{#if isComplete}}{{_ "CASESITEM.COMPLETE"}}{{else}}{{_ "CASESITEM.UNCOMPLETE"}}{{/if}}
+            </span>
+        </section>
+        <h3><a href="/cases/{{_id}}">{{ title }}</a></h3>
+        <div class="attached-infos">
+            <span class="info">{{location.state}}</span>
+            <span class="info"><a href="https://www.tippecanoe.in.gov">Tippecanoe County</a></span>
+            <span class="info">{{ createdAtString }}</span>
+        </div>
+        <p>{{ content }}</p>
+        <p><i class="fa fa-user"></i> {{ findUsername(createdBy) }}</p>
     </article>
 </template>

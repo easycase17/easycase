@@ -64,10 +64,11 @@ CasesSchema = new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        autoValue: function() {
+        defaultValue: function() {
             return new Date()
         },
         autoform: {
+            disabled: true,
             type: 'hidden'
         }
     },
@@ -84,6 +85,16 @@ CasesSchema = new SimpleSchema({
     isComplete: {
         type: Boolean,
         defaultValue: false
+    },
+    lastChange: {
+        type: Date,
+        autoValue: function() {
+            return new Date();
+        },
+        autoform: {
+            disabled: true,
+            type: 'hidden'
+        }
     }
 });
 

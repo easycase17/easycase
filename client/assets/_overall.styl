@@ -44,6 +44,8 @@ light-red = #CA5765
 pink = #CF256D
 orange = #E8846B
 
+$color-secondary = purp
+
 z = {
     neg: -7,
     lowest: 1,
@@ -318,32 +320,29 @@ input, select, textarea
 
 .case
     background #FFF 
-    padding 10px 20px 20px
+    padding 0px 0px 20px
     margin-bottom 20px
     position relative 
     z-index 1
     shadow-level(1)
     trans()
-    .remove-from-menu
-        display none
-    &.in-menu
-        background teal
-        color #FFF
-        h3
-            border-bottom: rgba(255,255,255, 0.6) solid 3px
-        .add-to-menu
-            display none
-        .remove-from-menu  
-            display block
     h3
+        width 85%
         font-size: 2em;
         opacity: 0.3;
         border-bottom: rgba(0,0,0, 0.3) solid 3px
-        margin-top 0
+        margin-top 0px
         margin-bottom 10px 
+        padding-top 50px
+        padding-left 20px
         padding-bottom 5px
+    div
+        padding-bottom 5px
+    p
+        padding-left 20px
     button
         margin-top 20px 
+        padding-left 20px
     .fa-trash
         opacity 0.3
         cursor pointer
@@ -431,3 +430,102 @@ input, select, textarea
     min-height 500px
     .details
         min-height 360px
+
+.attribute-tags
+    text-align right
+    padding-right 10px
+
+    .attribute-tag
+        display inline-block
+        margin-left: 5px
+        float right
+        width 0
+        height 0
+        border-top 30px solid $color-secondary
+        border-right 17.5px solid $color-secondary
+        border-bottom 10px solid transparent
+        border-left 17.5px solid $color-secondary
+
+        .text
+            text-align center
+            position relative
+            min-width 30px
+            display block
+            font-size 9px
+            color white
+            top -25px
+            left -15px
+            font-weight normal
+
+.attached-infos
+    font-size 14px
+    color #999
+    line-height 24px
+    padding-bottom 5px
+
+    .info
+        margin-right 10px
+        line-height 10px
+
+        &::before
+            content '|'
+            margin-right 13px
+
+        &:first-of-type::before
+            content ''
+
+.publish-type-labels
+    display inline-block
+    float left
+    margin-left -5px
+    margin-top 10px
+
+    .label
+        display inline-block
+        min-width 75px
+        padding 0
+        line-height 24px
+        background-color #fc6e22
+        color #fff
+        text-align center
+        border-radius 0px
+        font-size 14px
+
+        &.procuratorate
+            background-color #bbdefb
+            color #1274ac
+            padding-right 5px
+
+        &.court
+            background-color #ffccbc
+            color #ef5829
+            padding-right 5px
+
+        .organization
+            display inline-block
+            padding 0 10px
+            position relative
+
+            &.procuratorate
+                background-color #03a9f4
+                color #ffffff
+
+                .triangle-top-right
+                    border-top 5px solid #0f76a4 !important
+
+            &.court
+                background-color #ff6e02
+                color #ffffff
+
+                .triangle-top-right
+                    border-top 5px solid #9e4909 !important
+
+        .triangle-top-right
+            position absolute
+            left 0px
+            bottom -5px
+            width 0
+            height 0
+            border-top 5px solid #9e4909
+            border-left 5px solid transparent
+            border-right 0px solid transparent
