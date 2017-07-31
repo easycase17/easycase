@@ -80,6 +80,10 @@ CasesSchema = new SimpleSchema({
     isPrivate: {
         type: Boolean,
         defaultValue: true
+    },
+    isComplete: {
+        type: Boolean,
+        defaultValue: false
     }
 });
 

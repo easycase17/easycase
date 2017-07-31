@@ -19,6 +19,8 @@
         "SETPRI": "保密问题",
         "GRABCASE": "领取此问题",
         "DROPCASE": "放弃此问题",
+        "SETCOMPLETE": "设置为已解决",
+        "SETUNCOMPLETE": "设置为待解决",
         "CONTRACTS": "合同",
         "CONTRACT_DETAILS": "详情",
         "NOCONTRACT": "无合同",

@@ -19,6 +19,8 @@
         "SETPRI": "Set Private",
         "GRABCASE": "Grab",
         "DROPCASE": "Drop",
+        "SETCOMPLETE": "Set Complete",
+        "SETUNCOMPLETE": "Set Uncomplete",
         "CONTRACTS": "Contracts",
         "CONTRACT_DETAILS": "Details",
         "NOCONTRACT": "No Contract",

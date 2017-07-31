@@ -103,35 +103,52 @@ Template.Case.helpers({
     },
     isPrivate: (case_info) => {
         return case_info.isPrivate;
+    },
+    isComplete: (case_info) => {
+        return case_info.isComplete;
     }
 });
 
 Template.Case.events({
     'click #drop-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.dropCase', caseId, function (err, res) {
-            if (!err) {
-                Meteor.disconnect();
-                Meteor.reconnect();
-            }
-        });
+        Meteor.call('lawyers.dropCase', caseId);
     },
     'click #grab-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('lawyers.grabCase', caseId, function (err, res) {
-            if (!err) {
-                Meteor.disconnect();
-                Meteor.reconnect();
-            }
-        });
+        Meteor.call('lawyers.grabCase', caseId);
     },
     'click #private-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('cases.setPrivate', caseId, Meteor.userId());
+        Meteor.call('cases.setPrivate', caseId, function(err, res) {
+            if (err) {
+                console.log(err);
+            }
+        });
     },
     'click #public-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('cases.setPublic', caseId, Meteor.userId());
+        Meteor.call('cases.setPublic', caseId, function(err, res) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    },
+    'click #complete-case': function (event, template) {
+        var caseId = FlowRouter.getParam('id');
+        Meteor.call('cases.setComplete', caseId, function(err, res) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    },
+    'click #uncomplete-case': function (event, template) {
+        var caseId = FlowRouter.getParam('id');
+        Meteor.call('cases.setUncomplete', caseId, function(err, res) {
+            if (err) {
+                console.log(err);
+            }
+        });
     }
 });
 

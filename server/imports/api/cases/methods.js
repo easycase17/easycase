@@ -1,44 +1,4 @@
-Meteor.methods({
-    'cases.findCase'(caseId) {
-        // Check if legal user
-        if (this.userId) {
-            return Cases.findOne(caseId);
-        } else {
-            throw new Meteor.Error('IllegalUserError', 'When finding case');
-        }
-    },
-    'cases.findContract'(caseId) {
-        // Check if legal user
-        if (this.userId) {
-            return Contracts.find({ caseId: caseId });
-        } else {
-            throw new Meteor.Error('IllegalUserError', 'When finding a contract');
-        }
-    },
-    'cases.findContractors'(caseId) {
-        // Check if legal user
-        if (this.userId) {
-            return Contracts.find({ caseId: caseId }, { contractors: true });
-        } else {
-            throw new Meteor.Error('IllegalUserError', 'When finding contractors');
-        }
-    },
-    'cases.setPrivate'(caseId, userId) {
-        // Check if legal user
-        if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: true } });
-        } else {
-            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
-        }
-    },
-    'cases.setPublic'(caseId) {
-        // Check if legal user
-        if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: false } });
-        } else {
-            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
-        }
-    },
+Meteor.methods({   
     'cases.insert'(doc) {
         // Check if legal user
         if (this.userId) {
@@ -86,6 +46,62 @@ Meteor.methods({
             }
         } else {
             throw new Meteor.Error('IllegalUserError', 'When inserting a caseblog');
+        }
+    },
+    'cases.findCase'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.findOne(caseId);
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding case');
+        }
+    },
+    'cases.findContract'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Contracts.find({ caseId: caseId });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding a contract');
+        }
+    },
+    'cases.findContractors'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Contracts.find({ caseId: caseId }, { contractors: true });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When finding contractors');
+        }
+    },
+    'cases.setPrivate'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: true } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
+        }
+    },
+    'cases.setPublic'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: false } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
+        }
+    },
+    'cases.setComplete'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: true } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
+        }
+    },
+    'cases.setUncomplete'(caseId) {
+        // Check if legal user
+        if (this.userId) {
+            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: false } });
+        } else {
+            throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
     }
 });

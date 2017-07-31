@@ -16,6 +16,11 @@
                     {{else}}
                         <button class="btn btn-text" id="private-case">{{_ "CASE.SETPRI"}}</button>
                     {{/if}}
+                    {{#if isComplete case}}
+                        <button class="btn btn-deny" id="uncomplete-case">{{_ "CASE.SETUNCOMPLETE"}}</button>
+                    {{else}}
+                        <button class="btn btn-deny" id="complete-case">{{_ "CASE.SETCOMPLETE"}}</button>
+                    {{/if}}
                 {{/if}}
                 {{#if isLawyer}}
                         {{#if hasGrab}}
