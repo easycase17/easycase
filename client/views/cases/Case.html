@@ -4,7 +4,7 @@
         <h1 class="page-title">{{case.title}}</h1>
         <article class="ec-material-card">
             <h3>{{_ "CASE.DETAILS"}}</h3>
-            <p>{{case.content}}</p>
+            <p>{{{case.content}}}</p>
             <p><i class="fa fa-user"></i> {{findUsername(case.createdBy)}}</p>
             <p>
                 <i class="fa fa-users"></i> {{{lawyers}}}
@@ -58,12 +58,12 @@
         {{#if isAuthor blog}}
             <section class="blog-right">
                 <h3>Test Right</h3>
-                <p>{{blog.content}}</p>
+                <p>{{{blog.content}}}</p>
             </section>
         {{else}}
             <section class="blog-left">
                 <h3>Test Left</h3>
-                <p>{{blog.content}}</p>
+                <p>{{{blog.content}}}</p>
             </section>
         {{/if}}
     {{/each}}

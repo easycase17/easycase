@@ -5,6 +5,10 @@ Template.NewCase.helpers({
     }
 });
 
+Template.NewCase.onRendered(function() {
+    this.$('textarea').froalaEditor();
+});
+
 AutoForm.hooks({
     insertCaseForm: {
         onSuccess: function (formType, res) {
@@ -85,6 +89,10 @@ Template.Case.onCreated(function () {
         lawyersView = lawyersView.join(', ');
         self.lawyers.set(lawyersView);
     });
+});
+
+Template.Case.onRendered(function() {
+    this.$('textarea').froalaEditor();
 });
 
 Template.Case.helpers({

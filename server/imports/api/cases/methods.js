@@ -1,5 +1,7 @@
 Meteor.methods({   
     'cases.insert'(doc) {
+        this.unblock();
+
         // Check if legal user
         if (this.userId) {
             // To add autoValue in the SimpleSchema
@@ -8,7 +10,8 @@ Meteor.methods({
             // Validate doc
             check(doc, CasesSchema);
 
-            this.unblock();
+            // Sanitize the content
+            doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collections
             var caseId = Cases.insert(doc);
@@ -29,6 +32,8 @@ Meteor.methods({
         }
     },
     'cases.blogs.insert'(doc) {
+        this.unblock();
+
         if (this.userId) {
             // To add autoValue in the SimpleSchema
             CaseBlogSchema.clean(doc);
@@ -36,7 +41,8 @@ Meteor.methods({
             // Validate doc
             check(doc, CaseBlogSchema);
 
-            this.unblock();
+            // Sanitize the content
+            doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collection
             var blogId = CasesBlogs.insert(doc);
