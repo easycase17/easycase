@@ -31,24 +31,19 @@
                 {{/if}}
             </p>
         </article>
-        {{#if contracts}}
-            <article class="ec-material-card">
-                <h3>{{_ "CASE.CONTRACTS"}}</h3>
-                <ul>
-                    {{#each contracts}}
-                        <li>
-                            <span>{{getLawyerName(contractor)}}</span>
-                            <a href="/contracts/{{_id}}">{{_ "CASE.CONTRACT_DETAILS"}}</a>
-                        </li>
-                    {{/each}}
-                </ul>
-            </article>
-        {{else}}
-            <article class="case">
-                <h3>{{_ "CASE.NOCONTRACT"}}</h3>
-                <p>{{_ "CASE.NOCONTRACT_INFO"}}</p>
-            </article>
-        {{/if}}
+        <article class="ec-material-card">
+            <h3>{{_ "CASE.CONTRACTS"}}</h3>
+            <ul>
+                {{#each contracts}}
+                    <li>
+                        <span>{{getLawyerName(contractor)}}</span>
+                        <a href="/contracts/{{_id}}">{{_ "CASE.CONTRACT_DETAILS"}}</a>
+                    </li>
+                {{else}}
+                    <p>{{_ "CASE.NOCONTRACT_INFO"}}</p>
+                {{/each}}
+            </ul>
+        </article>
     {{else}}
         <p>{{_ "LOADING"}}</p>
     {{/if}}

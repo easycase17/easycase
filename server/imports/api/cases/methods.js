@@ -11,7 +11,7 @@ Meteor.methods({
             check(doc, CasesSchema);
 
             // Sanitize the content
-            doc.content = sanitizeHtml(doc.content);
+            // doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collections
             var caseId = Cases.insert(doc);
@@ -42,7 +42,7 @@ Meteor.methods({
             check(doc, CaseBlogSchema);
 
             // Sanitize the content
-            doc.content = sanitizeHtml(doc.content);
+            // doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collection
             var blogId = CasesBlogs.insert(doc);
