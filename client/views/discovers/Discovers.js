@@ -4,15 +4,26 @@ Template.Discovers.onCreated(function() {
     self.fieldType = new ReactiveVar( String );
     self.fieldType.set('Cases');
     self.discovers = new ReactiveVar( Array );
+    self.discovers.set([]);
+
     self.autorun(function() {
+        // Fetch the SearchRule
+        var searchRule = Session.get('SearchRule');
+
         switch(self.fieldType.get()) {
             case 'Cases':
-                self.subscribe('cases-discover', Meteor.userId());
-                self.discovers.set(Cases.find({}));
+                Meteor.call('discovers.getCases', searchRule, function(err, res) {
+                    if (!err) {
+                        self.discovers.set(res);
+                    }
+                });
                 break;
             case 'Lawyers':
-                self.subscribe('lawyers');
-                self.discovers.set(Lawyers.find({}));
+                Meteor.call('discovers.getLawyers', searchRule, function(err, res) {
+                    if (!err) {
+                        self.discovers.set(res);
+                    }
+                });
                 break;
             case 'Articles':
                 break;

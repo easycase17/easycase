@@ -4,24 +4,6 @@ Meteor.publish('cases', function(userId) {
     return Cases.find({createdBy: userId});
 });
 
-Meteor.smartPublish('cases-discover', function(userId) {
-    check(userId, String);
-    var result = [];
-
-    // Cases
-    var cases = Cases.find({isPrivate: false});
-    result.push(cases);
-
-    // Authors (users)
-    cases.forEach(function(c) {
-        var userId = c.createdBy;
-        // Meteor helps us to prevent private information to push to the client
-        result.push(Meteor.users.find({_id: userId}));
-    });
-
-    return result;
-});
-
 Meteor.smartPublish('singleCase', function(caseId) {
     check(caseId, String);
     var result = [];

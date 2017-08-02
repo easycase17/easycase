@@ -34,6 +34,10 @@
             <span class="info">{{ createdAtString }}</span>
         </div>
         <p>{{{ content }}}</p>
-        <p><i class="fa fa-user"></i> {{ findUsername(createdBy) }}</p>
+        {{#with createdBy_info}}
+            <p><i class="fa fa-user"></i> {{ username }}</p>
+        {{else}}
+            <p><i class="fa fa-user"></i> {{ findUsername(createdBy) }}</p>
+        {{/with}}
     </article>
 </template>

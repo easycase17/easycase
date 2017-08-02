@@ -1,9 +1,12 @@
 Template.SearchTool.onCreated(function() {
     var self = this;
-    self.searchRule = new ReactiveVar( Object );
+    Session.set({'SearchRule': null});
     self.searchTypes = new ReactiveVar( Array );
     self.searchOptions = new ReactiveVar( Array );
     self.searchTypes.set(['Time']);
+
+    // Reset function
+    self.resetSearch = function() {};
 
     self.autorun(function() {
         var types = self.searchTypes.get();
@@ -46,6 +49,14 @@ Template.SearchTool.events({
 
 Template.SearchToolOption.events({
     'click .dropdown-item': (event, template) => {
-        console.log(template);
+        Session.set({'SearchRule': {
+                type: template.data.type,
+                value: template.data.value
+            }
+        });
     }
+});
+
+Template.SearchTool.onDestroyed(function() {
+    Session.set({ 'SearchRule': undefined });
 });
