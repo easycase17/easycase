@@ -25,13 +25,13 @@ Template.Discovers.helpers({
         return Template.instance().discovers.get();
     },
     isCasesField: () => {
-        return Template.instance().fieldType.get() == 'Cases';
+        return Template.instance().fieldType.get() === 'Cases';
     },
     isLawyersField: () => {
-        return Template.instance().fieldType.get() == 'Lawyers';
+        return Template.instance().fieldType.get() === 'Lawyers';
     },
     isArticlesField: () => {
-        return Template.instance().fieldType.get() == 'Articles';
+        return Template.instance().fieldType.get() === 'Articles';
     }
 });
 
