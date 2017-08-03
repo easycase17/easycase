@@ -22,7 +22,7 @@ Meteor.methods({
                 {
                     $project: {
                         title: 1, tags: 1, content: 1, languages: 1, location: 1,
-                        createdAt: 1, createdBy: 1, isPrivate: 1, isComplemete: 1,
+                        createdAt: 1, createdBy: 1, isPrivate: 1, isComplete: 1,
                         "createdBy_info._id": 1, "createdBy_info.username": 1
                     }
                 },
@@ -47,7 +47,7 @@ Meteor.methods({
                                     {
                                         $project: {
                                             title: 1, tags: 1, content: 1, languages: 1, location: 1,
-                                            createdAt: 1, createdBy: 1, isPrivate: 1, isComplemete: 1,
+                                            createdAt: 1, createdBy: 1, isPrivate: 1, isComplete: 1,
                                             dateDifference: { $subtract: [new Date(), "$createdAt"] }
                                         }
                                     },
@@ -107,7 +107,7 @@ Meteor.methods({
                 {
                     $project: {
                         name: 1, birthday: 1, gender: 1, areas: 1,
-                        location: 1, evaluation: 1
+                        location: 1, evaluation: 1, rate: 1
                     }
                 }
             ]
