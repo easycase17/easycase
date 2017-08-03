@@ -42,10 +42,9 @@ const UserProfileSchema = new SimpleSchema({
         }
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         optional: true,
-        min: 10,
-        max: 11
+        regEx: /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/
     }
 });
 
