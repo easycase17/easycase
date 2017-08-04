@@ -25,7 +25,10 @@ var ECTaxFilling = {
             throw Error('Invalid data when using ECTaxFilling module, form1040 function');
         }
 
-        var content = Assets.getText('pdfTemplates/fdfTemplates/2016_F1040.fdf');
+        // Fetch the required form
+        var content = Assets.getText(`pdfTemplates/fdfTemplates/${data.year}_F1040.fdf`);
+        // Get util internal API
+        const util = require('util');
         content = util.format(content, data.first_name, data.last_name);
 
         // Write the res into a new file for PDFTK
@@ -35,7 +38,7 @@ var ECTaxFilling = {
         PDFTK.execute(
             [
                 `${pdfTpltPath}/original/${data.year}_F1040.pdf`,
-                'fillform',
+                'fill_form',
                 `${pdfOutputPath}/fdfTemplates/${data.userId}_${data.year}_F1040.fdf`,
                 'output',
                 `${pdfOutputPath}/output/${data.userId}_${data.year}_F1040.pdf`
