@@ -59,6 +59,6 @@ var ECEmail = {
             throw new Error('EmailTemplateError');
         }
     }
-}
+};
 
 module.exports = ECEmail;

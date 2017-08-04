@@ -26,4 +26,4 @@ Meteor.startup(() => {
     }
 
     console.log("---------- Server Up ----------");
-})
+});

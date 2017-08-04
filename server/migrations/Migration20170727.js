@@ -19,4 +19,4 @@ Migrations.add({
         Options.insert(language_options);
     },
     down: function () { }
-})
+});

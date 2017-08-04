@@ -20,7 +20,7 @@ Accounts.emailTemplates.enrollAccount = {
         `;
         return ECEmail.renderTemplate(tplt);
     }
-}
+};
 
 Accounts.emailTemplates.resetPassword = {
     // Overrides the value set in `Accounts.emailTemplates.from` when resetting
@@ -52,4 +52,4 @@ Accounts.emailTemplates.verifyEmail = {
         `;
         return ECEmail.renderTemplate(tplt);
     }
-}
+};

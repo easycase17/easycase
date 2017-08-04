@@ -47,4 +47,4 @@ Migrations.add({
         });
     },
     down: function () { }
-})
+});

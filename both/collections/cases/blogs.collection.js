@@ -57,4 +57,4 @@ CasesBlogs.allow({
     update: function(userId) { 
         return !!userId; 
     }
-})
+});

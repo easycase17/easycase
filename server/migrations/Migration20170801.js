@@ -21,4 +21,4 @@ Migrations.add({
         Options.insert(searchTimeOptions);
     },
     down: function () { }
-})
+});
