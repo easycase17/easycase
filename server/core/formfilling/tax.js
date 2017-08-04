@@ -25,26 +25,8 @@ var ECTaxFilling = {
             throw Error('Invalid data when using ECTaxFilling module, form1040 function');
         }
 
-        var content = 
-        `%FDF-1.2
-        1 0 obj<</FDF<< /Fields[
-        <</T(topmostSubform[0].Page1[0].f1_04[0])/V(${data.first_name})>>
-        <</T(topmostSubform[0].Page1[0].f1_05[0])/V(${data.last_name})>>
-        <</T(topmostSubform[0].Page1[0].f1_06[0])/V(781\t58\t0213)>>
-        <</T(topmostSubform[0].Page1[0].f1_07[0])/V(Jiayi)>>
-        <</T(topmostSubform[0].Page1[0].f1_08[0])/V(Kou)>>
-        <</T(topmostSubform[0].Page1[0].SpouseSSN[0].f1_09[0])/V(781\t58\t0213)>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1-10[0])/V(440 S Chauncey Ave.)>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1-11[0])/V(13)>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1-12[0])/V(West Lafayette, IN, 47906)>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1_13[0])/V()>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1_14[0])/V()>>
-        <</T(topmostSubform[0].Page1[0].Address[0].f1_15[0])/V()>>
-        ] >> >>
-        endobj
-        trailer
-        <</Root 1 0 R>>
-        %%EOF`
+        var content = Assets.getText('pdfTemplates/fdfTemplates/2016_F1040.fdf');
+        content = util.format(content, data.first_name, data.last_name);
 
         // Write the res into a new file for PDFTK
         var fs = require('fs');

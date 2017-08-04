@@ -1,7 +1,7 @@
 %FDF-1.2
 1 0 obj<</FDF<< /Fields[
-<</T(topmostSubform[0].Page1[0].f1_04[0])/V(${first_name})>>
-<</T(topmostSubform[0].Page1[0].f1_05[0])/V(${last_name})>>
+<</T(topmostSubform[0].Page1[0].f1_04[0])/V(%s)>>
+<</T(topmostSubform[0].Page1[0].f1_05[0])/V(%s)>>
 <</T(topmostSubform[0].Page1[0].f1_06[0])/V(781\t58\t0213)>>
 <</T(topmostSubform[0].Page1[0].f1_07[0])/V(Jiayi)>>
 <</T(topmostSubform[0].Page1[0].f1_08[0])/V(Kou)>>
