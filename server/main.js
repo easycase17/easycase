@@ -25,5 +25,13 @@ Meteor.startup(() => {
         configureGoogle(googleConfig);
     }
 
-    console.log("---------- Server Up ----------");
+    console.log('---------- Server Up ----------');
+
+    ROOT_DIR_PATH = process.env.PWD;
+    console.log(`Root path: ${ROOT_DIR_PATH}`);
+
+
+    // @TODO delete
+    var testPDF = require('./core/formfilling/tax.js');
+    testPDF.form1040({userId: 'test', year: '2016', first_name: 'Guocheng', last_name: 'Wei'});
 });
