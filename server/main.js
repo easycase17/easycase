@@ -33,5 +33,5 @@ Meteor.startup(() => {
 
     // @TODO delete
     var testPDF = require('./core/formfilling/tax.js');
-    testPDF.form1040({userId: 'test', year: '2016', first_name: 'Guocheng', last_name: 'Wei'});
+    testPDF.execute('F1040', {userId: 'test', year: '2016', first_name: 'Guocheng', last_name: 'Wei'});
 });
