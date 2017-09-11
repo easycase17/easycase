@@ -92,7 +92,11 @@ Template.Case.onCreated(function () {
 });
 
 Template.Case.onRendered(function() {
-    this.$('textarea').froalaEditor();
+    this.$('textarea').froalaEditor({
+        // @TODO: Uncomment when setup azure image uploads
+        // imageUploadMethod: 'post',
+        // imageUploadURL: 'https://www.filestackapi.com/api/store/azure?key=AL8jjCQcqT3is6vIBgTGnz'
+    });
 });
 
 Template.Case.helpers({

@@ -37,10 +37,12 @@ meteorhacks:ssr
 djedi:sanitize-html
 meteorhacks:aggregate           # Mongodb aggregation
 mrt:smart-publish
+random                          # Random package to help us generate our API keys that users will include to authenticate their requests.
 
 # Both
 check@1.2.5
 crosswalk@1.7.1
+http
 
 # Third party services
 froala:editor
@@ -59,6 +61,7 @@ aldeed:collection2
 
 # Router
 kadira:flow-router
+meteorhacks:picker
 
 # Autoform
 aldeed:autoform
@@ -69,6 +72,10 @@ gwendall:autoform-i18n
 # Language
 tap:i18n
 tap:i18n-ui
+
+# CollectionFS
+cfs:standard-packages
+cfs:gridfs
 
 # Need to check what these do
 practicalmeteor:mocha
