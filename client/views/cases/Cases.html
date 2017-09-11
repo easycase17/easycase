@@ -1,7 +1,10 @@
 <template name="Cases">
     <section class="cases">
-        <section class="helper">
-            <button class="btn btn-primary" id="create-case"><i class="fa fa-plus"></i> {{_ "CASES.POSTNEW"}}</button>
+        <section class="section-float">
+            <button class="btn btn-text"><i class="fa fa-angle-up"></i></button>
+            <br>
+            <br>
+            <button class="btn btn-primary" id="create-case"><i class="fa fa-pencil"></i></button>
         </section>
         {{#if Template.subscriptionsReady}}
             {{#each cases}}
