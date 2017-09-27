@@ -50,10 +50,10 @@ dburles:google-maps
 datariot:ganalytics             # Publish pageviews and events to Google Analytics using the new analytics.js code.
 
 # Accounts
-accounts-facebook@1.2.1
-accounts-google@1.2.0
-accounts-ui@1.1.9
-accounts-password@1.4.0
+accounts-facebook
+accounts-google
+accounts-ui
+accounts-password
 
 # Database
 aldeed:simple-schema
@@ -99,3 +99,4 @@ zimme:active-route                  # This package provide helpers for figuring 
 gwendall:auth-client-callbacks      # Adds client-side onLogin and onLogout methods
 
 pdftk:pdftk                         # Wrapper for PDFTK: PDF file merge, split, encrypt, decrypt, rotate, watermark, stamp and more
+mrt:external-file-loader            # To load external js and css files dynamically within Meteor.

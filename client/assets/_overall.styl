@@ -130,7 +130,7 @@ p
         lost-center 90%
         padding-left $side-nav
     +above($large)
-        lost-center 80%
+        lost-center 90%
         margin-top 40px
         padding-left $side-nav-large
     
@@ -579,8 +579,12 @@ input, select, textarea
         text-transform capitalize
 
 .section-float
-    right 2%
-    bottom 20px
+    right 0%
     position fixed
     float right
     z-index: z.highest
+    padding-right 10px
+    +above($xsmall)
+        bottom $side-nav
+    +above($med)
+        bottom 20px
