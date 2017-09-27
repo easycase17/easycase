@@ -2,6 +2,7 @@
     {{> PageNav}}
     {{#if Template.subscriptionsReady}}
         <h1 class="page-title">{{case.title}}</h1>
+        {{> Tabs}}
         <article class="ec-material-card">
             <h3>{{_ "CASE.DETAILS"}}</h3>
             <p>{{{case.content}}}</p>

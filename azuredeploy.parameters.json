@@ -1,0 +1,27 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dnsNamePrefix": {
+            "value": "GEN-UNIQUE"
+        },
+        "agentCount": {
+            "value": 1
+        },
+        "agentVMSize": {
+            "value": "Standard_A2"
+        },
+        "linuxAdminUsername": {
+            "value": "guocheng"
+        },
+        "orchestratorType": {
+            "value": "Swarm"
+        },
+        "masterCount": {
+            "value": 1
+        },
+        "sshRSAPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6Yqrhyg1tJJ5XnTQMr4yqUQf7REx1XnYtJMMY94k2ClZ13tB5BEhLat5iVz+o3V2+izW5C8kTaSsLI/5iwuz0kzIbKU5/TvM0JdIXDCbsddVtxp+TGeqIKoTzaYC2lLqpiy8Y3vADJCsnQnYdF7pHDv9Zz9mR3NuG8y2sY2bFd1SBHeoSPtDvfXBJwzk6rMPl5PVeOA7ZAC5E4vH3Uy9fT7s/LwpsNoU8xCvjZI/UHnU0wWbsS42xLv/sfe5wLyDo/+1cd8pQ99ixeEGo0EuEkb5lGObqCpdenm32t5t8hqD2M8bfRRz2exCirKE+qeEUlLbjD8V+eepjtUJKFg4X"
+        }
+    }
+}

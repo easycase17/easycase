@@ -84,8 +84,8 @@ hwillson:stub-collections
 dispatch:mocha-phantomjs
 
 # Toys
-meteortoys:allthings
-msavin:jetsetter
+# meteortoys:allthings
+# msavin:jetsetter
 
 # Others
 spiderable                          # Makes the application crawlable to web spiders
