@@ -1,5 +1,5 @@
 Meteor.methods({
-    'discovers.getCases': function (searchRule) {
+    'discovers.getCases': function (searchRule, page) {
         if (this.userId) {
             var cases;
             var pipeline = [
@@ -94,13 +94,18 @@ Meteor.methods({
             // Cases
             cases = Cases.aggregate(pipeline);
 
-            return cases;
+            // Paginations
+            var Pagination = require('/server/core/pagination/pagination');
+            page = page || 1;
+            var pagination = new Pagination(cases, {perPage: 10, reqPage: page});
+
+            return pagination.getResults();
         } else {
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
     },
 
-    'discovers.getLawyers': function(searchRule) {
+    'discovers.getLawyers': function(searchRule, page) {
         if (this.userId) {
             var lawyers;
             var pipeline = [
@@ -119,7 +124,12 @@ Meteor.methods({
             // Lawyers
             lawyers = Lawyers.aggregate(pipeline);
 
-            return lawyers;
+            // Paginations
+            var Pagination = require('/server/core/pagination/pagination');
+            page = page || 1;
+            var pagination = new Pagination(lawyers, {perPage: 10, reqPage: page});
+
+            return pagination.getResults();
         } else {
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
