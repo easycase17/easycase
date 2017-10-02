@@ -6,9 +6,7 @@
     </section>
     {{> SearchTool}}
     <section class="cases">
-        <section class="section-float">
-            <button class="btn btn-text"><i class="fa fa-angle-up"></i></button>
-        </section>
+        {{> FloatSection}}
         {{#if Template.subscriptionsReady}}
             {{#if isCasesField}}
                 {{#each discovers}}
@@ -29,4 +27,5 @@
             <p>{{_ "LOADING"}}</p>
         {{/if}}
     </section>
+    {{> Pagination}}
 </template>

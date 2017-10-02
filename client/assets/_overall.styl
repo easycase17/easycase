@@ -588,3 +588,41 @@ input, select, textarea
         bottom $side-nav
     +above($med)
         bottom 20px
+
+.ec-pagination
+    padding 15px 0px
+    margin 0px
+    li
+        display inline-block
+        border-radius 2px
+        text-align center
+        vertical-align top
+        height 30px
+        a
+            text-decoration none
+            color #444
+            display inline-block
+            font-size 1.5rem
+            padding 0 10px
+            line-height 30px
+            shadow-level(0)
+        &:hover
+            background teal
+            border-color @background
+            shadow-level(1)
+        &.active
+            background-color purp
+            a
+                text-decoration none
+                color #fff
+        &.disabled
+            a
+                text-decoration none
+                cursor default
+                color #999
+        i
+            font-size 2rem
+            padding 5px 10px
+        .pages ul li
+            display inline-block
+            float none

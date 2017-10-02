@@ -30,12 +30,6 @@ Template.Cases.helpers({
     }
 });
 
-Template.Cases.events({
-    'click #create-case': function () {
-        FlowRouter.go('/cases/create');
-    }
-});
-
 Template.CasesItem.helpers({
     findUsername: (userId) => {
         // @FIXME

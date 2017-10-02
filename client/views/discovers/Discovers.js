@@ -14,14 +14,14 @@ Template.Discovers.onCreated(function() {
             case 'Cases':
                 Meteor.call('discovers.getCases', searchRule, function(err, res) {
                     if (!err) {
-                        self.discovers.set(res);
+                        self.discovers.set(res.data);
                     }
                 });
                 break;
             case 'Lawyers':
                 Meteor.call('discovers.getLawyers', searchRule, function(err, res) {
                     if (!err) {
-                        self.discovers.set(res);
+                        self.discovers.set(res.data);
                     }
                 });
                 break;

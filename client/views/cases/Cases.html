@@ -1,11 +1,6 @@
 <template name="Cases">
+    {{> FloatSection}}
     <section class="cases">
-        <section class="section-float">
-            <button class="btn btn-text"><i class="fa fa-angle-up"></i></button>
-            <br>
-            <br>
-            <button class="btn btn-primary" id="create-case"><i class="fa fa-pencil"></i></button>
-        </section>
         {{#if Template.subscriptionsReady}}
             {{#each cases}}
                 {{> CasesItem}}
@@ -16,6 +11,7 @@
             <p>{{_ "LOADING"}}</p>
         {{/if}}
     </section>
+    {{> Pagination}}
 </template>
 
 <template name="CasesItem">

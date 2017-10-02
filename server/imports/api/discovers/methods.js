@@ -96,10 +96,17 @@ Meteor.methods({
 
             // Paginations
             var Pagination = require('/server/core/pagination/pagination');
-            page = page || 1;
-            var pagination = new Pagination(cases, {perPage: 10, reqPage: page});
+            page = page || {
+                perPage: 10,
+                reqPage: 1
+            };
+            var numPages = cases.length % page.perPage;
+            var pagination = new Pagination(cases, page);
 
-            return pagination.getResults();
+            return {
+                data: pagination.getResults(),
+                numPages: numPages
+            };
         } else {
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
@@ -126,10 +133,17 @@ Meteor.methods({
 
             // Paginations
             var Pagination = require('/server/core/pagination/pagination');
-            page = page || 1;
-            var pagination = new Pagination(lawyers, {perPage: 10, reqPage: page});
+            page = page || {
+                perPage: 10,
+                reqPage: 1
+            };
+            var numPages = lawyers.length % page.perPage;
+            var pagination = new Pagination(lawyers, page);
 
-            return pagination.getResults();
+            return {
+                data: pagination.getResults(),
+                numPages: numPages
+            };
         } else {
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
