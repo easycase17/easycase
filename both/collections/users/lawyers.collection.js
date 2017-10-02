@@ -37,7 +37,7 @@ LawyersSchema = new SimpleSchema({
     },
     gender: {
         type: String,
-        allowedValues: ['Male', 'Female', 'Unknown'],
+        allowedValues: ['0', '1', '2'],
         autoform: {
             type: 'universe-select',
             afFieldInput: {

@@ -13,7 +13,7 @@ const UserProfileSchema = new SimpleSchema({
         type: String,
         label: 'Gender',
         optional: true,
-        allowedValues: ['Male', 'Female', 'Unknown'],
+        allowedValues: ['0', '1', '2'],
         autoform: {
             type: 'universe-select',
             afFieldInput: {
