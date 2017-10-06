@@ -102,7 +102,7 @@ Meteor.methods({
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
     },
-    'cases.setUncomplete'(caseId) {
+    'cases.setIncomplete'(caseId) {
         // Check if legal user
         if (this.userId) {
             return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: false } });

@@ -9,7 +9,6 @@ Template.FloatSection.rendered = function () {
     // ===== Scroll to Top ==== 
     $('#return-to-top').fadeOut();   // Else fade out the arrow
     $(window).scroll(function () {
-        console.log($(this).scrollTop());
         if ($(this).scrollTop() > 50) {        // If page is scrolled more than 50px
             $('#return-to-top').fadeIn(100);    // Fade in the arrow
         } else {

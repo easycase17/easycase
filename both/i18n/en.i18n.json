@@ -16,7 +16,7 @@
     "CASESITEM": {
         "LAW": "Law",
         "COMPLETE": "Complete",
-        "UNCOMPLETE": "Uncomplete"
+        "INCOMPLETE": "Incomplete"
     },
     "CASE": {
         "DETAILS": "Details",
@@ -25,7 +25,7 @@
         "GRABCASE": "Grab",
         "DROPCASE": "Drop",
         "SETCOMPLETE": "Set Complete",
-        "SETUNCOMPLETE": "Set Uncomplete",
+        "SETINCOMPLETE": "Set Incomplete",
         "CONTRACTS": "Contracts",
         "CONTRACT_DETAILS": "Details",
         "NOCONTRACT": "No Contract",

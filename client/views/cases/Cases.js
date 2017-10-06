@@ -166,9 +166,9 @@ Template.Case.events({
             }
         });
     },
-    'click #uncomplete-case': function (event, template) {
+    'click #incomplete-case': function (event, template) {
         var caseId = FlowRouter.getParam('id');
-        Meteor.call('cases.setUncomplete', caseId, function(err, res) {
+        Meteor.call('cases.setIncomplete', caseId, function(err, res) {
             if (err) {
                 console.log(err);
             }

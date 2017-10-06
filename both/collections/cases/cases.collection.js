@@ -118,3 +118,5 @@ Cases.allow({
         return false;
     }
 });
+
+export default Cases;

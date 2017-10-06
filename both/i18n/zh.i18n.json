@@ -16,7 +16,7 @@
     "CASESITEM": {
         "LAW": "法",
         "COMPLETE": "解决",
-        "UNCOMPLETE": "未解决"
+        "INCOMPLETE": "未解决"
     },
     "CASE": {
         "DETAILS": "详情",
@@ -25,7 +25,7 @@
         "GRABCASE": "领取此问题",
         "DROPCASE": "放弃此问题",
         "SETCOMPLETE": "设置为已解决",
-        "SETUNCOMPLETE": "设置为待解决",
+        "SETINCOMPLETE": "设置为待解决",
         "CONTRACTS": "合同",
         "CONTRACT_DETAILS": "详情",
         "NOCONTRACT": "无合同",
