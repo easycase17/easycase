@@ -35,7 +35,14 @@ Template.Lawyer.onCreated(function () {
     Meteor.call('lawyers.viewLawyer', id);
 
     self.autorun(function () {
-        if (!subs.ready()) return;
+        if (!subs.ready()) {
+            return;
+            Session.set('isLoading', true);
+        }
+
+        // Load until the map is ready
+        Session.set('isLoading', false);
+
         var lyrloc = Lawyers.findOne({ _id: id }).location;
         GoogleMaps.ready('lawyerMap', function (map) {
             var address = `${lyrloc.street}, ${lyrloc.city}, ${lyrloc.state}, ${lyrloc.country}`; 
@@ -96,4 +103,8 @@ Template.Lawyer.helpers({
             };
         }
     }
+});
+
+Template.Lawyer.onDestroyed(function() {
+    Session.set('isLoading', true);
 });

@@ -81,7 +81,7 @@ body
 
 header
     color #FFF 
-    background: purp
+    background purp
     padding 15px 
     fixed top left
     width 100%
@@ -634,3 +634,21 @@ input, select, textarea
         .pages ul li
             display inline-block
             float none
+
+.loader
+    padding 1em
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%);
+    z-index: z.header;
+    +above($med)
+        padding-left $side-nav
+    +above($large)
+        padding-left $side-nav-large
+
+/*
+  Set the color of the icon
+*/
+svg path, svg rect
+    fill orange

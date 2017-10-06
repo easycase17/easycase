@@ -23,6 +23,9 @@ AutoForm.hooks({
 
 
 /* --------------------  Cases Template  ---------------------- */
+Template.Cases.onCreated(function() {
+    Session.set('isLoading', false);
+});
 
 Template.Cases.helpers({
     cases: () => {
@@ -49,6 +52,10 @@ Template.CasesItem.helpers({
         var date = Template.instance().data.createdAt;
         return date.toString();
     }
+});
+
+Template.Cases.onDestroyed(function() {
+    Session.set('isLoading', true);
 });
 
 

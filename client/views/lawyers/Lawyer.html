@@ -1,8 +1,12 @@
 <template name="Lawyer">
     {{> PageNav}}
-    <h1 class="page-title">{{lawyer.name}}</h1>
-    <div class="map-container">
-        {{> googleMap name="lawyerMap" options=lawyerMapOptions}}
-    </div>
-    <p class="content">{{_ "COMINGSOON"}}</p>
+    {{#if $.Session.get 'isLoading'}}
+        {{> Loading1}}
+    {{else}}
+        <h1 class="page-title">{{lawyer.name}}</h1>
+        <div class="map-container">
+            {{> googleMap name="lawyerMap" options=lawyerMapOptions}}
+        </div>
+        <p class="content">{{_ "COMINGSOON"}}</p>
+    {{/if}}
 </template>

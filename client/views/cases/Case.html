@@ -44,27 +44,31 @@
                 {{/each}}
             </ul>
         </article>
+
+        <br>
+
+        <section class="blog">
+        {{#each blog in blogs}}
+            {{#if isAuthor blog}}
+                <section class="blog-right">
+                    <h3>Test Right</h3>
+                    <p>{{{blog.content}}}</p>
+                </section>
+            {{else}}
+                <section class="blog-left">
+                    <h3>Test Left</h3>
+                    <p>{{{blog.content}}}</p>
+                </section>
+            {{/if}}
+        {{/each}}
+        </section>
+
+        <br>
+
+        {{> NewCaseBlog}}
     {{else}}
-        <p>{{_ "LOADING"}}</p>
+        {{> Loading1}}
     {{/if}}
-    <br>
-    <section class="blog">
-    {{#each blog in blogs}}
-        {{#if isAuthor blog}}
-            <section class="blog-right">
-                <h3>Test Right</h3>
-                <p>{{{blog.content}}}</p>
-            </section>
-        {{else}}
-            <section class="blog-left">
-                <h3>Test Left</h3>
-                <p>{{{blog.content}}}</p>
-            </section>
-        {{/if}}
-    {{/each}}
-    </section>
-    <br>
-    {{> NewCaseBlog}}
 </template>
 
 <template name="NewCaseBlog">

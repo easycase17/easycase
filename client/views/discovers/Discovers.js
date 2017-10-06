@@ -5,16 +5,21 @@ Template.Discovers.onCreated(function() {
     self.fieldType.set('Cases');
     self.discovers = new ReactiveVar( Array );
     self.discovers.set([]);
+    Session.set('isLoading', true);
 
     self.autorun(function() {
         // Fetch the SearchRule
         var searchRule = Session.get('SearchRule');
+
+        // Before calling to fetch data, change to loading mode
+        Session.set('isLoading', true);
 
         switch(self.fieldType.get()) {
             case 'Cases':
                 Meteor.call('discovers.getCases', searchRule, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
+                        Session.set('isLoading', false);
                     }
                 });
                 break;
@@ -22,6 +27,7 @@ Template.Discovers.onCreated(function() {
                 Meteor.call('discovers.getLawyers', searchRule, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
+                        Session.set('isLoading', false);
                     }
                 });
                 break;
@@ -56,4 +62,8 @@ Template.Discovers.events({
     'click #discover-articles-btn': function(event, template) {
         template.fieldType.set('Articles');
     }
+});
+
+Template.Discovers.onDestroyed(function() {
+    Session.set('isLoading', true);
 });

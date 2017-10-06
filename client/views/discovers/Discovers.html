@@ -5,9 +5,11 @@
         <button class="btn {{#if isArticlesField}}btn-text-dark{{else}}btn-text{{/if}}" id="discover-articles-btn">{{_ "DISCOVERS.ARTICLES"}}</button>
     </section>
     {{> SearchTool}}
+    {{> FloatSection}}
     <section class="cases">
-        {{> FloatSection}}
-        {{#if Template.subscriptionsReady}}
+        {{#if $.Session.get 'isLoading'}}
+            {{> Loading2}}
+        {{else}}
             {{#if isCasesField}}
                 {{#each discovers}}
                     {{> CasesItem}}
@@ -23,9 +25,7 @@
             {{else}}
                 <h3>{{_ "COMINGSOON"}}</h3>
             {{/if}}
-        {{else}}
-            <p>{{_ "LOADING"}}</p>
+            {{> Pagination}}
         {{/if}}
     </section>
-    {{> Pagination}}
 </template>

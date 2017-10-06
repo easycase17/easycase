@@ -1,17 +1,17 @@
 <template name="Cases">
     {{> FloatSection}}
     <section class="cases">
-        {{#if Template.subscriptionsReady}}
+        {{#if $.Session.get 'isLoading'}}
+            {{> Loading2}}
+        {{else}}
             {{#each cases}}
                 {{> CasesItem}}
             {{else}}
                 <h3>{{_ "CASES.NOCASES"}}</h3>
             {{/each}}
-        {{else}}
-            <p>{{_ "LOADING"}}</p>
+            {{> Pagination}}
         {{/if}}
     </section>
-    {{> Pagination}}
 </template>
 
 <template name="CasesItem">
