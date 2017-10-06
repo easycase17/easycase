@@ -7,25 +7,27 @@
     {{> SearchTool}}
     {{> FloatSection}}
     <section class="cases">
-        {{#if $.Session.get 'isLoading'}}
-            {{> Loading2}}
-        {{else}}
-            {{#if isCasesField}}
-                {{#each discovers}}
-                    {{> CasesItem}}
-                {{else}}
-                    <h3>{{_ "DISCOVERS.NOCASES"}}</h3>
-                {{/each}}
-            {{else if isLawyersField}}
-                {{#each discovers}}
-                    {{> LawyersItem}}
-                {{else}}
-                    <h3>{{_ "DISCOVERS.NOLAWYERS"}}</h3>
-                {{/each}}
+        {{#transition in="zoomIn" out="zoomOut"}}
+            {{#if $.Session.get 'isLoading'}}
+                {{> Loading2}}
             {{else}}
-                <h3>{{_ "COMINGSOON"}}</h3>
+                {{#if isCasesField}}
+                    {{#each discovers}}
+                        {{> CasesItem}}
+                    {{else}}
+                        <h3>{{_ "DISCOVERS.NOCASES"}}</h3>
+                    {{/each}}
+                {{else if isLawyersField}}
+                    {{#each discovers}}
+                        {{> LawyersItem}}
+                    {{else}}
+                        <h3>{{_ "DISCOVERS.NOLAWYERS"}}</h3>
+                    {{/each}}
+                {{else}}
+                    <h3>{{_ "COMINGSOON"}}</h3>
+                {{/if}}
+                {{> Pagination}}
             {{/if}}
-            {{> Pagination}}
-        {{/if}}
+        {{/transition}}
     </section>
 </template>

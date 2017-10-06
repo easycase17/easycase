@@ -18,6 +18,7 @@ Template.LawyersItem.helpers({
         var areasView = [];
 
         areas.forEach(function(tag) {
+            // @TODO: fix this
             areasView.push(`<div class="attribute-tag"><span class="text">${tag}</span></div>`);
         });
         areasView = areasView.join('');
