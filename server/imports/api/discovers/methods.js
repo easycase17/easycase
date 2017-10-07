@@ -100,7 +100,7 @@ Meteor.methods({
                 perPage: 10,
                 reqPage: 1
             };
-            var numPages = cases.length % page.perPage;
+            var numPages = Math.ceil(cases.length / page.perPage);
             var pagination = new Pagination(cases, page);
 
             return {
@@ -137,7 +137,7 @@ Meteor.methods({
                 perPage: 10,
                 reqPage: 1
             };
-            var numPages = lawyers.length % page.perPage;
+            var numPages = Math.ceil(lawyers.length / page.perPage);
             var pagination = new Pagination(lawyers, page);
 
             return {

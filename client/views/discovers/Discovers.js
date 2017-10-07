@@ -5,6 +5,10 @@ Template.Discovers.onCreated(function() {
     self.fieldType.set('Cases');
     self.discovers = new ReactiveVar( Array );
     self.discovers.set([]);
+    self.page = new ReactiveVar( Number );
+    self.page.set(1);
+    self.numPages = new ReactiveVar( Number );
+    self.numPages.set(1);
     Session.set('isLoading', true);
 
     self.autorun(function() {
@@ -16,17 +20,19 @@ Template.Discovers.onCreated(function() {
 
         switch(self.fieldType.get()) {
             case 'Cases':
-                Meteor.call('discovers.getCases', searchRule, function(err, res) {
+                Meteor.call('discovers.getCases', searchRule, { perPage: 2, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
+                        self.numPages.set(res.numPages);
                         Session.set('isLoading', false);
                     }
                 });
                 break;
             case 'Lawyers':
-                Meteor.call('discovers.getLawyers', searchRule, function(err, res) {
+                Meteor.call('discovers.getLawyers', searchRule, { perPage: 2, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
+                        self.numPages.set(res.numPages);
                         Session.set('isLoading', false);
                     }
                 });
@@ -49,6 +55,12 @@ Template.Discovers.helpers({
     },
     isArticlesField: () => {
         return Template.instance().fieldType.get() === 'Articles';
+    },
+    page: () => {
+        return Template.instance().page.get();
+    },
+    numPages: () => {
+        return Template.instance().numPages.get();
     }
 });
 

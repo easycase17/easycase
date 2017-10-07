@@ -606,28 +606,23 @@ input, select, textarea
         text-align center
         vertical-align top
         height 30px
-        a
-            text-decoration none
-            color #444
-            display inline-block
-            font-size 1.5rem
-            padding 0 10px
-            line-height 30px
-            shadow-level(0)
-        &:hover
+        color #444
+        display inline-block
+        font-size 1.5rem
+        padding 0 10px
+        line-height 30px
+        shadow-level(0)
+        &:not(.disabled):not(.active):hover
             background teal
             border-color @background
             shadow-level(1)
         &.active
+            shadow-level(1)
             background-color purp
-            a
-                text-decoration none
-                color #fff
+            color #fff
         &.disabled
-            a
-                text-decoration none
-                cursor default
-                color #999
+            cursor default
+            color #999
         i
             font-size 2rem
             padding 5px 10px
