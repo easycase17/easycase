@@ -1,6 +1,5 @@
 node_modules/
 .vscode/
-packages/
 
 server/migrations/*.json
 docker-compose.yml
