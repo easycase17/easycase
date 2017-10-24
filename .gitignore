@@ -3,3 +3,4 @@ node_modules/
 packages/
 
 server/migrations/*.json
+docker-compose.yml

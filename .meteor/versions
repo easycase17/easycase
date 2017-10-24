@@ -33,7 +33,7 @@ cfs:collection@0.5.5
 cfs:collection-filters@0.2.4
 cfs:data-man@0.0.6
 cfs:file@0.1.17
-cfs:gridfs@0.0.33
+cfs:filesystem@0.1.2
 cfs:http-methods@0.0.32
 cfs:http-publish@0.0.13
 cfs:power-queue@0.9.11
@@ -56,10 +56,9 @@ ddp-rate-limiter@1.0.7
 ddp-server@2.0.0
 deps@1.0.12
 diff-sequence@1.0.7
-dispatch:mocha-phantomjs@0.1.9
-dispatch:phantomjs-tests@0.0.7
 djedi:sanitize-html@1.11.3
 dynamic-import@0.1.1
+easycase17:azure-file-storage-meteor@0.0.1
 ecmascript@0.8.2
 ecmascript-runtime@0.4.1
 ecmascript-runtime-client@0.4.3
@@ -125,9 +124,6 @@ ordered-dict@1.0.9
 pdftk:pdftk@0.7.0
 percolate:migrations@1.0.2
 practicalmeteor:chai@2.1.0_1
-practicalmeteor:loglevel@1.2.0_2
-practicalmeteor:mocha@2.4.5_6
-practicalmeteor:mocha-core@1.0.1
 practicalmeteor:sinon@1.14.1_2
 promise@0.8.9
 raix:eventemitter@0.1.3
@@ -157,7 +153,7 @@ templating@1.3.2
 templating-compiler@1.3.2
 templating-runtime@1.3.2
 templating-tools@1.1.2
-tmeasday:test-reporter-helpers@0.2.1
+tinytest@1.0.12
 tracker@1.1.3
 twbs:bootstrap@3.3.6
 ui@1.0.13

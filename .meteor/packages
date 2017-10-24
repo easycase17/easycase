@@ -75,17 +75,19 @@ tap:i18n-ui
 
 # CollectionFS
 cfs:standard-packages
-cfs:gridfs
+cfs:filesystem
+easycase17:azure-file-storage-meteor
 
 # Need to check what these do
-practicalmeteor:mocha
 xolvio:cleaner
 hwillson:stub-collections
-dispatch:mocha-phantomjs
 
 # Toys
 # meteortoys:allthings
 # msavin:jetsetter
+
+# Tests
+tinytest
 
 # Others
 spiderable                          # Makes the application crawlable to web spiders
