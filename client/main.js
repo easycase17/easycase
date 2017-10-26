@@ -29,5 +29,28 @@ if (Meteor.isClient) {
       lang = locale;
     }
     TAPi18n.setLanguage(lang);
+
+    // Comments setting
+    Comments.ui.config({
+      template: 'bootstrap', // or ionic, semantic-ui
+      limit: 5,
+      loadMoreCount: 10,
+      markdown: false
+    });
+
+    Tracker.autorun(() => {
+      // Comments content language
+      Comments.ui.setContent({
+        title: TAPi18n.__("COMMENTS.TITLE"),
+        save: TAPi18n.__("COMMENTS.SAVE"),
+        reply: TAPi18n.__("COMMENTS.REPLY"),
+        edit: TAPi18n.__("COMMENTS.EDIT"),
+        remove: TAPi18n.__("COMMENTS.REMOVE"),
+        'placeholder-textarea': TAPi18n.__("COMMENTS.PLACEHOLDER"),
+        'add-button-reply': TAPi18n.__("COMMENTS.ADD_BUTTON_REPLY"),
+        'add-button': TAPi18n.__("COMMENTS.ADD_BUTTON"),
+        'load-more': TAPi18n.__("COMMENTS.LOAD_MORE")
+      });
+    });
   });
 }

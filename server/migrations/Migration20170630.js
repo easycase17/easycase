@@ -23,10 +23,16 @@ Migrations.add({
         let lawyer_data = {
             userId: userId,
             name: 'Guocheng Wei',
-            gender: 'Male',
+            gender: 0,
             areas: [
-                'Tax Law'
+                '13'
             ],
+            location: {
+                street: '440 S Chauncey Ave',
+                city: 'West Lafayette',
+                state: 'IN',
+                country: 'United States'
+            },
             evaluation: 0,
             rate: {
                 success: 100
@@ -38,8 +44,8 @@ Migrations.add({
         let case_data = {
             title: 'The first Easycase law case',
             tags: [
-                'test',
-                'guocheng'
+                '1',
+                '13'
             ],
             content: 'This is the first law case has even been on Easycase',
             payment: 1,
@@ -52,7 +58,8 @@ Migrations.add({
                 city: 'West Lafayette',
                 state: 'IN',
                 country: 'United States'
-            }
+            },
+            createdAt: new Date()
         }
         const caseId = Cases.insert(case_data);
 

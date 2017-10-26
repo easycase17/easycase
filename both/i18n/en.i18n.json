@@ -33,6 +33,17 @@
         "BLOG_POST": "Add a Blog",
         "BLOG_SUBMIT": "Submit"
     },
+    "COMMENTS": {
+        "TITLE": "Comments",
+        "SAVE": "Save",
+        "REPLY": "Reply",
+        "EDIT": "Edit",
+        "REMOVE": "Remove",
+        "PLACEHOLDER": "Join the discussion",
+        "ADD_BUTTON_REPLY": "Add Comments",
+        "ADD_BUTTON": "Reply",
+        "LOAD_MORE": "Load more"
+    },
     "NEWCASE": {
         "POST": "Post A Case",
         "SUBMIT": "Submit"

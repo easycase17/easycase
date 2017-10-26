@@ -94,6 +94,7 @@ spiderable                          # Makes the application crawlable to web spi
 fastclick@1.0.13                    # Faster touch events on mobile
 mdg:geolocation
 mdg:reload-on-resume
+easycase17:comments-ui
 
 # Currently, have not used
 raix:handlebar-helpers

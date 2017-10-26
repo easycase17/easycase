@@ -65,7 +65,10 @@
 
         <br>
 
-        {{> NewCaseBlog}}
+        <!-- {{> NewCaseBlog}} -->
+        <section class="ec-material-card">
+            {{> commentsBox id=case._id}}
+        </section>
     {{else}}
         {{> Loading1}}
     {{/if}}

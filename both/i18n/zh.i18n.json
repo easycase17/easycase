@@ -33,6 +33,17 @@
         "BLOG_POST": "评论",
         "BLOG_SUBMIT": "提交"
     },
+    "COMMENTS": {
+        "TITLE": "评论",
+        "SAVE": "保存",
+        "REPLY": "回复",
+        "EDIT": "编辑",
+        "REMOVE": "删除",
+        "PLACEHOLDER": "加入评论",
+        "ADD_BUTTON_REPLY": "回复",
+        "ADD_BUTTON": "添加评论",
+        "LOAD_MORE": "加载更多评论"
+    },
     "NEWCASE": {
         "POST": "发表问题",
         "SUBMIT": "提交"

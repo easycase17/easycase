@@ -18,6 +18,7 @@ amplify@1.0.0
 autoupdate@1.3.12
 babel-compiler@6.19.4
 babel-runtime@1.0.1
+barbatus:stars-rating@1.0.7
 base64@1.0.10
 binary-heap@1.0.10
 blaze@2.3.2
@@ -48,6 +49,7 @@ check@1.2.5
 coffeescript@1.11.1_4
 crosswalk@1.7.1
 datariot:ganalytics@0.2.1
+dburles:collection-helpers@1.0.4
 dburles:google-maps@1.1.5
 ddp@1.3.0
 ddp-client@2.0.0
@@ -59,6 +61,7 @@ diff-sequence@1.0.7
 djedi:sanitize-html@1.11.3
 dynamic-import@0.1.1
 easycase17:azure-file-storage-meteor@0.0.1
+easycase17:comments-ui@1.4.3
 ecmascript@0.8.2
 ecmascript-runtime@0.4.1
 ecmascript-runtime-client@0.4.3
@@ -90,6 +93,7 @@ less@2.7.9
 livedata@1.0.18
 localstorage@1.1.1
 logging@1.1.17
+markdown@1.0.12
 matb33:bootstrap-base@10.0.0
 matb33:bootstrap-glyphicons@10.0.0
 mdg:geolocation@1.3.0
@@ -135,6 +139,7 @@ reactive-dict@1.1.9
 reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
+reywood:publish-composite@1.4.2
 routepolicy@1.0.12
 service-configuration@1.0.11
 session@1.1.7
