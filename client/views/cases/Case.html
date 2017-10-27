@@ -67,28 +67,9 @@
 
         <!-- {{> NewCaseBlog}} -->
         <section class="ec-material-card">
-            {{> commentsBox id=case._id}}
+            {{> commentsBox id=case._id loadingTemplate="Loading1"}}
         </section>
     {{else}}
         {{> Loading1}}
     {{/if}}
-</template>
-
-<template name="NewCaseBlog">
-    <section class="new-case-container">
-        {{#autoForm collection="CasesBlogs" id="insertCaseBlogForm" type="method" meteormethod="cases.blogs.insert"}}
-            <section>
-                <h3>{{_ "CASE.BLOG_POST"}}</h3>
-                {{> afQuickField name='caseId' value=caseId}}
-                {{> afQuickField name='content' rows=3}}
-                {{> afQuickField name='createdBy.authorId' value=userId}}
-                {{#if isLawyer}}
-                    {{> afQuickField name='createdBy.role' value='lawyer'}}
-                {{else}}
-                    {{> afQuickField name='createdBy.role' value='user'}}
-                {{/if}}
-            </section>
-            <button type="submit" class="btn">{{_ "CASE.BLOG_SUBMIT"}}</button>
-        {{/autoForm}}
-    </section>
 </template>

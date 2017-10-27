@@ -1,3 +1,6 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { Template } from 'meteor/templating';
+
 /* ------------------- Contract ----------------- */
 Template.Contract.onCreated(function() {
     var self = this;

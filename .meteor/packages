@@ -60,7 +60,7 @@ aldeed:simple-schema
 aldeed:collection2
 
 # Router
-kadira:flow-router
+ostrio:flow-router-extra
 meteorhacks:picker
 
 # Autoform
@@ -98,7 +98,6 @@ easycase17:comments-ui
 
 # Currently, have not used
 raix:handlebar-helpers
-zimme:active-route                  # This package provide helpers for figuring out if some route or path is or isn't the currently active route.
 gwendall:auth-client-callbacks      # Adds client-side onLogin and onLogout methods
 
 pdftk:pdftk                         # Wrapper for PDFTK: PDF file merge, split, encrypt, decrypt, rotate, watermark, stamp and more

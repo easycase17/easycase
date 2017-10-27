@@ -1,3 +1,5 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+
 const userLanguage = () => {
   // If the user is logged in, retrieve their saved language
   if (Meteor.user()) return Meteor.user().profile.language;

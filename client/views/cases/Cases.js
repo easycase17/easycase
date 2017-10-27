@@ -1,3 +1,6 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { Template } from 'meteor/templating';
+
 /* --------------------  NewCase Template  ---------------------- */
 Template.NewCase.helpers({
     userId: function () {
@@ -181,19 +184,4 @@ Template.Case.events({
             }
         });
     }
-});
-
-
-/* ----------------- NewCaseBlog --------------------- */
-Template.NewCaseBlog.helpers({
-    userId: function () {
-        return Meteor.userId();
-    },
-    caseId: function () {
-        return FlowRouter.getParam('id');
-    },
-    isLawyer: () => {
-        // @FIXME
-        return Session.get('isLawyer');
-    },
 });

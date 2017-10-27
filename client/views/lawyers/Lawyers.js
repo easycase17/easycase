@@ -1,3 +1,6 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { Template } from 'meteor/templating';
+
 /* ---------------------- Lawyers Template ---------------------- */
 Template.Lawyers.onCreated(function () {
     var self = this;
