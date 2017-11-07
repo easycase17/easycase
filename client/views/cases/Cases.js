@@ -32,7 +32,7 @@ Template.Cases.onCreated(function() {
 
 Template.Cases.helpers({
     cases: () => {
-        return Cases.find({});
+        return Collections.Cases.find({});
     }
 });
 
@@ -84,10 +84,10 @@ Template.Case.onCreated(function () {
             });
         }
 
-        var contracts = Contracts.find({});
+        var contracts = Collections.Contracts.find({});
         var lawyersView = [];
         contracts.forEach(function (contract) {
-            var lawyer = Lawyers.findOne({ _id: contract.contractor });
+            var lawyer = Collections.Lawyers.findOne({ _id: contract.contractor });
             lawyersView.push(`<a href="/lawyers/${lawyer._id}">${lawyer.name}</a>`);
         });
         lawyersView = lawyersView.join(', ');
@@ -108,20 +108,20 @@ Template.Case.helpers({
         return Meteor.users.findOne(userId).username;
     },
     getLawyerName: (lawyerId) => {
-        return Lawyers.findOne({ _id: lawyerId }).name;
+        return Collections.Lawyers.findOne({ _id: lawyerId }).name;
     },
     case: () => {
         var id = FlowRouter.getParam('id');
-        return Cases.findOne({ _id: id });
+        return Collections.Cases.findOne({ _id: id });
     },
     lawyers: () => {
         return Template.instance().lawyers.get();
     },
     contracts: () => {
-        return Contracts.find({});
+        return Collections.Contracts.find({});
     },
     blogs: () => {
-        return CasesBlogs.find({});
+        return Collections.CasesBlogs.find({});
     },
     hasGrab: () => {
         return Template.instance().hasGrab.get();

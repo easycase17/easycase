@@ -11,7 +11,7 @@ Template.Lawyers.onCreated(function () {
 
 Template.Lawyers.helpers({
     lawyers: () => {
-        return Lawyers.find({});
+        return Collections.Lawyers.find({});
     }
 });
 
@@ -47,7 +47,7 @@ Template.Lawyer.onCreated(function () {
         // Load until the map is ready
         Session.set('isLoading', false);
 
-        var lyrloc = Lawyers.findOne({ _id: id }).location;
+        var lyrloc = Collections.Lawyers.findOne({ _id: id }).location;
         GoogleMaps.ready('lawyerMap', function (map) {
             var address = `${lyrloc.street}, ${lyrloc.city}, ${lyrloc.state}, ${lyrloc.country}`; 
             var geocoder = new google.maps.Geocoder();
@@ -91,7 +91,7 @@ Template.Lawyer.onRendered(function () {
 Template.Lawyer.helpers({
     lawyer: () => {
         var id = FlowRouter.getParam('id');
-        return Lawyers.findOne({ _id: id });
+        return Collections.Lawyers.findOne({ _id: id });
     },
     lawyerMapOptions: () => {
         if (GoogleMaps.loaded()) {

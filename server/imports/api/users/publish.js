@@ -1,5 +1,5 @@
 Meteor.publish('users.isLawyer', function () {
-    return Lawyers.find({ userId: this.userId });
+    return Collections.Lawyers.find({ userId: this.userId });
 });
 
 Meteor.publish('users.APIKey', function () {

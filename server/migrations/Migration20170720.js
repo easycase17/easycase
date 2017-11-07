@@ -37,8 +37,8 @@ Migrations.add({
         };
 
 
-        Options.insert(law_options);
-        Options.insert(gender_options);
+        Collections.Options.insert(law_options);
+        Collections.Options.insert(gender_options);
 
         // var cities_data = require('./us-cities');
         // USCitiesDetails = new Mongo.Collection('ec_uscities_details');

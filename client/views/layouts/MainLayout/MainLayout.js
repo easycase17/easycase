@@ -11,7 +11,7 @@ Template.MainLayout.onCreated(function() {
         Session.set({
             'currentLocation': Geolocation.latLng(),
             'hasNewVersion': Reload.isWaitingForResume(),
-            'isLawyer': sub ? Lawyers.findOne({userId: Meteor.userId()}) : false
+            'isLawyer': sub ? Collections.Lawyers.findOne({userId: Meteor.userId()}) : false
         });
     });
 });

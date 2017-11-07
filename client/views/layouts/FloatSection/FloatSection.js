@@ -1,4 +1,6 @@
 
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+
 Template.FloatSection.events({
     'click #create-case': function () {
         FlowRouter.go('/cases/create');

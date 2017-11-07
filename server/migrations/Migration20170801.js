@@ -18,7 +18,7 @@ Migrations.add({
             ]
         };
 
-        Options.insert(searchTimeOptions);
+        Collections.Options.insert(searchTimeOptions);
     },
     down: function () { }
 });

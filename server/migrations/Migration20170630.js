@@ -38,7 +38,7 @@ Migrations.add({
                 success: 100
             }
         };
-        const lawyerId = Lawyers.insert(lawyer_data);
+        const lawyerId = Collections.Lawyers.insert(lawyer_data);
 
         // Dummy data for ec_cases
         let case_data = {
@@ -61,7 +61,7 @@ Migrations.add({
             },
             createdAt: new Date()
         }
-        const caseId = Cases.insert(case_data);
+        const caseId = Collections.Cases.insert(case_data);
 
         // Dummy data for ec_contracts		
         let contract_data = {
@@ -69,7 +69,7 @@ Migrations.add({
             contractor: lawyerId,
             caseId: caseId
         }
-        const contractId = Contracts.insert(contract_data);
+        const contractId = Collections.Contracts.insert(contract_data);
 
         // Dummy data for ec_cases_blogs
         let blogs_data = [
@@ -92,14 +92,14 @@ Migrations.add({
         ];
 
         blogs_data.forEach(function(blog) {
-            CasesBlogs.insert(blog);
+            Collections.CasesBlogs.insert(blog);
         });
     },
     down: function () {
-        Lawyers.remove({});
-        Contracts.remove({});
-        Cases.remove({});
-        CasesBlogs.remove({});
+        Collections.Lawyers.remove({});
+        Collections.Contracts.remove({});
+        Collections.Cases.remove({});
+        Collections.CasesBlogs.remove({});
         Meteor.users.remove({});
     }
 });

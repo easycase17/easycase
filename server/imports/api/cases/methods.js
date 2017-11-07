@@ -1,20 +1,22 @@
-Meteor.methods({   
+import { ViewsCase } from '/server/core/collections/views/views_case.collection.js' ;
+
+Meteor.methods({
     'cases.insert'(doc) {
         this.unblock();
 
         // Check if legal user
         if (this.userId) {
             // To add autoValue in the SimpleSchema
-            CasesSchema.clean(doc);
+            Schemas.Cases.clean(doc);
 
             // Validate doc
-            check(doc, CasesSchema);
+            check(doc, Schemas.Cases);
 
             // Sanitize the content
             // doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collections
-            var caseId = Cases.insert(doc);
+            var caseId = Collections.Cases.insert(doc);
 
             // If inserted successfully, trigger delivery notification to related lawyers
             if (caseId) {
@@ -36,16 +38,16 @@ Meteor.methods({
 
         if (this.userId) {
             // To add autoValue in the SimpleSchema
-            CaseBlogSchema.clean(doc);
+            Schemas.CaseBlog.clean(doc);
 
             // Validate doc
-            check(doc, CaseBlogSchema);
+            check(doc, Schemas.CaseBlog);
 
             // Sanitize the content
             // doc.content = sanitizeHtml(doc.content);
 
             // Insert doc into collection
-            var blogId = CasesBlogs.insert(doc);
+            var blogId = Collections.CasesBlogs.insert(doc);
 
             if (blogId) {
                 // @TODO other services
@@ -57,7 +59,7 @@ Meteor.methods({
     'cases.findCase'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Cases.findOne(caseId);
+            return Collections.Cases.findOne(caseId);
         } else {
             throw new Meteor.Error('IllegalUserError', 'When finding case');
         }
@@ -65,7 +67,7 @@ Meteor.methods({
     'cases.findContract'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Contracts.find({ caseId: caseId });
+            return Collections.Contracts.find({ caseId: caseId });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When finding a contract');
         }
@@ -73,7 +75,7 @@ Meteor.methods({
     'cases.findContractors'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Contracts.find({ caseId: caseId }, { contractors: true });
+            return Collections.Contracts.find({ caseId: caseId }, { contractors: true });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When finding contractors');
         }
@@ -81,7 +83,7 @@ Meteor.methods({
     'cases.setPrivate'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: true } });
+            return Collections.Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: true } });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
@@ -89,7 +91,7 @@ Meteor.methods({
     'cases.setPublic'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: false } });
+            return Collections.Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isPrivate: false } });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
@@ -97,7 +99,7 @@ Meteor.methods({
     'cases.setComplete'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: true } });
+            return Collections.Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: true } });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }
@@ -105,7 +107,7 @@ Meteor.methods({
     'cases.setIncomplete'(caseId) {
         // Check if legal user
         if (this.userId) {
-            return Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: false } });
+            return Collections.Cases.update({ _id: caseId, createdBy: this.userId }, { $set: { isComplete: false } });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When setting case privacy');
         }

@@ -1,7 +1,7 @@
 Meteor.publish('lawyers', function() {
-    return Lawyers.find({});
+    return Collections.Lawyers.find({});
 });
 
 Meteor.publish('singleLawyer', function(id) {
-    return Lawyers.find({_id: id});
+    return Collections.Lawyers.find({_id: id});
 });

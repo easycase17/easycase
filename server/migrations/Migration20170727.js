@@ -16,7 +16,7 @@ Migrations.add({
             ]
         };
 
-        Options.insert(language_options);
+        Collections.Options.insert(language_options);
     },
     down: function () { }
 });

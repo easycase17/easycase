@@ -3,57 +3,15 @@
  * EasyCase
  * @author Guocheng Wei <walterwei170@gmail.com>
  */
+import '/both/collections/schemas/caseBlog.schema.js';
 
-const CreatedBySchema = new SimpleSchema({
-    authorId: {
-        type: String,
-        autoform: {
-            type: 'hidden'
-        }
-    },
-    role: {
-        type: String,
-        allowedValues: [
-            'lawyer',
-            'user'
-        ],
-        autoform: {
-            type: 'hidden'
-        }
-    }
-});
-
-CaseBlogSchema = new SimpleSchema({
-    caseId: {
-        type: String,
-        autoform: {
-            type: 'hidden'
-        }
-    },
-    createdBy: {
-        type: CreatedBySchema,
-    },
-    content: {
-        type: String
-    },
-    createdAt: {
-        type: Date,
-        autoValue: function() {
-            return new Date();
-        },
-        autoform: {
-            type: 'hidden'
-        }
-    }
-});
-
-CasesBlogs = new Mongo.Collection('ec_cases_blogs');
-CasesBlogs.schema = CaseBlogSchema;
+Collections.CasesBlogs = new Mongo.Collection('ec_cases_blogs');
+Collections.CasesBlogs.schema = Schemas.CaseBlog;
 Meteor.startup(function() {
-    CaseBlogSchema.i18n("SCHEMAS.CaseBlogSchema");
-    CasesBlogs.attachSchema(CaseBlogSchema);
+    Schemas.CaseBlog.i18n("SCHEMAS.CaseBlogSchema");
+    Collections.CasesBlogs.attachSchema(Schemas.CaseBlog);
 });
-CasesBlogs.allow({
+Collections.CasesBlogs.allow({
     update: function(userId) { 
         return !!userId; 
     }

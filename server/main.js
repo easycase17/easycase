@@ -1,10 +1,8 @@
-import './imports/startup/index.js';
-import './imports/api/index.js';
-
 /**
  * Collections only exist on server
  */
-import './imports/collections/index.js';
+import './imports/startup/index.js';
+import './imports/api/index.js';
 
 Meteor.startup(() => {
 

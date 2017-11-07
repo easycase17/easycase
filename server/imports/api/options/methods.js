@@ -4,7 +4,7 @@ Meteor.methods({
         if (this.userId) {
             this.unblock();
             if (option && option.params && option.params.field) {
-                return Options.findOne({ field: option.params.field }).options;
+                return Collections.Options.findOne({ field: option.params.field }).options;
             } else {
                 throw new Meteor.Error('InvalidArguments');
             }

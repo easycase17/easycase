@@ -1,8 +1,10 @@
+import { ViewsLawyer } from '/server/core/collections/views/views_lawyer.collection.js' ;
+
 Meteor.methods({
     'lawyers.findLawyer'(lawyerId) {
         // Check if legal user
         if (this.userId) {
-            return Lawyers.findOne(lawyerId).name;
+            return Collections.Lawyers.findOne(lawyerId).name;
         } else {
             throw new Meteor.Error('IllegalUserError', 'When finding lawyer');
         }
@@ -15,8 +17,8 @@ Meteor.methods({
             this.unblock();
 
             // For safety, we need to find lawyerId at backend
-            var lawyerId = Lawyers.findOne({userId: this.userId})._id;
-            var res = Contracts.remove({ caseId: caseId, contractor: lawyerId });
+            var lawyerId = Collections.Lawyers.findOne({userId: this.userId})._id;
+            var res = Collections.Contracts.remove({ caseId: caseId, contractor: lawyerId });
 
             // if failed, throw an error
             if (!res) {
@@ -34,9 +36,9 @@ Meteor.methods({
             this.unblock();
 
             // For safety, we need to find lawyerId at backend
-            var lawyerId = Lawyers.findOne({userId: this.userId})._id;
-            var c = Cases.findOne({ _id: caseId });
-            var res = Contracts.insert({
+            var lawyerId = Collections.Lawyers.findOne({userId: this.userId})._id;
+            var c = Collections.Cases.findOne({ _id: caseId });
+            var res = Collections.Contracts.insert({
                 contractee: c.createdBy,
                 contractor: lawyerId,
                 caseId: caseId
@@ -54,7 +56,7 @@ Meteor.methods({
     'lawyers.hasGrabCase'(caseId, lawyerId) {
         // Check if legal user
         if (this.userId) {
-            return Contracts.findOne({ caseId: caseId, contractor: lawyerId });
+            return Collections.Contracts.findOne({ caseId: caseId, contractor: lawyerId });
         } else {
             throw new Meteor.Error('IllegalUserError', 'When checking if a lawyer has grab a case');
         }
@@ -68,7 +70,7 @@ Meteor.methods({
             this.unblock();
 
             // update doc into collections
-            var res = Lawyers.update({ _id: objId }, doc);
+            var res = Collections.Lawyers.update({ _id: objId }, doc);
 
             // if failed, throw an error
             if (!res) {

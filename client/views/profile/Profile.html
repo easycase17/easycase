@@ -23,7 +23,7 @@
         </section>
     {{else if isLawyerProfile}}
         <section class="profile-user-container">
-            {{#autoForm id="updateLawyerProfile" collection="Lawyers" doc=lawyerProfile type="method-update" meteormethod="lawyers.update"}}
+            {{#autoForm id="updateLawyerProfile" collection="Collections.Lawyers" doc=lawyerProfile type="method-update" meteormethod="lawyers.update"}}
                 <section>
                     <h3>{{_ "PROFILE.LAWYER"}}</h3>
                     {{> afQuickField name='name'}}

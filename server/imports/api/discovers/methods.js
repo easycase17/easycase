@@ -92,7 +92,7 @@ Meteor.methods({
             }
 
             // Cases
-            cases = Cases.aggregate(pipeline);
+            cases = Collections.Cases.aggregate(pipeline);
 
             // Paginations
             var Pagination = require('/server/core/pagination/pagination');
@@ -129,7 +129,7 @@ Meteor.methods({
             }
 
             // Lawyers
-            lawyers = Lawyers.aggregate(pipeline);
+            lawyers = Collections.Lawyers.aggregate(pipeline);
 
             // Paginations
             var Pagination = require('/server/core/pagination/pagination');

@@ -21,6 +21,6 @@ const OptionsSchema = new SimpleSchema({
     }
 });
 
-Options = new Mongo.Collection('ec_options');
-Options.schema = OptionsSchema;
-Options.attachSchema(OptionsSchema);
+Collections.Options = new Mongo.Collection('ec_options');
+Collections.Options.schema = OptionsSchema;
+Collections.Options.attachSchema(OptionsSchema);

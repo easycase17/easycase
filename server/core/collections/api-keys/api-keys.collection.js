@@ -1,4 +1,4 @@
-APIKeys = new Mongo.Collection( 'api-keys' );
+let APIKeys = new Mongo.Collection( 'api-keys' );
 
 /*
 * Allow
@@ -37,3 +37,5 @@ APIKeys.deny({
     return true;
   }
 });
+
+exports.module = APIKeys;

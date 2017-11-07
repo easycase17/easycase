@@ -10,7 +10,7 @@ Template.Profile.helpers({
         return Session.get('isLawyer');
     },
     lawyerProfile: () => {
-        return Lawyers.findOne({userId: Meteor.userId()});
+        return Collections.Lawyers.findOne({userId: Meteor.userId()});
     },
     isUserProfile: () => {
         return Template.instance().profileType.get() == 'User';
