@@ -100,6 +100,6 @@ easycase17:comments-ui
 raix:handlebar-helpers
 gwendall:auth-client-callbacks      # Adds client-side onLogin and onLogout methods
 
-pdftk:pdftk                         # Wrapper for PDFTK: PDF file merge, split, encrypt, decrypt, rotate, watermark, stamp and more
+# pdftk:pdftk                         # Wrapper for PDFTK: PDF file merge, split, encrypt, decrypt, rotate, watermark, stamp and more
 mrt:external-file-loader            # To load external js and css files dynamically within Meteor.
 aldeed:template-extension

@@ -23,6 +23,12 @@
                 "clientId": "44773692988-t214nmfmdo84bhh8rl8b87c4dvp24219.apps.googleusercontent.com",
                 "secret": "OGTpqTmyHWL77EbJ8sQlznRG"
             }
+        },
+        "azure": {
+            "storage": {
+                "account": "easycasestorage",
+                "accessKey": "mmFDMryoFRBwcVEQvU3KVvznaeDtwD0MFHVrZkSCacmpbHHWwqdOOd3L4cSqCSMb4jFtc+5rtsUvR8ZQAOq1MQ=="
+            }
         }
     },
     "production": {
