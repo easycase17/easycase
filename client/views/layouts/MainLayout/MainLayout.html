@@ -2,15 +2,48 @@
     {{> notifications}}
     <header>
         <h1><a href="/">{{_ "COMPANY.NAME"}}</a></h1>
+        <button class="button btn-text-dark navbar-toggle hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
         {{> loginButtons }}
-        {{> i18n_custom_dropdown}}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/profile">{{_ "SIDEBAR.PROFILE"}}</a>
+                </li>
+                <li>
+                    <a href="/discover">{{_ "SIDEBAR.DISCOVER"}}</a>
+                </li>
+                <li>
+                    <a href="/cases">{{_ "SIDEBAR.CASES"}}</a>
+                </li>
+                <li>
+                    <a href="/tools">{{_ "SIDEBAR.TOOLS"}}</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Link</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    {{> i18n_custom_dropdown}}
+                </li>
+            </ul>
+        </div>
     </header>
-    {{> SideBar}}
+    <!-- {{> SideBar}} -->
     <main class="main-layout">
         {{#if hasNewVersion}}
-            <section class="notification">
-                <h4 class="notification-title">{{_ "NEWVERSION.NOTI"}}</h4>
-            </section>
+        <section class="notification">
+            <h4 class="notification-title">{{_ "NEWVERSION.NOTI"}}</h4>
+        </section>
         {{/if}}
         {{> Template.dynamic template=main }}
     </main>

@@ -84,6 +84,7 @@ header
     background purp
     padding 15px 
     fixed top left
+    position absolute !important
     width 100%
     height 60px  
     z-index: z.header
@@ -99,10 +100,38 @@ header
         margin 0
         font-size 1.6em 
         float left
+    .button
+        margin 0px 10px
+        padding 6px 8px
+        .icon-bar
+            background white
+    .nav
+        margin 0px 10px
+    .navbar-nav 
+        &:hover
+            z-index: z.highest
+        li 
+            a
+                line-height 10px
+                padding 10px 15px
+        div
+            padding 5px 0px
+        .dropdown 
+            .dropdown-menu
+                z-index: z.highest
+                a 
+                    &:hover
+                        color teal
+            &:hover
+                .dropdown-menu
+                    display block
+    .navbar-collapse
+        background purp
     #login-buttons
     .login-buttons-dropdown-align-
         margin 6px
         float right
+        padding-top 2px
         a
             text-decoration none 
 
@@ -128,11 +157,11 @@ p
     margin-top 20px 
     +above($med)
         lost-center 90%
-        padding-left $side-nav
+        // padding-left $side-nav
     +above($large)
         lost-center 90%
         margin-top 40px
-        padding-left $side-nav-large
+        // padding-left $side-nav-large
     
 .new-case
     margin-bottom 20px 
@@ -437,11 +466,7 @@ input, select, textarea
 .profile-user-container
     @extend .new-case-container
 
-.tap-i18n-dropdown
-    float right !important
-    margin 3px
-    a
-        color #FFF
+
 
 .tool
     @extend .ec-material-card
@@ -459,7 +484,7 @@ input, select, textarea
         margin-left: 5px
         float right
         width 0
-        height 65px
+        height 60px
         trans(0.5s)
         border-top 35px solid $color-secondary
         border-right 20px solid $color-secondary
@@ -590,11 +615,8 @@ input, select, textarea
     position fixed
     float right
     z-index: z.highest
-    padding-right 10px
-    +above($xsmall)
-        bottom $side-nav
-    +above($med)
-        bottom 20px
+    padding-right 5px
+    bottom 20px
 
 .ec-pagination
     padding 15px 0px

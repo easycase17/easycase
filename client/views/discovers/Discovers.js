@@ -20,7 +20,7 @@ Template.Discovers.onCreated(function() {
 
         switch(self.fieldType.get()) {
             case 'Cases':
-                Meteor.call('discovers.getCases', searchRule, { perPage: 2, reqPage: self.page.get() }, function(err, res) {
+                Meteor.call('discovers.getCases', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
                         self.numPages.set(res.numPages);
@@ -29,7 +29,7 @@ Template.Discovers.onCreated(function() {
                 });
                 break;
             case 'Lawyers':
-                Meteor.call('discovers.getLawyers', searchRule, { perPage: 2, reqPage: self.page.get() }, function(err, res) {
+                Meteor.call('discovers.getLawyers', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
                         self.numPages.set(res.numPages);
