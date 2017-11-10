@@ -114,11 +114,18 @@ header
             a
                 line-height 10px
                 padding 10px 15px
+                trans()
+                &:hover, &.active, &:focus
+                    color teal
+                    background inherit
+                    border-bottom 3px solid teal
         div
             padding 5px 0px
         .dropdown 
             .dropdown-menu
                 z-index: z.highest
+                border 0px
+                border-radius 0px
                 a 
                     &:hover
                         color teal
@@ -465,8 +472,9 @@ input, select, textarea
 
 .profile-user-container
     @extend .new-case-container
-
-
+    .profile-user-avatar
+        margin-top -(128/2) px
+        shadow-level(3)
 
 .tool
     @extend .ec-material-card
@@ -583,6 +591,10 @@ input, select, textarea
     display inline-block
     width 100%
     margin-bottom 10px
+    .dropdown 
+        .dropdown-menu
+            z-index: z.highest
+            border-radius 0px
     .search-tool-info
         list-style none
         padding-left 0px
@@ -663,6 +675,11 @@ input, select, textarea
         padding-left $side-nav
     +above($large)
         padding-left $side-nav-large
+
+.comments-box
+    .img-avatar
+        border 0px
+        border-radius 0px
 
 /*
   Set the color of the icon

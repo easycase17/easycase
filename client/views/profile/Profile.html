@@ -8,6 +8,7 @@
     {{#if isUserProfile}}
         <section class="profile-user-container">
             {{#if currentUser}}
+                {{{getAvatar}}}
                 {{#autoForm id="updateUserProfile" collection="Meteor.users" doc=currentUser type="update"}}
                     <section>
                         <h3>{{_ "PROFILE.USER"}}</h3>
@@ -23,6 +24,7 @@
         </section>
     {{else if isLawyerProfile}}
         <section class="profile-user-container">
+            {{{getAvatar}}}
             {{#autoForm id="updateLawyerProfile" collection="Collections.Lawyers" doc=lawyerProfile type="method-update" meteormethod="lawyers.update"}}
                 <section>
                     <h3>{{_ "PROFILE.LAWYER"}}</h3>
