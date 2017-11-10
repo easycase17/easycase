@@ -15,6 +15,9 @@ Template.Discovers.onCreated(function() {
         // Fetch the SearchRule
         var searchRule = Session.get('SearchRule');
 
+        // Get the language setting
+        let lang = TAPi18n.getLanguage();
+
         // Before calling to fetch data, change to loading mode
         Session.set('isLoading', true);
 
@@ -24,7 +27,11 @@ Template.Discovers.onCreated(function() {
                     if (!err) {
                         self.discovers.set(res.data);
                         self.numPages.set(res.numPages);
-                        Session.set('isLoading', false);
+
+                        // get law field options
+                        Meteor.subscribe('options.getOptions', 'law', lang, function () {
+                            Session.set('isLoading', false);
+                        });
                     }
                 });
                 break;
@@ -40,6 +47,7 @@ Template.Discovers.onCreated(function() {
             case 'Articles':
                 break;
         }
+
     });
 });
 

@@ -22,7 +22,11 @@
                     {{_ "CASESITEM.LAW"}}
                     <span class="triangle-top-right"></span>
                 </span>
-                {{#if isComplete}}{{_ "CASESITEM.COMPLETE"}}{{else}}{{_ "CASESITEM.INCOMPLETE"}}{{/if}}
+                {{#if isComplete}}
+                    {{_ "CASESITEM.COMPLETE"}}
+                {{else}}
+                    {{_ "CASESITEM.INCOMPLETE"}}
+                {{/if}}
             </span>
         </section>
         <h3><a href="/cases/{{_id}}">{{ title }}</a></h3>

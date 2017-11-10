@@ -46,7 +46,8 @@ Template.CasesItem.helpers({
         var tagsView = [];
 
         tags.forEach(function(tag) {
-            tagsView.push(`<div class="attribute-tag"><span class="text">${tag}</span></div>`);
+            let tmp = Collections.Options.findOne({ field: 'law', lang: TAPi18n.getLanguage() });
+            tagsView.push(`<div class="attribute-tag"><span class="text">${tmp.options[tag].label}</span></div>`);
         });
         tagsView = tagsView.join('');
         return tagsView;
