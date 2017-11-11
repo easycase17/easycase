@@ -35,8 +35,9 @@ Template.SearchTool.helpers({
         var option = options.find((i) => {
             return i.type === type;
         });
-        // @TODO there is an error when rendering the page
-        return option.options;
+
+        if (option) return option.options;
+        else return null;
     }
 });
 
