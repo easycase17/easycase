@@ -9,7 +9,9 @@ Template.NewCase.helpers({
 });
 
 Template.NewCase.onRendered(function() {
-    this.$('textarea').froalaEditor();
+    this.$('textarea').froalaEditor({
+        height: 400
+    });
 });
 
 AutoForm.hooks({
@@ -93,14 +95,6 @@ Template.Case.onCreated(function () {
         });
         lawyersView = lawyersView.join(', ');
         self.lawyers.set(lawyersView);
-    });
-});
-
-Template.Case.onRendered(function() {
-    this.$('textarea').froalaEditor({
-        // @TODO: Uncomment when setup azure image uploads
-        // imageUploadMethod: 'post',
-        // imageUploadURL: 'https://www.filestackapi.com/api/store/azure?key=AL8jjCQcqT3is6vIBgTGnz'
     });
 });
 
