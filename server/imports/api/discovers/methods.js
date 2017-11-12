@@ -21,7 +21,9 @@ Meteor.methods({
                 },
                 {
                     $project: {
-                        title: 1, tags: 1, content: 1, languages: 1, location: 1,
+                        title: 1, tags: 1,
+                        content: { $substr: [ "$content", 0, 600 ] },
+                        languages: 1, location: 1,
                         createdAt: 1, createdBy: 1, isPrivate: 1, isComplete: 1,
                         "createdBy_info._id": 1, "createdBy_info.username": 1
                     }
@@ -46,7 +48,9 @@ Meteor.methods({
                                 pipeline = [
                                     {
                                         $project: {
-                                            title: 1, tags: 1, content: 1, languages: 1, location: 1,
+                                            title: 1, tags: 1,
+                                            content: { $substr: [ "$content", 0, 600 ] },
+                                            languages: 1, location: 1,
                                             createdAt: 1, createdBy: 1, isPrivate: 1, isComplete: 1,
                                             dateDifference: { $subtract: [new Date(), "$createdAt"] }
                                         }
