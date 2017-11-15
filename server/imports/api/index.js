@@ -4,6 +4,7 @@ import './lawyers/index.js';
 import './contracts/index.js';
 import './options/index.js';
 import './discovers/index.js';
+import './avatars/index.js';
 
 // Import restful api
 import './restful/index.js';

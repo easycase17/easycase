@@ -6,9 +6,9 @@
         {{/if}}
     </section>
     {{#if isUserProfile}}
-        <section class="profile-user-container">
-            {{#if currentUser}}
-                {{{getAvatar}}}
+        {{#if currentUser}}
+            <section class="profile-user-container">
+                <img align="right" class="profile-user-avatar fileBrowse" src="{{getAvatar currentUser}}" />
                 {{#autoForm id="updateUserProfile" collection="Meteor.users" doc=currentUser type="update"}}
                     <section>
                         <h3>{{_ "PROFILE.USER"}}</h3>
@@ -18,13 +18,13 @@
                     </section>
                     <button type="submit" class="btn">{{_ "PROFILE.UPDATE"}}</button>
                 {{/autoForm}}
-            {{else}}
-                <h3>{{_ "LOADING"}}</h3>
-            {{/if}}
-        </section>
+            </section>
+        {{else}}
+            {{> Loading1}}
+        {{/if}}
     {{else if isLawyerProfile}}
         <section class="profile-user-container">
-            {{{getAvatar}}}
+            <img align="right" class="profile-user-avatar" src="{{getAvatar currentUser}}" />
             {{#autoForm id="updateLawyerProfile" collection="Collections.Lawyers" doc=lawyerProfile type="method-update" meteormethod="lawyers.update"}}
                 <section>
                     <h3>{{_ "PROFILE.LAWYER"}}</h3>

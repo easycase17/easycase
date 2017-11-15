@@ -3,6 +3,16 @@ Template.Profile.onCreated(function() {
     var self = this;
     self.profileType = new ReactiveVar( String );
     self.profileType.set('User');
+
+    self.autorun(function() {
+        Meteor.subscribe('avatar');
+        $.cookie('X-Auth-Token', Accounts._storedLoginToken());
+    });
+});
+
+Template.Profile.onRendered(function() {
+    // This assigns a browse action to a DOM node
+    Collections.Avatars.resumable.assignBrowse($(".fileBrowse"));
 });
 
 Template.Profile.helpers({
@@ -18,12 +28,11 @@ Template.Profile.helpers({
     isLawyerProfile: () => {
         return Template.instance().profileType.get() == 'Lawyer';
     },
-    getAvatar: () => {
-        let user = Meteor.users.findOne({_id: Meteor.userId()});
-        if (user.profile.avatar) {
-            return user.profile.avatar;
+    getAvatar: (currentUser) => {
+        if (currentUser.profile.avatar) {
+            return currentUser.profile.avatar;
         } else {
-            return `<img align="right" class="profile-user-avatar" src="https://ui-avatars.com/api/?name=${user.profile.firstname}+${user.profile.lastname}&size=128&background=524763&color=FFF"/>`;
+            return `https://ui-avatars.com/api/?name=${currentUser.profile.firstname}+${currentUser.profile.lastname}&size=128&background=524763&color=FFF`;
         }
     }
 });

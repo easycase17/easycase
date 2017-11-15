@@ -45,5 +45,12 @@ Schemas.UserProfile= new SimpleSchema({
         type: String,
         optional: true,
         regEx: /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/
+    },
+    avatar: {
+        type: String,
+        optional: true,
+        autoform: {
+            type: 'hidden'
+        }
     }
 });
