@@ -43,6 +43,7 @@ maroon = #6A2140
 light-red = #CA5765
 pink = #CF256D
 orange = #E8846B
+dark-cyan = #008080
 
 $color-secondary = purp
 
@@ -395,11 +396,6 @@ input, select, textarea
     &:hover 
         shadow-level(3)
         // animation card 0.6s ease 1 forwards
-    &.toggle-state
-        background teal
-        color #FFF
-        h3
-            border-bottom: rgba(255,255,255, 0.6) solid 3px
 
 .case
     @extend .ec-material-card
@@ -560,6 +556,10 @@ input, select, textarea
             color #ef5829
             padding-right 5px
 
+        &.toggle-state
+            background teal
+            color dark-cyan
+
         .organization
             display inline-block
             padding 0 10px
@@ -679,12 +679,33 @@ input, select, textarea
         padding-left $side-nav-large
 
 .comments-box
+    width 100%
+    padding 0px 0px 20px 0px
+    .form-group
+        padding 10px 20px
+    button
+        margin-left 20px
+        margin-top 0px
+    .comments
+        padding-left 20px
     .img-avatar
         border 0px
         border-radius 0px
 
 .fileBrowse
     cursor pointer
+
+.selected-answer
+    section
+        padding-left 20px
+        h4
+            font-size 1.25em
+            opacity 0.5
+            border-bottom: rgba(0,0,0, 0.3) solid 1.5px
+            margin-top 0px
+            margin-bottom 10px
+            padding-left 20px
+            padding-bottom 5px
 
 /*
   Set the color of the icon

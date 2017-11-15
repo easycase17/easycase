@@ -31,7 +31,10 @@
         "NOCONTRACT": "No Contract",
         "NOCONTRACT_INFO": "There will be a lawyer assigned to this case. Please be patient, thank you.",
         "BLOG_POST": "Add a Blog",
-        "BLOG_SUBMIT": "Submit"
+        "BLOG_SUBMIT": "Submit",
+        "SELECTED_ANSWER": "Selected Answer",
+        "LAWYER_ANSWER": "Lawyer Answer",
+        "BEST_ANSWER": "Best Answer"
     },
     "COMMENTS": {
         "TITLE": "Comments",

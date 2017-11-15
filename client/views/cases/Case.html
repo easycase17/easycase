@@ -47,25 +47,24 @@
 
         <br>
 
-        <section class="blog">
-        {{#each blog in blogs}}
-            {{#if isAuthor blog}}
-                <section class="blog-right">
-                    <h3>Test Right</h3>
-                    <p>{{{blog.content}}}</p>
-                </section>
-            {{else}}
-                <section class="blog-left">
-                    <h3>Test Left</h3>
-                    <p>{{{blog.content}}}</p>
-                </section>
-            {{/if}}
-        {{/each}}
-        </section>
+        <article class="ec-material-card selected-answer">
+            <h3>{{_ "CASE.SELECTED_ANSWER"}}</h3>
+            <section>
+                {{#if hasLawyerAnswer}}
+                    <h4>{{_ "CASE.LAWYER_ANSWER"}}</h4>
+                    <p>Phasellus nec neque in libero eleifend pretium. Integer erat sem, eleifend a ultrices nec, gravida sed nisl. In consequat nisl tellus. Etiam et risus quis dolor condimentum sagittis vel non enim. In scelerisque ac lorem at congue. Ut condimentum ullamcorper viverra. Nullam mattis eleifend tincidunt. Quisque ultrices laoreet condimentum. Duis aliquam fermentum condimentum. Integer dictum pharetra dui quis elementum.</p>
+                {{/if}}
+                {{#if hasBestAnswer}}
+                    <h4>{{_ "CASE.BEST_ANSWER"}}</h4>
+                    <p>Test Best Answer</p>
+                {{else}}
+                    <p>{{_ "CASE.NO_ANSWER"}}</p>
+                {{/if}}
+            </section>
+        </article>
 
         <br>
 
-        <!-- {{> NewCaseBlog}} -->
         <section class="ec-material-card">
             {{> commentsBox id=case._id loadingTemplate="Loading1"}}
         </section>

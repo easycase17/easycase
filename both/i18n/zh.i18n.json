@@ -31,7 +31,10 @@
         "NOCONTRACT": "无合同",
         "NOCONTRACT_INFO": "我们将把此问题派送给相关律师，请耐心等待。",
         "BLOG_POST": "评论",
-        "BLOG_SUBMIT": "提交"
+        "BLOG_SUBMIT": "提交",
+        "SELECTED_ANSWER": "回答",
+        "LAWYER_ANSWER": "律师回答",
+        "BEST_ANSWER": "最佳回答"
     },
     "COMMENTS": {
         "TITLE": "评论",

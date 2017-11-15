@@ -14,10 +14,10 @@
 </template>
 
 <template name="CasesItem">
-    <article class="case {{#if isComplete}}toggle-state{{/if}}">
+    <article class="case">
         <section class="attribute-tags">{{{ tagsHtml(_id) }}}</section>
         <section class="publish-type-labels">
-            <span class="label court">
+            <span class="label court {{#if isComplete}}toggle-state{{/if}}">
                 <span class="organization court">
                     {{_ "CASESITEM.LAW"}}
                     <span class="triangle-top-right"></span>

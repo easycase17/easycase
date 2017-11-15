@@ -135,6 +135,12 @@ Template.Case.helpers({
     },
     isComplete: (case_info) => {
         return case_info.isComplete;
+    },
+    hasLawyerAnswer: () => {
+        return true;
+    },
+    hasBestAnswer: () => {
+        return true;
     }
 });
 
