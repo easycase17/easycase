@@ -115,7 +115,34 @@ Meteor.methods({
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
     },
+    'discovers.avvoLawyers'(searchRule, page) {
+        this.unblock();
+        try {
+            page = page || {
+                perPage: 10,
+                reqPage: 1
+            };
 
+            let result = HTTP.call('GET', 'https://api.avvo.com/api/4/lawyers/search.json', {
+                params: {
+                    page: page.reqPage,
+                    perPage_page: page.perPage,
+                    include: "metadata"
+                },
+                headers: {
+                    Authorization: "Bearer " + Meteor.settings.private.avvo.access_token
+                }
+            });
+
+            return {
+                data: result.data.lawyers,
+                numPages: result.data.meta.total_pages
+            };
+        } catch (error) {
+            // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+            return false;
+        }
+    },
     'discovers.getLawyers': function(searchRule, page) {
         if (this.userId) {
             var lawyers;

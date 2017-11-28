@@ -17,15 +17,18 @@ Template.Lawyers.helpers({
 
 Template.LawyersItem.helpers({
     areasHtml: () => {
-        var areas = Template.instance().data.areas;
+        var areas = Template.instance().data.lawyer_specialties;
         var areasView = [];
 
-        areas.forEach(function(tag) {
+        areas.forEach(function(area) {
             // @TODO: fix this
-            areasView.push(`<div class="attribute-tag"><span class="text">${tag}</span></div>`);
+            areasView.push(`<div class="attribute-tag"><span class="text">${area.name}</span></div>`);
         });
         areasView = areasView.join('');
         return areasView;
+    },
+    licensedYears: (since) => {
+        return (new Date()).getFullYear() - since;
     }
 });
 

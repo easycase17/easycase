@@ -36,10 +36,11 @@ Template.Discovers.onCreated(function() {
                 });
                 break;
             case 'Lawyers':
-                Meteor.call('discovers.getLawyers', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
+                Meteor.call('discovers.avvoLawyers', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
-                        self.numPages.set(res.numPages);
+                        // @TODO: Update pagination for huge situations
+                        self.numPages.set(10);
                         Session.set('isLoading', false);
                     }
                 });

@@ -29,6 +29,9 @@
                 "account": "easycasestorage",
                 "accessKey": "mmFDMryoFRBwcVEQvU3KVvznaeDtwD0MFHVrZkSCacmpbHHWwqdOOd3L4cSqCSMb4jFtc+5rtsUvR8ZQAOq1MQ=="
             }
+        },
+        "avvo": {
+            "access_token": "ajml0q9h9pukj066so17ti7we"
         }
     },
     "production": {

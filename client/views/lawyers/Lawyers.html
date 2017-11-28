@@ -18,19 +18,19 @@
         <section class="publish-type-labels">
             <span class="label court">
                 <span class="organization court">
-                    {{_ "LAWYERSITEM.SUCCESSRATE"}}
+                    {{_ "LAWYERSITEM.LICENSED_YEARS"}}
                     <span class="triangle-top-right"></span>
                 </span>
-                {{ rate.success }}%
+                {{ licensedYears(licensed_since) }}
             </span>
             <span class="label procuratorate">
                 <span class="organization procuratorate">
                     {{_ "LAWYERSITEM.EVALUATION"}}
                 </span>
-                {{ evaluation }}%
+                {{#if avvo_rating}}{{ avvo_rating }}{{else}}0{{/if}}/10
             </span>
         </section>
-        <h3><a href="/lawyers/{{_id}}">{{name}}</a></h3>
-        <p>{{_ "COMINGSOON"}}</p>
+        <h3><a href="/lawyers/{{id}}">{{ firstname }} {{ lastname }}</a></h3>
+        <p>{{{ bio }}}</p>
     </article>
 </template>
