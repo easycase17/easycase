@@ -64,7 +64,8 @@
     "LAWYERSITEM": {
         "SUCCESSRATE": "胜诉率",
         "EVALUATION": "评价",
-        "LICENSED_YEARS": "从业时间"
+        "LICENSED_YEARS": "从业时间",
+        "REVIEWS": "评论量"
     },
     "PAGENAV": {
         "BACK": "后退"

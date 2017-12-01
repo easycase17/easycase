@@ -64,7 +64,8 @@
     "LAWYERSITEM": {
         "SUCCESSRATE": "Success Rate",
         "EVALUATION": "Evaluation",
-        "LICENSED_YEARS": "Licensed Years"
+        "LICENSED_YEARS": "Licensed Years",
+        "REVIEWS": "Num Reviews"
     },
     "PAGENAV": {
         "BACK": "Back"

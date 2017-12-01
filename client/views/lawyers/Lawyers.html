@@ -16,21 +16,30 @@
     <article class="lawyer">
         <section class="attribute-tags">{{{ areasHtml(_id) }}}</section>
         <section class="publish-type-labels">
-            <span class="label court">
-                <span class="organization court">
+            <span class="label years">
+                <span class="organization years">
                     {{_ "LAWYERSITEM.LICENSED_YEARS"}}
                     <span class="triangle-top-right"></span>
                 </span>
                 {{ licensedYears(licensed_since) }}
             </span>
-            <span class="label procuratorate">
-                <span class="organization procuratorate">
+            <span class="label evaluation">
+                <span class="organization evaluation">
                     {{_ "LAWYERSITEM.EVALUATION"}}
                 </span>
                 {{#if avvo_rating}}{{ avvo_rating }}{{else}}0{{/if}}/10
             </span>
+            <span class="label reviews">
+                <span class="organization reviews">
+                    {{_ "LAWYERSITEM.REVIEWS"}}
+                </span>
+                {{#if client_review_count}}{{ client_review_count }}{{else}}0{{/if}}
+            </span>
         </section>
-        <h3><a href="/lawyers/{{id}}">{{ firstname }} {{ lastname }}</a></h3>
+        <h3>
+            <img src="{{ headshot_url }}" alt="headshot">
+            <a href="/lawyers/{{id}}">{{ firstname }} {{ lastname }}</a>
+        </h3>
         <p>{{{ bio }}}</p>
     </article>
 </template>

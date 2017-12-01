@@ -31,6 +31,7 @@ $wide = 1200px
 black = #222
 grey = #D8D8D8
 light-grey = #EEE
+dark-grey = #A9A9A9
 purp = #524763
 dark-purp = #373142
 red = #E54B4B
@@ -79,6 +80,7 @@ html
 body
     background light-grey
     padding: 70px 0 150px
+    cursor default
 
 header
     color #FFF 
@@ -247,6 +249,7 @@ p
         background transparent
         border solid 2px #FFF
         shadow-level(0)
+        outline none
         &:hover
             background #FFF
             color dark-purp 
@@ -405,6 +408,7 @@ input, select, textarea
 
 .case
     @extend .ec-material-card
+    width 75%
     padding 0px 0px 10px
     h3
         padding-top 50px
@@ -420,6 +424,12 @@ input, select, textarea
 
 .lawyer
     @extend .case
+    width 75%
+    h3
+        opacity: 1.0
+        img
+            width 70px
+            height 95px
 
 .blog
     height: 400px
@@ -467,6 +477,16 @@ input, select, textarea
 
 #page-fields
     margin-bottom: 10px
+    .search-div
+        margin-top 10px
+        background-color white
+        padding 5px
+        width 75%
+        shadow-level(2)
+        #search-input
+            border 0px
+            margin-bottom 0px
+            outline none
 
 .map-container
     max-width 100%
@@ -562,6 +582,21 @@ input, select, textarea
             color #ef5829
             padding-right 5px
 
+        &.years
+            background-color #ffccbc
+            color #ef5829
+            padding-right 5px
+            
+        &.evaluation
+            background-color #bbdefb
+            color #1274ac
+            padding-right 5px
+
+        &.reviews
+            background-color light-grey
+            color dark-grey
+            padding-right 5px
+
         &.toggle-state
             background teal
             color dark-cyan
@@ -584,6 +619,27 @@ input, select, textarea
 
                 .triangle-top-right
                     border-top 5px solid #9e4909 !important
+
+            &.years
+                background-color #ff6e02
+                color #ffffff
+
+                .triangle-top-right
+                    border-top 5px solid #0f76a4 !important
+
+            &.evaluation
+                background-color #03a9f4
+                color #ffffff
+
+                .triangle-top-right
+                    border-top 5px solid #0f76a4 !important
+
+            &.reviews
+                background-color dark-grey
+                color #ffffff
+
+                .triangle-top-right
+                    border-top 5px solid #0f76a4 !important
 
         .triangle-top-right
             position absolute
@@ -625,10 +681,16 @@ input, select, textarea
 
     .search-tool-btn
         float right
-        padding 2.5px 7.5px
+        // padding 2.5px 7.5px
         margin-top -55px
         font-weight 350
         text-transform capitalize
+
+    ul .search-tool-tags
+        floar right
+        li
+            .btn
+                border-radius 20px
 
 .section-float
     right 0%
@@ -658,12 +720,14 @@ input, select, textarea
             background teal
             border-color @background
             shadow-level(1)
+        &:hover
+            cursor pointer
         &.active
             shadow-level(1)
             background-color purp
             color #fff
         &.disabled
-            cursor default
+            cursor not-allowed
             color #999
         i
             font-size 2rem

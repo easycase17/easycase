@@ -126,8 +126,7 @@ Meteor.methods({
             let result = HTTP.call('GET', 'https://api.avvo.com/api/4/lawyers/search.json', {
                 params: {
                     page: page.reqPage,
-                    perPage_page: page.perPage,
-                    include: "metadata"
+                    perPage_page: page.perPage
                 },
                 headers: {
                     Authorization: "Bearer " + Meteor.settings.private.avvo.access_token
