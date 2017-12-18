@@ -2,6 +2,9 @@ import { _ } from 'meteor/underscore';
 import { Meteor, Mongo } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 
+/**
+ * Deprecated
+ */
 class Pagination {
     constructor(collectionArray, settings) {
         if (typeof settings !== 'object') {

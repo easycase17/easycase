@@ -10,6 +10,8 @@ Template.Discovers.onCreated(function() {
     self.numPages = new ReactiveVar( Number );
     self.numPages.set(1);
     Session.set('isLoading', true);
+    self.search = new ReactiveVar( String );
+    self.search.set(null);
 
     self.autorun(function() {
         // Fetch the SearchRule
@@ -21,9 +23,12 @@ Template.Discovers.onCreated(function() {
         // Before calling to fetch data, change to loading mode
         Session.set('isLoading', true);
 
+        // Get the search words
+        let search = self.search.get();
+
         switch(self.fieldType.get()) {
             case 'Cases':
-                Meteor.call('discovers.getCases', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
+                Meteor.call('discovers.getCases', search, searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
                         self.numPages.set(res.numPages);
@@ -82,6 +87,14 @@ Template.Discovers.events({
     },
     'click #discover-articles-btn': function(event, template) {
         template.fieldType.set('Articles');
+    },
+    'submit .search-form': function (event, template) {
+        event.preventDefault();
+
+        const target = event.target;
+        const text = target.text.value;
+
+        template.search.set(text);
     }
 });
 

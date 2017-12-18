@@ -1,8 +1,11 @@
 Meteor.methods({
-    'discovers.getCases': function (searchRule, page) {
+    'discovers.getCases': function (word, searchRule, page) {
         if (this.userId) {
-            var cases;
-            var pipeline = [
+            let cases;
+
+            Collections.Cases._ensureIndex( { content: "text" } );
+
+            let pipeline = [
                 {
                     $match: {
                         isPrivate: false
@@ -95,20 +98,27 @@ Meteor.methods({
                 // if no rule, which means any time
             }
 
-            // Cases
-            cases = Collections.Cases.aggregate(pipeline);
+            // Check word type, if invalid change to default value
+            if (word && typeof word === 'string' && word.length != 0) {
+                pipeline.unshift({
+                    $match: { $text: { $search: word } }
+                });
+            }
+
+            // For pagination
+            page = page || { perPage: 10, reqPage: 1 };
+
+            let numPages = Math.ceil(Collections.Cases.aggregate(pipeline).length / page.perPage);
 
             // Paginations
-            var Pagination = require('/server/core/pagination/pagination');
-            page = page || {
-                perPage: 10,
-                reqPage: 1
-            };
-            var numPages = Math.ceil(cases.length / page.perPage);
-            var pagination = new Pagination(cases, page);
+            pipeline.push(
+                { $skip: (page.reqPage - 1) * page.perPage },
+                { $limit: page.perPage }
+            );
+
 
             return {
-                data: pagination.getResults(),
+                data: Collections.Cases.aggregate(pipeline),
                 numPages: numPages
             };
         } else {
