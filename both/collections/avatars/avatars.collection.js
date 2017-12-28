@@ -1,14 +1,15 @@
-Collections.Avatars = new FileCollection('ec_avatars',
-    {
-        resumable: true,   // Enable built-in resumable.js upload support
-        http: [
-            {
-                method: 'get',
-                path: '/:id',  // this will be at route "/gridfs/:id"
-                lookup: function (params, query) {  // uses express style url params
-                    return { _id: new Mongo.ObjectID(params.id) };       // a query mapping url to avatar
-                }
-            }
-        ]
+var createThumb = function (fileObj, readStream, writeStream) {
+    gm(readStream, fileObj.name()).resize('256', '256').stream().pipe(writeStream);
+};
+
+Collections.Avatars = new FS.Collection("ec_avatars", {
+    stores: [
+        new FS.Store.FileSystem("thumbs", { transformWrite: createThumb, path: "~/Desktop/thumbAvatars" }),
+        new FS.Store.FileSystem("avatars")
+    ],
+    filter: {
+        allow: {
+            contentTypes: ['image/*'] //allow only images in this FS.Collection
+        }
     }
-);
+});

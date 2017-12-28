@@ -76,6 +76,7 @@ tap:i18n-ui
 # CollectionFS
 cfs:standard-packages
 cfs:filesystem
+cfs:graphicsmagick
 easycase17:azure-file-storage-meteor
 
 # Need to check what these do
@@ -104,5 +105,3 @@ gwendall:auth-client-callbacks      # Adds client-side onLogin and onLogout meth
 mrt:external-file-loader            # To load external js and css files dynamically within Meteor.
 aldeed:template-extension
 benjaminrh:jquery-cookie
-
-vsivsi:file-collection

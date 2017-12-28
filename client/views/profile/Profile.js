@@ -11,8 +11,7 @@ Template.Profile.onCreated(function() {
 });
 
 Template.Profile.onRendered(function() {
-    // This assigns a browse action to a DOM node
-    Collections.Avatars.resumable.assignBrowse($(".fileBrowse"));
+    // If needed, add more code
 });
 
 Template.Profile.helpers({
@@ -38,11 +37,33 @@ Template.Profile.helpers({
 });
 
 Template.Profile.events({
-    'click #profile-user-btn': function(event, template) {
+    'click #profile-user-btn': function (event, template) {
         template.profileType.set('User');
     },
-    'click #profile-lawyer-btn': function(event, template) {
+    'click #profile-lawyer-btn': function (event, template) {
         template.profileType.set('Lawyer');
+    },
+    'click .profile-user-avatar': function (event, template) {
+        event.preventDefault();
+
+        let imgupload = template.$('#imgupload');
+        imgupload.trigger('click');
+    },
+    'change #imgupload': function (event, template) {
+        FS.Utility.eachFile(event, function (file) {
+            file.owner = Meteor.userId(); //before upload also save the owner of that file
+            Collections.Avatars.insert(file, function (err, fileObj) {
+                // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+                if (err) {
+                    console.log(err); //in case there is an error, log it to the console
+                } else {
+                    // Change Meteor.users.profile
+                    setTimeout(function () {
+                        Meteor.users.update({ _id: Meteor.userId() }, { $set: { 'profile.avatar': `/cfs/files/ec_avatars/${fileObj._id}` } });
+                    }, 1000);
+                }
+            });
+        });
     }
 });
 

@@ -8,7 +8,8 @@
     {{#if isUserProfile}}
         {{#if currentUser}}
             <section class="profile-user-container">
-                <img align="right" class="profile-user-avatar fileBrowse" src="{{getAvatar currentUser}}" />
+                <input type="file" id="imgupload" style="display:none" />
+                <img align="right" class="profile-user-avatar" src="{{getAvatar currentUser}}" />
                 {{#autoForm id="updateUserProfile" collection="Meteor.users" doc=currentUser type="update"}}
                     <section>
                         <h3>{{_ "PROFILE.USER"}}</h3>
@@ -24,6 +25,7 @@
         {{/if}}
     {{else if isLawyerProfile}}
         <section class="profile-user-container">
+            <input type="file" id="imgupload" style="display:none" />
             <img align="right" class="profile-user-avatar" src="{{getAvatar currentUser}}" />
             {{#autoForm id="updateLawyerProfile" collection="Collections.Lawyers" doc=lawyerProfile type="method-update" meteormethod="lawyers.update"}}
                 <section>

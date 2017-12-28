@@ -32,32 +32,6 @@ if (Meteor.isClient) {
         }
         TAPi18n.setLanguage(lang);
 
-        // When a file is added
-        Collections.Avatars.resumable.on('fileAdded', function (file) {
-
-            // Create a new file in the file collection to upload
-            Collections.Avatars.insert({
-                _id: file.uniqueIdentifier,  // This is the ID resumable will use
-                filename: file.fileName,
-                contentType: file.file.type
-            },
-                function (err, _id) {  // Callback to .insert
-                    if (err) {
-                        return Notifications.error('Error', err);
-                    }
-                    else {
-                        // Once the file exists on the server, start uploading
-                        Collections.Avatars.resumable.upload();
-
-                        // render the url of the avatar
-                        let avatarUrl = Meteor.settings.public.Company.domain + Collections.Avatars.baseURL + '/' + _id;
-
-                        Meteor.users.update({ _id: Meteor.userId() }, { $set: { 'profile.avatar': avatarUrl } });
-                    }
-                }
-            );
-        });
-
         // Comments setting
         Comments.ui.config({
             template: 'bootstrap', // or ionic, semantic-ui
