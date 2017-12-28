@@ -115,26 +115,29 @@ header
             z-index: z.highest
         li 
             a
+                text-decoration none
                 line-height 10px
                 padding 10px 15px
                 trans()
-                &:hover, &.active, &:focus
-                    color teal
-                    background inherit
-                    border-bottom 3px solid teal
-        div
-            padding 5px 0px
-        .dropdown 
-            .dropdown-menu
-                z-index: z.highest
-                border 0px
-                border-radius 0px
-                a 
-                    &:hover
+                +above($large)
+                    &:hover, &.active, &:focus
                         color teal
-            &:hover
+                        background inherit
+                        border-bottom 3px solid teal
+            div
+                padding 5px 0px
+            .dropdown
                 .dropdown-menu
-                    display block
+                    z-index: z.highest
+                    border 0px
+                    border-radius 0px
+                    a
+                        &:hover
+                            color teal
+                &:hover
+                    .dropdown-menu
+                        +above($large)
+                            display block
     .navbar-collapse
         background purp
     #login-buttons
@@ -420,7 +423,7 @@ input, select, textarea
             padding-left 20px
     p
         padding-right 20px
-    +above($med)
+    +above($large)
         width 75%
     
 
