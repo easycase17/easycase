@@ -78,15 +78,17 @@ html
     box-sizing: inherit
 
 body
+    font-family 'Quicksand', sans-serif
     background light-grey
     padding: 70px 0 150px
     cursor default
 
 header
-    color #FFF 
-    background purp
+    color purp
+    background #FFF
     padding 15px 
     fixed top left
+    border-top 5px solid teal
     position absolute !important
     width 100%
     height 60px  
@@ -95,7 +97,7 @@ header
     clearfix()
     a
         text-decoration none 
-        color #FFF
+        color purp
         &:hover
             text-decoration none 
             color teal
@@ -139,7 +141,7 @@ header
                         +above($large)
                             display block
     .navbar-collapse
-        background purp
+        background #FFF
     #login-buttons
     .login-buttons-dropdown-align-
         margin 6px
@@ -421,14 +423,17 @@ input, select, textarea
             padding-top 5px
             padding-bottom 10px
             padding-left 20px
-    p
+    .brief
         padding-right 20px
+        width 90%
     +above($large)
-        width 75%
-    
+        width 80%
 
 .lawyer
     @extend .case
+    .bio
+        padding-right 20px
+        width 90%
     h3
         opacity: 1.0
         img
@@ -485,7 +490,7 @@ input, select, textarea
         margin-top 10px
         background-color white
         padding 5px
-        width 75%
+        width 80%
         shadow-level(2)
         #search-input
             border 0px
@@ -521,7 +526,7 @@ input, select, textarea
         margin-left: 5px
         float right
         width 0
-        height 60px
+        height 55px
         trans(0.5s)
         border-top 35px solid $color-secondary
         border-right 20px solid $color-secondary
@@ -533,15 +538,20 @@ input, select, textarea
             position relative
             min-width 30px
             display block
-            font-size 9px
+            font-size 12px
             color white
-            top -25px
+            top -22.5px
             left -15px
             font-weight normal
 
         &:hover
             shadow-level(4)
             border-bottom 10px solid $color-secondary
+
+    .others-tag
+        shadow-level(4)
+        border-bottom 10px solid $color-secondary
+        cursor pointer
 
 .attached-infos
     font-size 14px
@@ -778,6 +788,19 @@ input, select, textarea
             margin-bottom 10px
             padding-left 20px
             padding-bottom 5px
+
+.chip
+  display inline-block
+  height 32px
+  font-size 13px
+  font-weight 500
+  color rgba(0, 0, 0, 0.6)
+  line-height 32px
+  padding 0 12px
+  border-radius 16px
+  background-color #e4e4e4
+  margin-bottom 5px
+  margin-right 5px
 
 /*
   Set the color of the icon

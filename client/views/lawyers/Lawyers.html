@@ -14,7 +14,7 @@
 
 <template name="LawyersItem">
     <article class="lawyer">
-        <section class="attribute-tags">{{{ areasHtml(_id) }}}</section>
+        <section class="attribute-tags">{{{ tagsHtml(_id) }}}</section>
         <section class="publish-type-labels">
             <span class="label years">
                 <span class="organization years">
@@ -39,7 +39,15 @@
         <h3>
             <img src="{{ headshot_url }}" alt="headshot">
             <a href="/lawyers/{{id}}">{{ firstname }} {{ lastname }}</a>
+            <section>
+                {{#each lawyer_specialties}}
+                <div class="chip">
+                    {{name}}
+                    <i class="fa fa-close"></i>
+                </div>
+                {{/each}}
+            </section>
         </h3>
-        <p>{{{ bio }}}</p>
+        <p class="bio">{{{ bio }}}</p>
     </article>
 </template>

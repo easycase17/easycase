@@ -16,16 +16,14 @@ Template.Lawyers.helpers({
 });
 
 Template.LawyersItem.helpers({
-    areasHtml: () => {
-        var areas = Template.instance().data.lawyer_specialties;
-        var areasView = [];
+    tagsHtml: () => {
+        let tagsView = []
+        if (Template.instance().data.avvo_pro) {
+            tagsView.unshift(`<div class="attribute-tag"><span class="text">Pro</span></div>`);
+        }
 
-        areas.forEach(function(area) {
-            // @TODO: fix this
-            areasView.push(`<div class="attribute-tag"><span class="text">${area.name}</span></div>`);
-        });
-        areasView = areasView.join('');
-        return areasView;
+        tagsView = tagsView.join('');
+        return tagsView;
     },
     licensedYears: (since) => {
         return (new Date()).getFullYear() - since;
