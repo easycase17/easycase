@@ -15,7 +15,6 @@
 
 <template name="CasesItem">
     <article class="case">
-        <section class="attribute-tags">{{{ tagsHtml(_id) }}}</section>
         <section class="publish-type-labels">
             <span class="label court {{#if isComplete}}toggle-state{{/if}}">
                 <span class="organization court">
@@ -29,7 +28,10 @@
                 {{/if}}
             </span>
         </section>
-        <h3><a href="/cases/{{_id}}">{{ title }}</a></h3>
+        <h3>
+            <a href="/cases/{{_id}}">{{ title }}</a>
+            <section>{{{ chipsHtml(_id) }}}</section>
+        </h3>
         <div class="attached-infos">
             <span class="info">{{location.state}}</span>
             <span class="info"><a target="_blank" href="https://www.tippecanoe.in.gov">Tippecanoe County</a></span>

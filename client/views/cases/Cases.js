@@ -43,13 +43,13 @@ Template.CasesItem.helpers({
         // @FIXME
         return Meteor.users.findOne(userId).username;
     },
-    tagsHtml: (caseId) => {
+    chipsHtml: (caseId) => {
         var tags = Template.instance().data.tags;
         var tagsView = [];
 
         tags.forEach(function(tag) {
             let tmp = Collections.Options.findOne({ field: 'law', lang: TAPi18n.getLanguage() });
-            tagsView.push(`<div class="attribute-tag"><span class="text">${tmp.options[tag].label}</span></div>`);
+            tagsView.push(`<div class="chip">${tmp.options[tag].label}</div>`);
         });
         tagsView = tagsView.join('');
         return tagsView;
