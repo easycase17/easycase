@@ -125,7 +125,7 @@ Meteor.methods({
             throw new Meteor.Error('IllegalUserError', 'In discovers.getCases method');
         }
     },
-    'discovers.avvoLawyers'(searchRule, page) {
+    'discovers.avvoLawyers'(sw, searchRule, page) {
         this.unblock();
         try {
             page = page || {
@@ -133,10 +133,14 @@ Meteor.methods({
                 reqPage: 1
             };
 
+            // Check if sw is a string
+            if (typeof sw != 'string') sw = '';
+
             let result = HTTP.call('GET', 'https://api.avvo.com/api/4/lawyers/search.json', {
                 params: {
                     page: page.reqPage,
-                    perPage_page: page.perPage
+                    perPage_page: page.perPage,
+                    q: sw
                 },
                 headers: {
                     Authorization: "Bearer " + Meteor.settings.private.avvo.access_token

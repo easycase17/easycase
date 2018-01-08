@@ -41,7 +41,7 @@ Template.Discovers.onCreated(function() {
                 });
                 break;
             case 'Lawyers':
-                Meteor.call('discovers.avvoLawyers', searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
+                Meteor.call('discovers.avvoLawyers', search, searchRule, { perPage: 10, reqPage: self.page.get() }, function(err, res) {
                     if (!err) {
                         self.discovers.set(res.data);
                         // @TODO: Update pagination for huge situations
@@ -81,12 +81,15 @@ Template.Discovers.helpers({
 Template.Discovers.events({
     'click #discover-cases-btn': function(event, template) {
         template.fieldType.set('Cases');
+        template.page.set(1);
     },
     'click #discover-lawyers-btn': function(event, template) {
         template.fieldType.set('Lawyers');
+        template.page.set(1);
     },
     'click #discover-articles-btn': function(event, template) {
         template.fieldType.set('Articles');
+        template.page.set(1);
     },
     'submit .search-form': function (event, template) {
         event.preventDefault();
