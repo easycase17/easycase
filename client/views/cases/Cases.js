@@ -49,7 +49,7 @@ Template.CasesItem.helpers({
 
         tags.forEach(function(tag) {
             let tmp = Collections.Options.findOne({ field: 'law', lang: TAPi18n.getLanguage() });
-            tagsView.push(`<div class="chip">${tmp.options[tag].label}</div>`);
+            tagsView.push(`<div class="chip chip-filter" value="${tmp.options[tag].label}">${tmp.options[tag].label}</div>`);
         });
         tagsView = tagsView.join('');
         return tagsView;

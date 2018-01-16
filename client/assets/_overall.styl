@@ -121,7 +121,7 @@ header
                 line-height 10px
                 padding 10px 15px
                 trans()
-                +above($large)
+                +above($med)
                     &:hover, &.active, &:focus
                         color teal
                         background inherit
@@ -142,6 +142,7 @@ header
                             display block
     .navbar-collapse
         background #FFF
+        min-width 150px
     #login-buttons
     .login-buttons-dropdown-align-
         margin 6px
@@ -255,6 +256,11 @@ p
         border solid 2px #FFF
         shadow-level(0)
         outline none
+        &.navbar-toggle
+            background teal
+            &:hover
+                background teal
+                border-color @background
         &:hover
             background #FFF
             color dark-purp 
@@ -511,10 +517,15 @@ input, select, textarea
     @extend .new-case-container
     .profile-user-avatar
         margin-top -(128/2) px
-        width 128px
-        height 128px
         shadow-level(3)
         cursor pointer
+        +below($med)
+            margin-top -20px
+            width 96px
+            height 96px
+        +above($med)
+            width 128px
+            height 128px
 
 .tool
     @extend .ec-material-card

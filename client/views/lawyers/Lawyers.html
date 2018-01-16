@@ -41,7 +41,7 @@
             <a href="/lawyers/{{id}}">{{ firstname }} {{ lastname }}</a>
             <section>
                 {{#each lawyer_specialties}}
-                <div class="chip">
+                <div class="chip chip-filter" value="{{name}}">
                     {{name}}
                 </div>
                 {{/each}}

@@ -12,6 +12,7 @@ Template.Discovers.onCreated(function() {
     Session.set('isLoading', true);
     self.search = new ReactiveVar( String );
     self.search.set(null);
+    Session.set('chips', []);
 
     self.autorun(function() {
         // Fetch the SearchRule
@@ -98,9 +99,35 @@ Template.Discovers.events({
         const text = target.text.value;
 
         template.search.set(text);
+    },
+    'click .chip-close': function (event, template) {
+        event.preventDefault();
+
+        let chips = Session.get('chips');
+        const chipValue = event.currentTarget.parentElement.attributes.value.value;
+
+        chips = chips.filter((chip) => chip.name != chipValue);
+        Session.set('chips', chips);
+    },
+    'click .chip-filter': function (event, template) {
+        event.preventDefault();
+
+        const newChip = { name: event.currentTarget.attributes.value.value };
+        let chips = Session.get('chips');
+
+        const idx = chips.findIndex((chip) => JSON.stringify(chip) === JSON.stringify(newChip));
+        if (idx === -1) {
+            // if the newChips does not exist
+            chips.push(newChip);
+        } else {
+            Notifications.error('Sorry', 'You only can select the filter once.');
+        }
+        
+        Session.set('chips', chips);
     }
 });
 
 Template.Discovers.onDestroyed(function() {
     Session.set('isLoading', true);
+    delete Session.keys['chips'];
 });
